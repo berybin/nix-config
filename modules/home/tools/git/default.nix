@@ -29,6 +29,7 @@ in
         };
       };
       signing = {
+        format = "opengpg";
         key = "E756A04B17322D8D";
         signByDefault = true;
       };
