@@ -35,6 +35,11 @@
     };
   };
 
+  nix.settings.trusted-users = [
+    "root"
+    "jay"
+  ];
+
   networking.hostName = "thinkpad";
   system.stateVersion = "23.11";
 }
