@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   modulesPath,
   ...
@@ -32,6 +33,6 @@
     ];
   };
 
-  networking.wireless.enable = false;
+  networking.wireless.enable = lib.mkForce false;
   system.stateVersion = "26.05";
 }
