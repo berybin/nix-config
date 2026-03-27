@@ -9,7 +9,7 @@ let
 in
 {
 
-  imports = lib.mkIf cfg.enable [
+  imports = [
     inputs.zen-browser.homeModules.beta
   ];
 
