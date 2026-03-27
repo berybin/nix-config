@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.bery.server.pi.core;
+  cfg = config.bery.system.pi.core;
 in
 {
-  options.bery.server.pi.core = {
+  options.bery.system.pi.core = {
     enable = lib.mkEnableOption "pi core modules (system)";
   };
 
