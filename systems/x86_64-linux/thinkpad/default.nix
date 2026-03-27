@@ -23,6 +23,10 @@
     };
 
     services.ssh.enable = true;
+    services.avahi = {
+      enable = true;
+      publish = true;
+    };
 
     tools = {
       fish.enable = true;
