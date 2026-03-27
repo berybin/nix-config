@@ -33,6 +33,8 @@
       pix.enable = true;
       inkscape.enable = true;
       gnome-disk-utility.enable = true;
+
+      browsers.zen.enable = true;
     };
 
     tools = {

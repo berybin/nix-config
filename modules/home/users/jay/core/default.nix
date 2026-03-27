@@ -14,10 +14,6 @@ in
   config = lib.mkIf cfg.enable {
     bery.users.jay.theme.enable = true;
 
-    bery.apps = {
-      browsers.zen.enable = true;
-    };
-
     bery.tools = {
       nh.enable = true;
       direnv.enable = true;
