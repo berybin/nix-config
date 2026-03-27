@@ -25,7 +25,7 @@
       okular.enable = true;
       gnome-disk-utility.enable = true;
 
-      browsers.hm-zen.enable = true;
+      # browsers.hm-zen.enable = true;
     };
 
     tools = {
