@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  ...
 }:
 let
   cfg = config.bery.apps.browsers.hm-zen;
