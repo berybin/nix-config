@@ -37,7 +37,7 @@
   # todo: tidy up this setting
   gtk.gtk4.theme = config.gtk.theme;
 
-  stylix.targets.zen-browser.enable = false;
+  bery.users.jay.theme.enable = false;
 
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }

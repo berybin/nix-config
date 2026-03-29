@@ -12,7 +12,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    bery.users.jay.theme.enable = true;
+    bery.users.jay.theme.enable = lib.mkDefault true;
 
     bery.tools = {
       nh.enable = true;
