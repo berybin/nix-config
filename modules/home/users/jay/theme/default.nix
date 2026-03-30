@@ -13,29 +13,29 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    stylix.cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
+    # stylix.cursor = {
+    #   package = pkgs.bibata-cursors;
+    #   name = "Bibata-Modern-Ice";
+    #   size = 24;
+    # };
 
-    stylix.polarity = "dark";
+    # stylix.polarity = "dark";
 
-    stylix.icons = {
-      enable = true;
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "red";
-      };
-      dark = "Papirus-Dark";
-    };
+    # stylix.icons = {
+    #   enable = true;
+    #   package = pkgs.catppuccin-papirus-folders.override {
+    #     flavor = "mocha";
+    #     accent = "red";
+    #   };
+    #   dark = "Papirus-Dark";
+    # };
 
-    #! ======================================
-    #! ========== DISABLED TARGETS ==========
-    #! ======================================
-    stylix.targets.neovim.enable = false;
+    # #! ======================================
+    # #! ========== DISABLED TARGETS ==========
+    # #! ======================================
+    # stylix.targets.neovim.enable = false;
 
-    stylix.targets.waybar.enable = false;
-    stylix.targets.hyprlock.enable = false;
+    # stylix.targets.waybar.enable = false;
+    # stylix.targets.hyprlock.enable = false;
   };
 }

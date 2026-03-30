@@ -14,7 +14,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    stylix.targets.starship.enable = false;
+    # stylix.targets.starship.enable = false;
     xdg.configFile."starship.toml".source = mkForce ./catppuccin.toml;
 
     programs.starship = {
