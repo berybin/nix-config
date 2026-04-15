@@ -18,6 +18,10 @@ in
       nh.enable = true;
       direnv.enable = true;
       nfs.enable = true;
+      neovim = {
+        enable = true;
+        luaPath = "${config.home.homeDirectory}/nix-config/modules/home/tools/neovim/lua";
+      };
     };
   };
 }
