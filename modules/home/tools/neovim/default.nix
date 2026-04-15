@@ -30,10 +30,19 @@ in
       ];
 
       lazyExtras = [
-        "editor.fzf"
-        "lang.go"
-        "test.core"
+        "coding.yanky"
         "dap.core"
+        "editor.dial"
+        "editor.inc-rename"
+        "test.core"
+        "ui.treesitter-context"
+        "util.dot"
+        "util.mini-hipatterns"
+
+        "lang.go"
+        "lang.nix"
+        "lang.typescript"
+        "lang.typescript.vtsls"
       ];
 
       languageServers = with pkgs; [
@@ -52,8 +61,16 @@ in
         gofumpt
         golangci-lint
         gomodifytags
+        gopls
         gotools
         go-tools
+
+        # TYPESCRIPT
+        vtsls
+        vscode-js-debug
+
+        # SH
+        shellcheck
       ];
 
       extraDependencies = with pkgs; [
@@ -63,7 +80,7 @@ in
       # List of all plugins that you want to use.
       # These get turned into a linkFarm directory that Lazy uses
       # as its dev.path (see below).
-      plugins = with pkgs.vimPlugins; [
+      lazyPlugins = with pkgs.vimPlugins; [
         blink-cmp
         bufferline-nvim
         # When a plugin's name in nixpkgs doesn't match what Lazy expects,
@@ -73,16 +90,18 @@ in
           path = catppuccin-nvim;
         }
         conform-nvim
+        dial-nvim
         flash-nvim
         friendly-snippets
-        fzf-lua
         gitsigns-nvim
         grug-far-nvim
+        inc-rename-nvim
         lazy-nvim
         lazydev-nvim
         LazyVim
         lualine-nvim
         mini-ai
+        mini-hipatterns
         mini-icons
         mini-pairs
         neo-tree-nvim
@@ -91,6 +110,7 @@ in
         nvim-lint
         nvim-lspconfig
         nvim-treesitter
+        nvim-treesitter-context
         nvim-treesitter-textobjects
         nvim-ts-autotag
         persistence-nvim
@@ -101,6 +121,7 @@ in
         trouble-nvim
         ts-comments-nvim
         which-key-nvim
+        yanky-nvim
 
         # DAP / TESTING
         neotest
@@ -112,6 +133,12 @@ in
         # GO
         neotest-golang
         nvim-dap-go
+      ];
+
+      customPlugins = with pkgs.vimPlugins; [
+        git-blame-nvim
+        vim-flog
+        vim-fugitive
       ];
 
       # NOTE: when using only a few treesitter grammars, make sure
@@ -173,13 +200,17 @@ in
 
       # Creates a directory with symlinks to all plugins, keyed by name.
       # This is what Lazy uses as its local plugin source via dev.path.
-      lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
+      lazyPath = pkgs.linkFarm "lazy-plugins" (
+        builtins.map mkEntryFromDrv (lazyPlugins ++ customPlugins)
+      );
 
       extras = lib.concatMapStringsSep "\n" (
         extra: ''{ import = "lazyvim.plugins.extras.${extra}" },''
       ) lazyExtras;
     in
     lib.mkIf cfg.enable {
+      stylix.targets.neovim.enable = false;
+
       programs.neovim = {
         enable = true;
         vimAlias = true;
@@ -211,15 +242,9 @@ in
             spec = {
               { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-              -- #! here you can enable extras like this:
-              -- #! { import = "lazyvim.plugins.extras.editor.aerial" }, -- sybmols
+              -- LazyExtras
               ${extras}
 
-              -- #! language specific config is often available via an extra
-              -- #! find available languages here: https://www.lazyvim.org/extras or via :LazyExtras
-              { import = "lazyvim.plugins.extras.lang.nix" }, -- configure lsp/formatters/treesitter etc. for nix 
-
-              -- #! disable mason.nvim, use programs.neovim.extraPackages
               { "mason-org/mason-lspconfig.nvim", enabled = false },
               { "mason-org/mason.nvim", enabled = false },
               { "jay-babu/mason-nvim-dap.nvim", enabled = false },
@@ -227,21 +252,6 @@ in
               -- import/override with your plugins
               { import = "plugins" },
 
-              -- since mason is disabled, each server needs to be explicitly
-              -- configured here so nvim-lspconfig picks it up without mason
-              { "neovim/nvim-lspconfig", opts = { servers = lsp_servers }},
-
-              -- #! make sure nvim-treesitter is configured last,
-              {
-                "nvim-treesitter/nvim-treesitter",
-                -- dont run anything when installing/updating
-                build = "",
-                opts = function(_, opts)
-                  opts.ensure_installed = {}
-                  opts.install_dir = "${treesitterGrammars}"
-                  return opts
-                end,
-              },
             },
             -- see https://www.lazyvim.org/plugins/colorscheme on how to change/install colorschemes 
             install = { colorscheme = { "habamax", "catppuccin" } },
