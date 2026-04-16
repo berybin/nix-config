@@ -41,8 +41,12 @@ in
 
         "lang.go"
         "lang.nix"
+        "lang.tailwind"
+        "lang.toml"
         "lang.typescript"
         "lang.typescript.vtsls"
+        "lang.vue"
+        "lang.yaml"
       ];
 
       languageServers = with pkgs; [
@@ -71,6 +75,9 @@ in
 
         # SH
         shellcheck
+
+        # CSS
+        tailwindcss-language-server
       ];
 
       extraDependencies = with pkgs; [
@@ -135,8 +142,20 @@ in
         nvim-dap-go
       ];
 
+      tailwind-plugin = pkgs.vimUtils.buildVimPlugin {
+        pname = "tailwindcss-colorizer-cmp.nvim";
+        version = "2024-03-23";
+        src = pkgs.fetchFromGitHub {
+          owner = "roobert";
+          repo = "tailwindcss-colorizer-cmp.nvim";
+          rev = "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86";
+          hash = "sha256-PIkfJzLt001TojAnE/rdRhgVEwSvCvUJm/vNPLSWjpY=";
+        };
+      };
+
       customPlugins = with pkgs.vimPlugins; [
         git-blame-nvim
+        tailwind-plugin
         vim-flog
         vim-fugitive
       ];
