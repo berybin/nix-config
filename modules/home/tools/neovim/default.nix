@@ -122,6 +122,7 @@ in
         nvim-ts-autotag
         persistence-nvim
         plenary-nvim
+        SchemaStore-nvim
         snacks-nvim
         todo-comments-nvim
         tokyonight-nvim
