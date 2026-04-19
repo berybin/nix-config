@@ -5,5 +5,6 @@
 }:
 
 final: prev: {
-  inherit (channels.nixpkgs-stable) calibre freecad;
+  inherit (channels.nixpkgs-stable) calibre;
+  proton-vpn = channels.nixpkgs-stable.protonvpn-gui;
 }
