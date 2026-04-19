@@ -18,10 +18,5 @@ in
     hardware.bluetooth.enable = true;
     hardware.bluetooth.powerOnBoot = true;
     # services.blueman.enable = true;
-
-    # use latest linuxPackages as this fixes
-    # weird logitech mx master 3s mouse connectivity issues
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
   };
 }
