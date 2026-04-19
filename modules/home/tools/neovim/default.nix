@@ -84,6 +84,10 @@ in
 
       extraDependencies = with pkgs; [
         shfmt
+
+        oxfmt
+        oxlint
+        eslint_d
       ];
 
       # List of all plugins that you want to use.
@@ -159,6 +163,7 @@ in
       customPlugins = with pkgs.vimPlugins; [
         git-blame-nvim
         tailwind-plugin
+        tiny-inline-diagnostic-nvim
         vim-flog
         vim-fugitive
       ];
