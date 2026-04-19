@@ -45,7 +45,6 @@ in
         "lang.toml"
         "lang.typescript"
         "lang.typescript.vtsls"
-        "lang.vue"
         "lang.yaml"
       ];
 
@@ -72,6 +71,9 @@ in
         # TYPESCRIPT
         vtsls
         vscode-js-debug
+
+        # VUE
+        vue-language-server
 
         # SH
         shellcheck
