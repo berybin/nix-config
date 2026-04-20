@@ -81,6 +81,9 @@ in
 
         # CSS
         tailwindcss-language-server
+
+        #JSON
+        vscode-json-languageserver
       ];
 
       extraDependencies = with pkgs; [
