@@ -18,7 +18,7 @@ in
     bery.apps = {
       okular.enable = true;
       calibre.enable = true;
-      libreoffice.enable = true;
+      onlyoffice.enable = true;
     };
 
   };
