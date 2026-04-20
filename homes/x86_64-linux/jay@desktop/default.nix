@@ -35,6 +35,7 @@
       gnome-disk-utility.enable = true;
 
       browsers.zen.enable = true;
+      blanket.enable = true;
     };
 
     tools = {
