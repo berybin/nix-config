@@ -40,6 +40,7 @@ in
         "util.mini-hipatterns"
 
         "lang.go"
+        "lang.json"
         "lang.nix"
         "lang.tailwind"
         "lang.toml"
