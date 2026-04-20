@@ -36,6 +36,7 @@
 
       browsers.zen.enable = true;
       blanket.enable = true;
+      krita.enable = true;
     };
 
     tools = {
