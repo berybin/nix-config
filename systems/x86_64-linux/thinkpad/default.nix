@@ -19,7 +19,7 @@
     system = {
       boot.enable = true;
       battery.enable = true;
-      # theme.enable = true;
+      theme.enable = true;
     };
 
     services.ssh.enable = true;
