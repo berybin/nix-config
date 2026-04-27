@@ -314,28 +314,28 @@ in
           };
           "student portal" = {
             id = "81b8830e-4f9c-497f-af4b-a297e79adbe2";
-            workspace = spaces.uni.id;
             url = "https://myuni.sydney.edu.au/";
+            folderParentId = pins.admin.id;
             editedTitle = true;
             position = 101;
           };
           "sydney student" = {
             id = "41c18384-f243-46fc-a270-7a7ea9e2d81f";
-            workspace = spaces.uni.id;
+            folderParentId = pins.admin.id;
             url = "https://sydneystudent.sydney.edu.au/";
             editedTitle = true;
             position = 102;
           };
           "allocate (timetable)" = {
             id = "e5fd5f98-6057-4f81-b3fb-9928ea02913b";
-            workspace = spaces.uni.id;
+            folderParentId = pins.admin.id;
             url = "https://timetable.sydney.edu.au/even/";
             editedTitle = true;
             position = 103;
           };
           "zoom" = {
             id = "c0c18f09-383a-4a43-b77d-7d94ecacad08";
-            workspace = spaces.uni.id;
+            folderParentId = pins.admin.id;
             url = "https://uni-sydney.zoom.us/profile";
             editedTitle = true;
             position = 104;
