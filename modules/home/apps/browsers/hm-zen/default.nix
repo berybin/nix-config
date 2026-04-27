@@ -185,7 +185,7 @@ in
             position = 200;
           };
           "irongiant" = {
-            id = "b263203d-7eb8-4eb8-beb2-c70c04cc00c7";
+            id = "74f74d63-9534-4880-a53c-af5d8843d1df";
             url = inputs.nix-secrets.server.irongiant.ip;
             folderParentId = pins.homelab.id;
             editedTitle = true;
