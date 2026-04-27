@@ -77,7 +77,15 @@ in
         };
 
         pinsForce = true;
-        pins = { };
+        pins = {
+          "codeberg" = {
+            id = "740bea3c-861c-4e4e-8c25-e3989bf2c620";
+            workspace = spaces.personal.id;
+            url = "https://codeberg.org/berybin";
+            isEssential = true;
+            position = 0;
+          };
+        };
       };
     };
   };
