@@ -135,6 +135,7 @@ in
             workspace = spaces.personal.id;
             editedTitle = true;
             isGroup = true;
+            isFolderCollapsed = true;
             position = 100;
           };
           "nixos search" = {
@@ -180,6 +181,7 @@ in
             workspace = spaces.personal.id;
             editedTitle = true;
             isGroup = true;
+            isFolderCollapsed = true;
             position = 200;
           };
           "irongiant" = {
@@ -224,6 +226,7 @@ in
             workspace = spaces.personal.id;
             editedTitle = true;
             isGroup = true;
+            isFolderCollapsed = true;
             position = 300;
           };
           "pfych" = {
@@ -305,11 +308,13 @@ in
             position = 3;
           };
 
+          # NOTE: /admin uni pins
           "admin" = {
             id = "2db1838b-3a78-4d8a-b851-01fff6b6430c";
             workspace = spaces.uni.id;
             editedTitle = true;
             isGroup = true;
+            isFolderCollapsed = true;
             position = 100;
           };
           "student portal" = {
