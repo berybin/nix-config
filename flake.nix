@@ -95,7 +95,6 @@
         thinkpad = {
           targetHost = "thinkpad.local";
           targetUser = "jay";
-          buildOnTarget = true;
         };
 
         toaster = {
