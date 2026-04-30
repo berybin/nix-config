@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   inputs,
   ...
@@ -345,8 +346,22 @@ in
             editedTitle = true;
             position = 104;
           };
-
         };
+
+        extensions.packages =
+          let
+            firefox-extensions = inputs.firefox-extensions.packages.${pkgs.stdenv.hostPlatform.system};
+          in
+          with firefox-extensions;
+          [
+            ublock-origin
+            privacy-badger
+            sponsorblock
+            wappalyzer
+            df-youtube
+            return-youtube-dislikes
+            kagi-search
+          ];
       };
     };
   };
