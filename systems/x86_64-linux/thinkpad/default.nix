@@ -41,6 +41,8 @@
     "jay"
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   networking.hostName = "thinkpad";
   system.stateVersion = "23.11";
 }
