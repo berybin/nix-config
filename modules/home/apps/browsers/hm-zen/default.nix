@@ -348,20 +348,15 @@ in
           };
         };
 
-        extensions.packages =
-          let
-            firefox-extensions = inputs.firefox-extensions.packages.${pkgs.stdenv.hostPlatform.system};
-          in
-          with firefox-extensions;
-          [
-            ublock-origin
-            privacy-badger
-            sponsorblock
-            wappalyzer
-            df-youtube
-            return-youtube-dislikes
-            kagi-search
-          ];
+        extensions.packages = with pkgs.firefox-extensions; [
+          ublock-origin
+          privacy-badger
+          sponsorblock
+          wappalyzer
+          df-youtube
+          return-youtube-dislikes
+          kagi-search
+        ];
       };
     };
   };
