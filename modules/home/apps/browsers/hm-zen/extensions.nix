@@ -1,6 +1,6 @@
 let
 
-  # to find an extension id, grab its slug (can be found in the url of the addon page)
+  # to find an extension's id, grab its slug (can be found in the url of the addon page)
   # https://addons.mozilla.org/en-US/firefox/addon/<SLUG>
   #
   # i.e, for ublock:
@@ -16,11 +16,13 @@ let
     {
       id,
       pinned ? false,
+      private ? false, # should the extension be enabled in private browsing?
     }:
     {
       install_url = mkPluginUrl id;
       installation_mode = "force_installed";
       default_area = if pinned then "navbar" else "menupanel";
+      private_browsing = private;
     };
 
   mkExtensionSettings = builtins.mapAttrs (
@@ -32,10 +34,15 @@ mkExtensionSettings {
   "78272b6fa58f4a1abaac99321d503a20@proton.me" = mkExtensionEntry {
     id = "proton-pass";
     pinned = true;
+    private = true;
+  };
+
+  "uBlock0@raymondhill.net" = mkExtensionEntry {
+    id = "ublock-origin";
+    private = true;
   };
 
   "wappalyzer@crunchlabz.com" = "wappalyzer";
-  "uBlock0@raymondhill.net" = "ublock-origin";
   "jid1-MnnxcxisBPnSXQ@jetpack" = "privacy-badger17";
   "sponsorBlocker@ajay.app" = "sponsorblock";
   "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = "return-youtube-dislikes";
