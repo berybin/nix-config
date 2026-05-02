@@ -23,30 +23,7 @@ in
       enable = true;
       setAsDefaultBrowser = true;
 
-      policies = {
-        AutofillAddressEnabled = false;
-        AutofillCreditCardEnabled = false;
-        DisableAppUpdate = true;
-        DisableFeedbackCommands = true;
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        DontCheckDefaultBrowser = true;
-        NoDefaultBookmarks = true;
-        OfferToSaveLogins = false;
-        EnableTrackingProtection = {
-          Value = true;
-          Locked = true;
-          Cryptomining = true;
-          Fingerprinting = true;
-          EmailTracking = true;
-          SuspectedFingerprinting = true;
-        };
-        SanitizeOnShutdown = {
-          FormData = true;
-          Cache = true;
-        };
-      };
+      policies = import ./policies.nix;
 
       profiles.${config.home.username} = rec {
         id = 0; # Profile IDs must be sequential starting from 0
@@ -348,15 +325,6 @@ in
           };
         };
 
-        extensions.packages = with pkgs.firefox-extensions; [
-          ublock-origin
-          privacy-badger
-          sponsorblock
-          wappalyzer
-          df-youtube
-          return-youtube-dislikes
-          kagi-search
-        ];
       };
     };
   };
