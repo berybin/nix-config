@@ -17,13 +17,11 @@ let
       id,
       pinned ? false,
     }:
-    let
-      base = {
-        install_url = mkPluginUrl id;
-        installation_mode = "force_installed";
-      };
-    in
-    if pinned then base // { default_area = "navbar"; } else base;
+    {
+      install_url = mkPluginUrl id;
+      installation_mode = "force_installed";
+      default_area = if pinned then "navbar" else "menupanel";
+    };
 
   mkExtensionSettings = builtins.mapAttrs (
     _: entry: if builtins.isAttrs entry then entry else mkExtensionEntry { id = entry; }
@@ -35,11 +33,8 @@ mkExtensionSettings {
     id = "proton-pass";
     pinned = true;
   };
-  "wappalyzer@crunchlabz.com" = mkExtensionEntry {
-    id = "wappalyzer";
-    pinned = true;
-  };
 
+  "wappalyzer@crunchlabz.com" = "wappalyzer";
   "uBlock0@raymondhill.net" = "ublock-origin";
   "jid1-MnnxcxisBPnSXQ@jetpack" = "privacy-badger17";
   "sponsorBlocker@ajay.app" = "sponsorblock";
