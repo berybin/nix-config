@@ -48,6 +48,7 @@
       };
       colmena.enable = true;
       bottles.enable = true;
+      vicinae.enable = true;
     };
   };
 
