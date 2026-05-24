@@ -27,20 +27,26 @@ in
         ];
       };
 
-      krunner = {
-        activateWhenTypingOnDesktop = true;
-        position = "center";
-
-        shortcuts = {
-          launch = "Meta+Space";
-        };
-      };
+      # krunner = {
+      #   activateWhenTypingOnDesktop = true;
+      #   position = "center";
+      #
+      #   shortcuts = {
+      #     launch = "Meta+Space";
+      #   };
+      # };
 
       hotkeys.commands = {
         launch-kitty = {
           name = "Launch Kitty";
           key = "Meta+Return";
           command = "kitty";
+        };
+
+        toggle-vicinae = {
+          name = "Toggle Vicinae";
+          key = "Meta+Space";
+          command = "vicinae toggle";
         };
 
         # toggle-albert = {
