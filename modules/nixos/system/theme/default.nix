@@ -40,8 +40,7 @@ in
         };
       };
 
-      targets.grub.enable = true;
-      targets.console.enable = true;
+      targets.nixos-icons.enable = false;
     };
   };
 }

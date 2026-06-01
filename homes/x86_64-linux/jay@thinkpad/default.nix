@@ -35,7 +35,7 @@
   };
 
   # todo: tidy up this setting
-  gtk.gtk4.theme = config.gtk.theme;
+  gtk.gtk4.theme = null;
 
   bery.users.jay.theme.enable = false;
 
