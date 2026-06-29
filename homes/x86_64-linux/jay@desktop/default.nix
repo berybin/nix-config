@@ -53,7 +53,7 @@
   };
 
   # todo: tidy up this setting
-  gtk.gtk4.theme = null; # setting as per eval warning
+  # gtk.gtk4.theme = null; # setting as per eval warning
 
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }
