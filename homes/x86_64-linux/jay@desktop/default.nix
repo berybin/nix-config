@@ -37,6 +37,8 @@
       browsers.zen.enable = true;
       blanket.enable = true;
       krita.enable = true;
+
+      vintagestory.enable = true;
     };
 
     tools = {
