@@ -1,5 +1,5 @@
 {
-  BERY = {
+  "BERY" = {
     id = "dd720691-d9f4-442f-938e-9ed22a46006d";
     icon = "🍓";
     position = 1000;
@@ -38,14 +38,14 @@
       "Canvas" = {
         id = "8f446a9e-cd89-40f2-92dd-ef9818008a7d";
         url = "https://canvas.sydney.edu.au/";
-        position = 100;
+        position = 2100;
         editedTitle = true;
       };
 
-      "Outlook | " = {
+      "Outlook" = {
         id = "97a1f94f-986c-4a4c-a19a-39c74c926f3c";
         url = "https://outlook.office.com/mail/0/";
-        position = 200;
+        position = 2200;
         editedTitle = true;
       };
     };
