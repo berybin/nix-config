@@ -53,8 +53,12 @@
     };
   };
 
-  # todo: tidy up this setting
-  # gtk.gtk4.theme = null; # setting as per eval warning
-
+  stylix.targets = {
+    qt.enable = false;
+    kde.enable = false;
+    starship.enable = false;
+    neovim.enable = false;
+    zen-browser.enable = false;
+  };
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }
