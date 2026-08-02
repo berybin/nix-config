@@ -23,20 +23,24 @@ in
 
     scheme = lib.mkOption {
       type = lib.types.str;
-      default = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      default = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
     };
   };
 
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
+      polarity = "dark";
       base16Scheme = cfg.scheme;
-      image = cfg.wallpaper;
 
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.fira-mono;
           name = "FiraMono Nerd Font";
+        };
+
+        sizes = {
+          terminal = 11;
         };
       };
 

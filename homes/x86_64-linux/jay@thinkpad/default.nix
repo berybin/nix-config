@@ -37,7 +37,5 @@
   # todo: tidy up this setting
   gtk.gtk4.theme = null;
 
-  bery.users.jay.theme.enable = false;
-
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }
