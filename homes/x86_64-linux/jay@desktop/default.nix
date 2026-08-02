@@ -22,6 +22,8 @@
     suites.terminal.enable = true;
 
     apps = {
+      zen.enable = true;
+
       orca.enable = true;
       freecad.enable = true;
       okular.enable = true;
@@ -31,7 +33,6 @@
       pix.enable = true;
       gnome-disk-utility.enable = true;
 
-      browsers.zen.enable = true;
       blanket.enable = true;
       krita.enable = true;
 
