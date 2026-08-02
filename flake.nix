@@ -82,6 +82,10 @@
         allowUnfree = true;
       };
 
+      overlays = [
+        inputs.nur.overlays.default
+      ];
+
       # Home modules
       home.modules = with inputs; [
       ];
