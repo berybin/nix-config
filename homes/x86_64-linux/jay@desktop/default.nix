@@ -23,15 +23,12 @@
 
     apps = {
       orca.enable = true;
-      blender.enable = true;
       freecad.enable = true;
       okular.enable = true;
-      # kicad.enable = true;
       handbrake.enable = true;
       reaper.enable = true;
       kdenlive.enable = true;
       pix.enable = true;
-      # inkscape.enable = true;
       gnome-disk-utility.enable = true;
 
       browsers.zen.enable = true;
@@ -51,6 +48,7 @@
       colmena.enable = true;
       bottles.enable = true;
       vicinae.enable = true;
+      wl-clipboard.enable = true;
     };
   };
 
