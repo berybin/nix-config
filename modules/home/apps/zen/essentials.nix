@@ -5,6 +5,7 @@ let
       _: value:
       value
       // {
+        container = 1;
         isEssential = true;
         editedTitle = true;
       }
