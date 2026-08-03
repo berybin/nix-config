@@ -3,6 +3,7 @@
     id = "dd720691-d9f4-442f-938e-9ed22a46006d";
     icon = "🍓";
     position = 1000;
+    container = 1;
     pins = {
       NIX = {
         id = "3b655ec1-ba66-42b4-9894-2c2818680bcf";
@@ -33,6 +34,7 @@
     id = "feba3349-c236-4128-9b89-028d1ece2f21";
     icon = "🪫";
     position = 2000;
+    container = 2;
 
     pins = {
       "Canvas" = {
