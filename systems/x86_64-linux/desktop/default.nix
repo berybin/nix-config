@@ -27,6 +27,7 @@
     system = {
       boot.enable = true;
       theme.enable = true;
+      ld.enable = true;
     };
 
     tools = {
