@@ -16,7 +16,6 @@ in
   config = mkIf cfg.enable {
 
     bery.apps = {
-      # vscode.enable = lib.mkDefault true;
       vscodium.enable = lib.mkDefault true;
       dbeaver.enable = lib.mkDefault true;
       bruno.enable = lib.mkDefault true;
