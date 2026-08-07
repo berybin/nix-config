@@ -51,6 +51,7 @@ in
           packages = with firefox-addons; [
             clearurls
             cookie-editor
+            darkreader
             floccus
             kagi-search
             privacy-badger
