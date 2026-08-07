@@ -46,6 +46,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-secrets.url = "git+ssh://git@codeberg.org/berybin/nix-secrets.git?shallow=1";
   };
 
@@ -84,6 +89,7 @@
 
       overlays = [
         inputs.nur.overlays.default
+        inputs.nix-vscode-extensions.overlays.default
       ];
 
       # Home modules

@@ -23,7 +23,7 @@ in
       enable = true;
 
       profiles.default = {
-        extensions = with pkgs.vscode-extensions; [
+        extensions = with pkgs.open-vsx; [
           astro-build.astro-vscode
           mads-hartmann.bash-ide-vscode
         ];

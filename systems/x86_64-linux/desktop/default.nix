@@ -11,6 +11,10 @@
   system.stateVersion = "25.05";
   networking.hostName = "desktop";
 
+  nix.settings.trusted-users = [
+    "@wheel"
+  ];
+
   bery = {
     desktop.plasma.enable = true;
 

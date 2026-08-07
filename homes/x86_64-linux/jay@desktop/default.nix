@@ -23,6 +23,7 @@
 
     apps = {
       zen.enable = true;
+      vscodium.enable = true;
 
       orca.enable = true;
       freecad.enable = true;
