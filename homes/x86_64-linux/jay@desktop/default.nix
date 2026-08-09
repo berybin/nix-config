@@ -1,6 +1,9 @@
 { pkgs, ... }:
-
 {
+  imports = [
+    ./junk.nix
+  ];
+
   bery.users.jay = {
     core.enable = true;
     optional.plasma.enable = true;
