@@ -25,5 +25,14 @@
     };
   };
 
+  stylix.targets = {
+    qt.enable = false;
+    kde.enable = false;
+    starship.enable = false;
+    neovim.enable = false;
+    zen-browser.enable = false;
+    vscodium.enable = false;
+  };
+
   systemd.user.startServices = "sd-switch"; # Nicely reload system units when changing configs
 }
