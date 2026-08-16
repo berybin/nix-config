@@ -25,6 +25,7 @@
 
     system = {
       boot.enable = true;
+      theme.enable = true;
     };
 
     tools = {
