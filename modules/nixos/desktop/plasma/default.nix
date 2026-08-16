@@ -23,7 +23,6 @@ in
       with pkgs.kdePackages;
       [
         elisa
-        konsole
       ];
   };
 }
