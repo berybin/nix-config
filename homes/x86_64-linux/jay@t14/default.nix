@@ -22,6 +22,11 @@
       gopass.enable = true;
       git.enable = true;
       lazygit.enable = true;
+      nh.enable = true;
+    };
+
+    services = {
+      gpg-agent.enable = true;
     };
   };
 
