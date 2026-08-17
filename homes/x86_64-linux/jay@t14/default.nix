@@ -23,6 +23,7 @@
       git.enable = true;
       lazygit.enable = true;
       nh.enable = true;
+      vicinae.enable = true;
     };
 
     services = {
