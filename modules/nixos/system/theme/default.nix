@@ -16,11 +16,6 @@ in
   options.bery.system.theme = {
     enable = mkEnableOption "system-wide theming with stylix";
 
-    wallpaper = lib.mkOption {
-      type = lib.types.path;
-      default = ../../../../images/turtle-wp.png;
-    };
-
     scheme = lib.mkOption {
       type = lib.types.str;
       default = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
