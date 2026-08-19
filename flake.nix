@@ -51,82 +51,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:denful/import-tree";
+    wrapper-modules = {
+      url = "github:BirdeeHub/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-secrets.url = "git+ssh://git@codeberg.org/berybin/nix-secrets.git?shallow=1";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      colmena,
-      ...
-    }@inputs:
-    let
-      lib = inputs.snowfall-lib.mkLib {
-        inherit inputs;
-        src = ./.;
-
-        snowfall = {
-          namespace = "bery";
-
-          meta = {
-            name = "bery";
-            title = "my nix config";
-          };
-        };
-      };
-
-    in
-    lib.mkFlake {
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
-      channels-config = {
-        allowUnfree = true;
-      };
-
-      overlays = [
-        inputs.nur.overlays.default
-        inputs.nix-vscode-extensions.overlays.default
-      ];
-
-      # Home modules
-      home.modules = with inputs; [
-      ];
-
-      # System modules
-      systems.modules.nixos = with inputs; [
-        {
-          bery.system.core.enable = true;
-        }
-      ];
-
-      outputs-builder = channels: {
-        # Outputs in the outputs builder are transformed to support each system. This
-        # entry will be turned into multiple different outputs like `formatter.x86_64-linux.*`.
-        formatter = channels.nixpkgs.nixfmt;
-      };
-
-      colmenaHive = lib.mkColmenaHive inputs.self.pkgs.x86_64-linux.nixpkgs {
-        thinkpad = {
-          targetHost = "thinkpad.local";
-          targetUser = "jay";
-        };
-
-        toaster = {
-          targetHost = "toaster.local";
-          targetUser = inputs.nix-secrets.server.core.admin.username;
-          tags = [ "homelab" ];
-        };
-
-        jukebox = {
-          targetHost = "jukebox.local";
-          targetUser = inputs.nix-secrets.server.core.admin.username;
-          buildOnTarget = true;
-          tags = [ "homelab" ];
-        };
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
