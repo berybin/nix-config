@@ -38,6 +38,7 @@
 
       settings = {
         shell.telemetry_enabled = true;
+        shell.launch_apps_as_systemd_services = true;
 
         theme = {
           mode = "dark";
@@ -51,6 +52,27 @@
         };
 
         widget.clock.format = "{:%a | %d %b | %r}";
+
+        idle.behavior = {
+          lock = {
+            enable = true;
+            action = "lock";
+            timeout = 60 * 5;
+          };
+
+          screen-off = {
+            enable = true;
+            action = "screen_off";
+            timeout = 60 * 10;
+          };
+
+          suspend = {
+            enable = true;
+            action = "lock_and_suspend";
+            timeout = 60 * 15;
+          };
+
+        };
 
       };
     };
