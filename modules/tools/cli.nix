@@ -5,6 +5,7 @@
       imports = with self.modules.homeManager; [
         fish
         kitty
+        starship
         zoxide
       ];
     };
@@ -64,6 +65,16 @@
             onEvent = "fish_command_not_found";
           };
         };
+      };
+    };
+
+    starship = { config, ... }: {
+      programs.starship = {
+        enable = true;
+        enableTransience = true;
+        enableFishIntegration = config.programs.fish.enable;
+        presets = [ "catppuccin-powerline" ];
+
       };
     };
   };
