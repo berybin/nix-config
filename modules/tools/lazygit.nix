@@ -1,19 +1,5 @@
 {
-  lib,
-  config,
-  ...
-}:
-with lib;
-with lib.bery;
-let
-  cfg = config.bery.tools.lazygit;
-in
-{
-  options.bery.tools.lazygit = {
-    enable = mkEnableOption "lazygit";
-  };
-
-  config = mkIf cfg.enable {
+  flake.modules.homeManager.git = {
     programs.lazygit = {
       enable = true;
       settings = {
