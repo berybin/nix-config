@@ -2,6 +2,7 @@
 let
   modules = [
     "plasma"
+    "nh"
   ];
 in
 {
