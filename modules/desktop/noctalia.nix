@@ -5,7 +5,7 @@
     programs.noctalia = {
       enable = true;
       recommendedServices.enable = true; # Enables NetworkManager, Bluetooth, UPower, and a power profile service.
-      systemd.enable = true;
+      systemd.enable = false;
     };
   };
 }
