@@ -8,8 +8,8 @@
     { options, ... }:
     let
       desktopModules = [
+        "niri"
         "noctalia"
-        "plasma"
       ];
     in
     {
