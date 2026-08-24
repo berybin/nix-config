@@ -1,22 +1,6 @@
 {
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-let
-  cfg = config.bery.tools.neovim;
-in
-{
-  options.bery.tools.neovim = {
-    enable = lib.mkEnableOption "neovim";
-    luaPath = lib.mkOption {
-      type = lib.types.str;
-      description = "path to lua config";
-    };
-  };
-
-  config =
+  flake.modules.homeManager.nvim =
+    { lib, pkgs, ... }:
     let
       coreDependencies = with pkgs; [
         curl
@@ -239,9 +223,7 @@ in
         extra: ''{ import = "lazyvim.plugins.extras.${extra}" },''
       ) lazyExtras;
     in
-    lib.mkIf cfg.enable {
-      stylix.targets.neovim.enable = false;
-
+    {
       programs.neovim = {
         enable = true;
         vimAlias = true;
@@ -292,9 +274,6 @@ in
         '';
       };
 
-      xdg.configFile."nvim/lua" = {
-        source = config.lib.file.mkOutOfStoreSymlink cfg.luaPath;
-        recursive = true;
-      };
+      xdg.configFile."nvim/lua".source = ./lua;
     };
 }

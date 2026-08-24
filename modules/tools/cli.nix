@@ -8,12 +8,20 @@
       ];
     };
 
-    kitty = { config, ... }: {
-      programs.kitty = {
-        enable = true;
-        shellIntegration.enableFishIntegration = config.programs.fish.enable;
+    kitty =
+      { config, ... }:
+      let
+        fishEnabled = config.programs.fish.enable;
+      in
+      {
+        programs.kitty = {
+          enable = true;
+          shellIntegration.enableFishIntegration = fishEnabled;
+          settings = lib.mkIf fishEnabled {
+            shell = "fish";
+          };
+        };
       };
-    };
 
     fish = { pkgs, config, ... }: {
       programs.fish = {
@@ -26,7 +34,7 @@
           ga = "git add";
           gaa = "git add .";
           gs = "git status";
-          gtn = "git tag $(${lib.getExe pkgs.svn} next)"; # tag with next semver tag
+          gtn = "git tag $(${lib.getExe pkgs.svu} next)"; # tag with next semver tag
 
           # quickly scan network for hostnames using avahi
           # ab = "avahi-browse --all --ignore-local --resolve --terminate";
