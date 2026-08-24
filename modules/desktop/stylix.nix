@@ -31,5 +31,6 @@
     stylix.targets.noctalia.enable = false;
     stylix.targets.zen-browser.enable = false;
     stylix.targets.neovim.enable = false;
+    stylix.targets.starship.enable = false;
   };
 }
