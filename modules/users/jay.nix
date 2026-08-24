@@ -19,12 +19,17 @@ in
     };
   };
 
-  flake.modules.homeManager.${username} = {
+  flake.modules.homeManager.${username} = { pkgs, ... }: {
     imports = with self.modules.homeManager; [
       cli
       git
       nvim
+      proton
       zen
+    ];
+
+    home.packages = with pkgs; [
+      gopass
     ];
 
     programs.home-manager.enable = true;
