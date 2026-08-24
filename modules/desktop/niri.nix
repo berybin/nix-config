@@ -14,11 +14,15 @@
     ];
   };
 
-  flake.modules.homeManager.niri = { config, ... }: {
+  flake.modules.homeManager.niri = { pkgs, config, ... }: {
     # niri-flake auto-magically imports the home-manager module
     programs.niri.settings = {
       includes = [
         "${self}/modules/desktop/niri.default.kdl"
+      ];
+
+      spawn-at-startup = [
+        { command = [ (lib.getExe pkgs.proton-vpn) ]; }
       ];
 
       layout = {
