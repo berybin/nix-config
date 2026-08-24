@@ -23,6 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:epireyn/niri-flake";
+      # Do NOT add `inputs.nixpkgs.follows = "nixpkgs"` - niri has a binary cache
+    };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";

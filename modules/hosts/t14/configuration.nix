@@ -18,6 +18,13 @@ in
 
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
+    home-manager.sharedModules = [
+      {
+        programs.niri.settings.outputs."eDP-1" = {
+          scale = 1;
+        };
+      }
+    ];
     system.stateVersion = "26.05";
   };
 }
