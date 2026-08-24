@@ -5,7 +5,19 @@
       imports = with self.modules.homeManager; [
         fish
         kitty
+        zoxide
       ];
+    };
+
+    zoxide = { config, ... }: {
+      programs.zoxide = {
+        enable = true;
+        enableFishIntegration = config.programs.fish.enable;
+      };
+
+      programs.fish.shellAliases = {
+        cd = "z";
+      };
     };
 
     kitty =
