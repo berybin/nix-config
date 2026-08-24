@@ -16,7 +16,7 @@
       imports = builtins.map (module: config.flake.modules.nixos.${module}) desktopModules;
 
       home-manager.sharedModules = lib.mkIf (options.home-manager ? sharedModules) (
-        builtins.map (module: config.flake.homeManager.${module} or { }) desktopModules
+        builtins.map (module: config.flake.modules.homeManager.${module} or { }) desktopModules
       );
 
     };
