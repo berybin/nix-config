@@ -9,12 +9,12 @@
     mkNixos = system: hostname: {
       ${hostname} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        overlays = [ config.flake.overlays.default ];
         modules = [
           config.flake.modules.nixos.${hostname}
           {
             networking.hostName = hostname;
             nixpkgs.hostPlatform = lib.mkDefault system;
+            nixpkgs.overlays = [ config.flake.overlays.default ];
           }
         ];
       };
