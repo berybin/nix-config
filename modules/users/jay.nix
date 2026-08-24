@@ -20,8 +20,11 @@ in
   };
 
   flake.modules.homeManager.${username} = {
-    imports = with self.modules.homeManager; [ ];
+    imports = with self.modules.homeManager; [
+      zen
+    ];
 
+    programs.home-manager.enable = true;
     home = {
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
