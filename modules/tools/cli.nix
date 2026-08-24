@@ -39,15 +39,6 @@
       programs.fish = {
         enable = true;
         shellAbbrs = {
-
-          # git abbreviations
-          lg = "lazygit";
-          gc = "git commit -m '";
-          ga = "git add";
-          gaa = "git add .";
-          gs = "git status";
-          gtn = "git tag $(${lib.getExe pkgs.svu} next)"; # tag with next semver tag
-
           # quickly scan network for hostnames using avahi
           # ab = "avahi-browse --all --ignore-local --resolve --terminate";
         };
@@ -55,6 +46,14 @@
         shellAliases = {
           ssh = lib.mkIf config.programs.kitty.enable "kitten ssh";
           diff = lib.mkIf config.programs.kitty.enable "kitten diff";
+
+          # git aliases
+          lg = "${lib.getExe pkgs.lazygit}";
+          gc = "git commit -m '";
+          ga = "git add";
+          gaa = "git add .";
+          gs = "git status";
+          gtn = "git tag $(${lib.getExe pkgs.svu} next)"; # tag with next semver tag
         };
 
         functions = {
