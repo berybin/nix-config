@@ -22,6 +22,7 @@ in
   flake.modules.homeManager.${username} = {
     imports = with self.modules.homeManager; [
       cli
+      git
       nvim
       zen
     ];

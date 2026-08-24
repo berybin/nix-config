@@ -1,8 +1,10 @@
 { self, config, ... }:
 let
   modules = [
-    "plasma"
+    "git"
+    "gpg"
     "nh"
+    "plasma"
   ];
 in
 {

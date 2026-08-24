@@ -1,20 +1,5 @@
-{
-  lib,
-  config,
-  inputs,
-  ...
-}:
-with lib;
-with lib.bery;
-let
-  cfg = config.bery.tools.git;
-in
-{
-  options.bery.tools.git = {
-    enable = mkEnableOption "git";
-  };
-
-  config = mkIf cfg.enable {
+{ inputs, ... }: {
+  flake.modules.homeManager.git = {
     programs.git = {
       enable = true;
       settings = {
@@ -28,11 +13,14 @@ in
           showSignature = true;
         };
       };
+
+      # TODO: make this more dynamic
       signing = {
         format = "openpgp";
         key = "E756A04B17322D8D";
         signByDefault = true;
       };
     };
+
   };
 }

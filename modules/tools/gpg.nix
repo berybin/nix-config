@@ -1,20 +1,5 @@
 {
-  lib,
-  pkgs,
-  config,
-  ...
-}:
-with lib;
-with lib.bery;
-let
-  cfg = config.bery.tools.gpg;
-in
-{
-  options.bery.tools.gpg = {
-    enable = mkEnableOption "gpg";
-  };
-
-  config = mkIf cfg.enable {
+  flake.modules.homeManager.gpg = { pkgs, ... }: {
     programs.gpg = {
       enable = true;
       mutableKeys = false;
