@@ -4,16 +4,17 @@ let
     "git"
     "gpg"
     "nh"
-    "noctalia"
-    "plasma"
   ];
 in
 {
   flake.modules.nixos.t14 = {
-    imports = with self.modules.nixos; [
-      system-desktop
-      (self.lib.loadNixosAndHmModulesForUser config modules "jay")
-    ];
+    imports =
+      with self.modules.nixos;
+      [
+        system-desktop
+        desktop
+      ]
+      ++ [ (self.lib.loadNixosAndHmModulesForUser config modules "jay") ];
 
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
