@@ -21,9 +21,15 @@
 
       cursor = {
         name = "Bibata-Modern-Ice";
-        size = 18;
+        size = 20;
         package = pkgs.bibata-cursors;
       };
     };
+  };
+
+  flake.modules.homeManager.stylix = {
+    stylix.targets.noctalia.enable = false;
+    stylix.targets.zen-browser.enable = false;
+    stylix.targets.neovim.enable = false;
   };
 }
