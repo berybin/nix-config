@@ -49,7 +49,7 @@
 
           # git aliases
           lg = "${lib.getExe pkgs.lazygit}";
-          gc = "git commit -m '";
+          gc = "git commit";
           ga = "git add";
           gaa = "git add .";
           gs = "git status";
