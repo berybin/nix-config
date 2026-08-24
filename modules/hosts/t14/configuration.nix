@@ -10,6 +10,9 @@ in
       system-desktop
       (self.lib.loadNixosAndHmModulesForUser config modules "jay")
     ];
+
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
     system.stateVersion = "26.05";
   };
 }

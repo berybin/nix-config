@@ -28,6 +28,7 @@
       {
         imports = [
           inputs.home-manager.nixosModules.home-manager
+          config.flake.modules.nixos.${username}
         ]
         ++ (builtins.map (module: config.flake.modules.nixos.${module} or { }) modules) # Import NixOS modules
         ++ [
