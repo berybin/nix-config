@@ -1,16 +1,22 @@
 {
-  flake.modules.nixos.desktop = { pkgs, ... }: {
+  flake.modules.nixos.files = { pkgs, ... }: {
     services = {
       gvfs.enable = true;
-      # allow nautilus to generate image/video thumbnails
       tumbler.enable = true;
-      dbus.packages = [
-        pkgs.nautilus
+      dbus.packages = with pkgs; [
+        file-roller
+        nautilus
       ];
     };
 
-    environment.systemPackages = [
-      pkgs.nautilus
+    environment.systemPackages = with pkgs; [
+      file-roller
+      nautilus
     ];
+  };
+
+  flake.modules.homeManager.files = {
+    xdg.userDirs.enable = true;
+    xdg.userDirs.setSessionVariables = false;
   };
 }

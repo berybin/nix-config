@@ -2,7 +2,7 @@
   flake.modules.homeManager.gpg = { pkgs, ... }: {
     services.gpg-agent = {
       enable = true;
-      pinentry.package = pkgs.pinentry-qt;
+      pinentry.package = pkgs.pinentry-gnome3;
       enableSshSupport = true;
     };
 

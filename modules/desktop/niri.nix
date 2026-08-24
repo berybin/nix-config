@@ -5,9 +5,13 @@
   ...
 }:
 {
-  flake.modules.nixos.niri = {
+  flake.modules.nixos.niri = { pkgs, ... }: {
     imports = [ inputs.niri.nixosModules.niri ];
     programs.niri.enable = true;
+
+    environment.systemPackages = [
+      pkgs.wl-clipboard
+    ];
   };
 
   flake.modules.homeManager.niri = { config, ... }: {
