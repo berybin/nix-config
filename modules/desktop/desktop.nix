@@ -10,6 +10,7 @@
       desktopModules = [
         "niri"
         "noctalia"
+        "stylix"
       ];
     in
     {
