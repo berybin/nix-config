@@ -20,5 +20,7 @@
       home-manager.sharedModules = lib.mkIf (options.home-manager ? sharedModules) (
         builtins.map (module: config.flake.modules.homeManager.${module} or { }) desktopModules
       );
+
+      programs.localsend.enable = true;
     };
 }

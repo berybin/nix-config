@@ -2,6 +2,8 @@
   flake.modules.nixos.system-desktop = {
     imports = [ self.modules.nixos.system-core ];
 
+    boot.plymouth.enable = true;
+
     networking.networkmanager.enable = true;
 
     # NOTE: Enable Audio
