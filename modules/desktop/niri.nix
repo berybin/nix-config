@@ -40,6 +40,13 @@
           "Mod+Return".action.spawn = lib.getExe config.programs.kitty.package;
         })
       ];
+
+      window-rules = [
+        {
+          matches = [ { app-id = "zen-beta"; } ];
+          open-fullscreen = true;
+        }
+      ];
     };
   };
 }
