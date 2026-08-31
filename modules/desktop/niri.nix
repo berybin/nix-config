@@ -33,6 +33,7 @@
       binds = lib.mkMerge [
         {
           # Put normal keyninds here
+          "Mod+E".action.spawn = lib.getExe pkgs.nautilus;
         }
 
         (lib.mkIf config.programs.kitty.enable {
