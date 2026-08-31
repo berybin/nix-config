@@ -30,6 +30,7 @@ in
 
     home.packages = with pkgs; [
       gopass
+      obsidian
     ];
 
     programs.home-manager.enable = true;
