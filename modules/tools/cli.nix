@@ -3,6 +3,7 @@
   flake.modules.homeManager = {
     cli = {
       imports = with self.modules.homeManager; [
+        fastfetch
         fish
         kitty
         starship
@@ -10,31 +11,9 @@
       ];
     };
 
-    zoxide = { config, ... }: {
-      programs.zoxide = {
-        enable = true;
-        enableFishIntegration = config.programs.fish.enable;
-      };
-
-      programs.fish.shellAliases = {
-        cd = "z";
-      };
+    fastfetch = {
+      programs.fastfetch.enable = true;
     };
-
-    kitty =
-      { config, ... }:
-      let
-        fishEnabled = config.programs.fish.enable;
-      in
-      {
-        programs.kitty = {
-          enable = true;
-          shellIntegration.enableFishIntegration = fishEnabled;
-          settings = lib.mkIf fishEnabled {
-            shell = "fish";
-          };
-        };
-      };
 
     fish = { pkgs, config, ... }: {
       programs.fish = {
@@ -68,6 +47,21 @@
       };
     };
 
+    kitty =
+      { config, ... }:
+      let
+        fishEnabled = config.programs.fish.enable;
+      in
+      {
+        programs.kitty = {
+          enable = true;
+          shellIntegration.enableFishIntegration = fishEnabled;
+          settings = lib.mkIf fishEnabled {
+            shell = "fish";
+          };
+        };
+      };
+
     starship = { config, ... }: {
       programs.starship = {
         enable = true;
@@ -75,6 +69,17 @@
         enableFishIntegration = config.programs.fish.enable;
         presets = [ "catppuccin-powerline" ];
 
+      };
+    };
+
+    zoxide = { config, ... }: {
+      programs.zoxide = {
+        enable = true;
+        enableFishIntegration = config.programs.fish.enable;
+      };
+
+      programs.fish.shellAliases = {
+        cd = "z";
       };
     };
   };
