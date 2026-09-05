@@ -46,6 +46,7 @@
               return-youtube-dislikes
               sponsorblock
               ublock-origin
+              vimium
               wappalyzer
             ];
           };
