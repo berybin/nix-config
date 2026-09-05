@@ -38,6 +38,9 @@ in
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
       stateVersion = "25.05";
+      sessionVariables = {
+        GOPASS_CLIPBOARD_COPY_CMD = "wl-copy --sensitive";
+      };
     };
   };
 }
