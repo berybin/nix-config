@@ -28,9 +28,12 @@
   };
 
   flake.modules.homeManager.stylix = {
-    stylix.targets.noctalia.enable = false;
-    stylix.targets.zen-browser.enable = false;
-    stylix.targets.neovim.enable = false;
-    stylix.targets.starship.enable = false;
+    stylix.targets = {
+      neovim.enable = false;
+      noctalia.enable = false;
+      starship.enable = false;
+      vscodium.enable = false;
+      zen-browser.enable = false;
+    };
   };
 }
