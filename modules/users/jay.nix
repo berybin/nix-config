@@ -29,11 +29,11 @@ in
     ];
 
     home.packages = with pkgs; [
+      ente-auth
       gopass
       obsidian
     ];
 
-    programs.home-manager.enable = true;
     home = {
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
