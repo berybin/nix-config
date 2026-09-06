@@ -47,7 +47,7 @@
           ];
         };
 
-        "/mnt/salvage" = {
+        "/media/salvage" = {
           device = "/dev/disk/by-uuid/5685d083-3910-408e-9f87-90c611e38217";
           fsType = "ext4";
         };
