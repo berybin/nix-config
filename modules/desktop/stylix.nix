@@ -8,6 +8,12 @@
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
 
+      cursor = {
+        name = "Bibata-Modern-Ice";
+        size = 20;
+        package = pkgs.bibata-cursors;
+      };
+
       fonts = {
         monospace = {
           package = pkgs.nerd-fonts.fira-mono;
@@ -19,11 +25,13 @@
         };
       };
 
-      cursor = {
-        name = "Bibata-Modern-Ice";
-        size = 20;
-        package = pkgs.bibata-cursors;
+      icons = {
+        enable = true;
+        package = pkgs.papirus-icon-theme.override { color = "deeporange"; };
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
       };
+
     };
   };
 
