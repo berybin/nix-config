@@ -12,6 +12,8 @@
         log = {
           showSignature = true;
         };
+
+        pull.ff = "only";
       };
 
       # TODO: make this more dynamic
