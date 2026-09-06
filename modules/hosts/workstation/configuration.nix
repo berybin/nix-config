@@ -19,6 +19,19 @@ in
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      sharedModules = [
+        {
+          programs.niri.settings.outputs."ViewSonic Corporation VX3418-2KPC WFJ212700128" = {
+            # mode = "3440x1440@144.000";
+            mode = {
+              width = 3440;
+              height = 1440;
+              refresh = 144.000;
+            };
+            scale = 1;
+          };
+        }
+      ];
     };
 
     system.stateVersion = "25.05";
