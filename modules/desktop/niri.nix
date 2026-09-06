@@ -47,6 +47,14 @@
           matches = [ { app-id = "zen-beta"; } ];
           open-fullscreen = true;
         }
+
+        {
+          # GPG key for signing should open focused
+          matches = [ { app-id = "gcr-prompter"; } ];
+          default-column-width.fixed = 512;
+          open-floating = true;
+          open-focused = true;
+        }
       ];
     };
   };
