@@ -65,15 +65,7 @@
             action = "screen_off";
             timeout = 60 * 10;
           };
-
-          suspend = {
-            enable = true;
-            action = "lock_and_suspend";
-            timeout = 60 * 15;
-          };
-
         };
-
       };
     };
   };

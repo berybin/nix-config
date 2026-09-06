@@ -22,6 +22,12 @@ in
           programs.niri.settings.outputs."eDP-1" = {
             scale = 1;
           };
+
+          programs.noctalia.idle.behavior.suspend = {
+            enable = true;
+            action = "lock_and_suspend";
+            timeout = 60 * 15;
+          };
         }
       ];
     };
