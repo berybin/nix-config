@@ -23,5 +23,14 @@
         nh
         wget
       ];
+
+      networking.networkmanager.enable = true;
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        publish.enable = true;
+        publish.addresses = true;
+        publish.workstation = true;
+      };
     };
 }

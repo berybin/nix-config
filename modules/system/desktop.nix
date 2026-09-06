@@ -4,8 +4,6 @@
 
     boot.plymouth.enable = true;
 
-    networking.networkmanager.enable = true;
-
     # NOTE: Enable Audio
     security.rtkit.enable = true;
     # explicitly disable the old PulseAudio service to ensure PipeWire takes over.
