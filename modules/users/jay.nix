@@ -23,6 +23,7 @@ in
     imports = with self.modules.homeManager; [
       cli
       git
+      gopass
       nvim
       proton
       zen
@@ -30,7 +31,6 @@ in
 
     home.packages = with pkgs; [
       ente-auth
-      gopass
       obsidian
     ];
 
@@ -38,9 +38,6 @@ in
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
       stateVersion = "25.05";
-      sessionVariables = {
-        GOPASS_CLIPBOARD_COPY_CMD = "wl-copy --sensitive";
-      };
     };
   };
 }
