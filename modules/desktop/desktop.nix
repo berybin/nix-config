@@ -5,7 +5,7 @@
   # It will import all NixOS modules, and will import related
   # home-manager modules if home-manager itself has been imported elsewhere
   flake.modules.nixos.desktop =
-    { options, ... }:
+    { pkgs, options, ... }:
     let
       desktopModules = [
         "files"
@@ -22,5 +22,9 @@
       );
 
       programs.localsend.enable = true;
+
+      environment.systemPackages = with pkgs; [
+        qimgv
+      ];
     };
 }
