@@ -7,6 +7,7 @@
       enable = true;
       polarity = "dark";
       base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
+      image = ./wallpaper.jpg;
 
       cursor = {
         name = "Bibata-Modern-Ice";
