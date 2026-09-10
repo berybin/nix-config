@@ -40,6 +40,11 @@
         shell.telemetry_enabled = true;
         shell.launch_apps_as_systemd_services = true;
 
+        wallpaper = {
+          enabled = true;
+          default.path = ./wallpaper.jpg;
+        };
+
         theme = {
           mode = "dark";
           source = "builtin";
