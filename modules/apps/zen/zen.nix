@@ -43,7 +43,6 @@
               kagi-search
               privacy-badger
               proton-pass
-              return-youtube-dislikes
               sponsorblock
               ublock-origin
               vimium
