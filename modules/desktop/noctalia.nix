@@ -51,6 +51,8 @@
           builtin = "Dracula";
         };
 
+        location.address = "Sydney, Australia";
+
         bar.default = {
           margin_ends = 0;
           widget_spacing = 12;
