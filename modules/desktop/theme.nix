@@ -27,26 +27,36 @@
     };
   };
 
-  flake.modules.homeManager.theme = { pkgs, ... }: {
+  flake.modules.homeManager.theme = { pkgs, config, ... }: {
     gtk = {
       enable = true;
       iconTheme = {
-        # name = "Papirus-Dark";
-        # package = pkgs.papirus-icon-theme.override { color = "deeporange"; };
         name = "Dracula";
         package = pkgs.dracula-icon-theme;
       };
-
       theme = {
         name = "Dracula";
         package = pkgs.dracula-theme;
+      };
+      gtk4.theme = null;
+    };
+
+    qt = {
+      enable = true;
+      platformTheme.name = "qtct";
+      style.name = "kvantum";
+      kvantum = {
+        settings.General.theme = "Dracula";
+        themes = [ pkgs.dracula-theme ];
       };
     };
 
     stylix.targets = {
       gtk.enable = false;
+      kde.enable = false;
       neovim.enable = false;
       noctalia.enable = false;
+      qt.enable = false;
       starship.enable = false;
       vscodium.enable = false;
       zen-browser.enable = false;
