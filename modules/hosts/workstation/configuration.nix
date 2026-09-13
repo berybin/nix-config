@@ -3,6 +3,7 @@ let
   modules = [
     "git"
     "gpg"
+    "media"
     "nh"
     "office"
     "tinkering"
