@@ -11,7 +11,7 @@
         "files"
         "niri"
         "noctalia"
-        "stylix"
+        "theme"
       ];
     in
     {

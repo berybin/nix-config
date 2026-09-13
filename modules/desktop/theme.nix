@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.stylix = { pkgs, ... }: {
+  flake.modules.nixos.theme = { pkgs, ... }: {
     imports = [ inputs.stylix.nixosModules.stylix ];
 
     stylix = {
@@ -24,19 +24,27 @@
           terminal = 11;
         };
       };
-
-      icons = {
-        enable = true;
-        package = pkgs.papirus-icon-theme.override { color = "deeporange"; };
-        dark = "Papirus-Dark";
-        light = "Papirus-Light";
-      };
-
     };
   };
 
-  flake.modules.homeManager.stylix = {
+  flake.modules.homeManager.theme = { pkgs, ... }: {
+    gtk = {
+      enable = true;
+      iconTheme = {
+        # name = "Papirus-Dark";
+        # package = pkgs.papirus-icon-theme.override { color = "deeporange"; };
+        name = "Dracula";
+        package = pkgs.dracula-icon-theme;
+      };
+
+      theme = {
+        name = "Dracula";
+        package = pkgs.dracula-theme;
+      };
+    };
+
     stylix.targets = {
+      gtk.enable = false;
       neovim.enable = false;
       noctalia.enable = false;
       starship.enable = false;
