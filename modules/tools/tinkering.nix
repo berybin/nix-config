@@ -4,6 +4,7 @@
       freecad
       kicad
       orca-slicer
+      smartmontools
     ];
   };
 }
