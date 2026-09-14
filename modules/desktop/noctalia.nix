@@ -13,7 +13,7 @@
     # https://wiki.nixos.org/wiki/SDDM#SDDM_Hangs_after_entering_password
     # noctalia-greeter was hanging after password entry. It was ALSO waiting for a fingerprint for 30 seconds
     security.pam.services.login.fprintAuth = false;
-    programs.noctalia-greeter = {
+    services.displayManager.noctalia-greeter = {
       enable = true;
       greeter-args = "";
       settings = {
