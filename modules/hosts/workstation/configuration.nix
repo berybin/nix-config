@@ -4,6 +4,7 @@ let
     "git"
     "gpg"
     "media"
+    "music"
     "nh"
     "office"
     "social"
