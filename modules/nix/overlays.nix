@@ -2,8 +2,15 @@
 {
   flake.overlays =
     let
-      mkStablePkg = pkgToPin: self: super: {
-        ${pkgToPin} = inputs.nixpkgs-stable.legacyPackages.${self.stdenv.hostPlatform.system}.${pkgToPin};
+      pkgs-stable =
+        system:
+        import inputs.nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+      mkStablePkg = name: _self: super: {
+        ${name} = (pkgs-stable super.stdenv.hostPlatform.system).${name};
       };
     in
     {
