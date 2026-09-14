@@ -6,6 +6,7 @@ let
     "media"
     "nh"
     "office"
+    "social"
     "tinkering"
   ];
 in
