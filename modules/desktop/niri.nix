@@ -42,6 +42,7 @@
           {
             # Put normal keyninds here
             "Mod+E".action.spawn = lib.getExe osConfig.tools.files.package;
+            "Mod+P".action.screenshot = { };
           }
 
           (lib.mkIf config.programs.kitty.enable {
