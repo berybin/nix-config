@@ -1,5 +1,5 @@
 {
-  flake.modules.bootstrap.core = { lib, config, ... }: {
+  flake.modules.nixos.bootstrap-core = { lib, config, ... }: {
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"

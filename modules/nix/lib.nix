@@ -10,7 +10,7 @@
       ${hostname} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          self.modules.nixos.${hostname} or self.modules.bootstrap.${hostname}
+          self.modules.nixos.${hostname}
           {
             networking.hostName = hostname;
             nixpkgs.hostPlatform = lib.mkDefault system;
