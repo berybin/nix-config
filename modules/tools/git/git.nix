@@ -1,12 +1,12 @@
 { inputs, ... }: {
-  flake.modules.homeManager.git = {
+  flake.modules.homeManager.git = { config, ... }: {
     programs.git = {
       enable = true;
       settings = {
         init.defaultBranch = "main";
         user = {
-          name = "jay";
-          email = inputs.nix-secrets.jay.email.personal;
+          name = config.identity.name;
+          email = config.identity.email.primary;
         };
 
         log = {
@@ -19,7 +19,7 @@
       # TODO: make this more dynamic
       signing = {
         format = "openpgp";
-        key = "E756A04B17322D8D";
+        key = config.identity.signingKey;
         signByDefault = true;
       };
     };

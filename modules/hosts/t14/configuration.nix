@@ -4,6 +4,7 @@ let
     "git"
     "gpg"
     "nh"
+    "social"
   ];
 in
 {

@@ -5,6 +5,7 @@
 }:
 let
   username = "jay";
+  signingKey = "E757A04B17322D8D"; # yubikey
 in
 {
   flake.modules.nixos.${username} = {
@@ -19,8 +20,10 @@ in
     };
   };
 
-  flake.modules.homeManager.${username} = { pkgs, ... }: {
+  flake.modules.homeManager.${username} = { lib, pkgs, ... }: {
     imports = with self.modules.homeManager; [
+      user-core
+
       cli
       git
       gopass
@@ -28,6 +31,12 @@ in
       proton
       zen
     ];
+
+    identity = {
+      name = username;
+      email.primary = "me@jayparry.dev";
+      signingKey = lib.mkDefault signingKey;
+    };
 
     home.packages = with pkgs; [
       ente-auth
