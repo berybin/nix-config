@@ -1,26 +1,36 @@
-{
-  flake.modules.nixos.bootstrap-core = { lib, config, ... }: {
-    nix.settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+{ self, ... }: {
+  flake.modules.nixos.bootstrap-core =
+    {
+      lib,
+      config,
+      ...
+    }:
+    {
+      imports = with self.modules.generic; [
+        berynet
+      ];
 
-    users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
-    services.openssh = {
-      enable = true;
-      settings = {
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-      };
-    };
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      publish = {
+      users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
+      services.openssh = {
         enable = true;
-        addresses = true;
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
+      };
+
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        publish = {
+          enable = true;
+          addresses = true;
+        };
       };
     };
-  };
 }
