@@ -2,7 +2,10 @@ keys:
   - &users:
     - &berikey F35885E623FB545108BAC30D3851B6FB7459EDBE # gpg key on my yubikey
   - &hosts:
+    - &t14 age13uyw3yfyf0tasvgl0sphkt6n3kf4nhcqkg56hx4ed0r7tqgv44eq6zvw46
 
 creation_rules:
   - path_regex: modules/users/secrets\.yaml$
     pgp: *berikey
+    age:
+      - *t14

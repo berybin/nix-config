@@ -1,7 +1,9 @@
-{
+{ self, ... }: {
   flake.modules.nixos.system-core =
     { pkgs, ... }:
     {
+      imports = [ self.modules.nixos.ssh-access ];
+
       nixpkgs.config.allowUnfree = true;
       nix = {
         settings = {
