@@ -1,6 +1,6 @@
 {
   lib,
-  config,
+  self,
   inputs,
   ...
 }:
@@ -10,11 +10,11 @@
       ${hostname} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          config.flake.modules.nixos.${hostname}
+          self.modules.nixos.${hostname} or self.modules.bootstrap.${hostname}
           {
             networking.hostName = hostname;
             nixpkgs.hostPlatform = lib.mkDefault system;
-            nixpkgs.overlays = [ config.flake.overlays.default ];
+            nixpkgs.overlays = [ self.overlays.default ];
           }
         ];
       };
@@ -29,16 +29,16 @@
       {
         imports = [
           inputs.home-manager.nixosModules.home-manager
-          config.flake.modules.nixos.${username}
+          self.modules.nixos.${username}
         ]
-        ++ (builtins.map (module: config.flake.modules.nixos.${module} or { }) modules) # Import NixOS modules
+        ++ (builtins.map (module: self.modules.nixos.${module} or { }) modules) # Import NixOS modules
         ++ [
           {
             # Import home-manager modules from both the modules list arg, as well as anything the user has specified in their home manager config
             home-manager.users.${username}.imports = [
-              config.flake.modules.homeManager.${username}
+              self.modules.homeManager.${username}
             ]
-            ++ builtins.map (module: config.flake.modules.homeManager.${module} or { }) modules;
+            ++ builtins.map (module: self.modules.homeManager.${module} or { }) modules;
           }
         ];
       };
