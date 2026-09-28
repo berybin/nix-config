@@ -29,6 +29,7 @@ in
       gopass
       nvim
       proton
+      (sops { secretsFile = ./secrets.yaml; })
       zen
     ];
 
