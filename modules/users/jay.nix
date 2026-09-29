@@ -4,17 +4,19 @@
 }:
 let
   username = "jay";
-  signingKey = "E757A04B17322D8D"; # yubikey
+  signingKey = "E756A04B17322D8D"; # yubikey
 in
 {
   flake.modules.nixos.${username} = { config, ... }: {
-    imports = [ self.modules.nixos.user-sops ];
-    users.mutableUsers = false;
-    sops.secrets."passwords/jay".neededForUsers = true;
+    sops.secrets."passwords/jay" = {
+      neededForUsers = true;
+      sopsFile = ./secrets.yaml;
+    };
 
+    users.mutableUsers = false;
     users.users.${username} = {
       isNormalUser = true;
-      hashedPassword = config.sops.secrets."passwords/jay".path;
+      hashedPasswordFile = config.sops.secrets."passwords/jay".path;
       description = "Jay";
       extraGroups = [
         "networkmanager"
@@ -33,7 +35,7 @@ in
       gopass
       nvim
       proton
-      user-sops
+      sops
       zen
     ];
 
