@@ -68,6 +68,9 @@
 
         #JSON
         vscode-json-languageserver
+
+        # yaml
+        yaml-language-server
       ];
 
       extraDependencies = with pkgs; [
