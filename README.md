@@ -6,7 +6,7 @@ Flake based NixOS config for managing my personal devices and homelab. I will us
 ## Bootstrapping a new machine
 
 ```bash
-nix build .#nixosConfigurations.minimal.config.system.build.isoImage
+nix build .#nixosConfigurations.bootstrap-minimal.config.system.build.isoImage
 ```
 
 
