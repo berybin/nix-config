@@ -1,5 +1,5 @@
 {
-  description = "Jay's NixOS Config / dotfiles";
+  description = "A flake for managing my personal machines and homelab";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -75,6 +75,7 @@
       inputs.import-tree [
         ./hosts
         ./modules
+        ./users
       ]
     );
 }
