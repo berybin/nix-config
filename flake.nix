@@ -65,8 +65,6 @@
         home-manager.follows = "home-manager";
       };
     };
-
-    nix-secrets.url = "git+ssh://git@codeberg.org/berybin/nix-secrets.git?shallow=1";
   };
 
   outputs =
