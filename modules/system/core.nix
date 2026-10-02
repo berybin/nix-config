@@ -1,7 +1,9 @@
-{
+{ self, ... }: {
   flake.modules.nixos.system-core =
     { pkgs, ... }:
     {
+      imports = [ self.modules.nixos.ssh-access ];
+
       nixpkgs.config.allowUnfree = true;
       nix = {
         settings = {
@@ -24,13 +26,13 @@
         wget
       ];
 
-      networking.networkmanager.enable = true;
       services.avahi = {
         enable = true;
         nssmdns4 = true;
-        publish.enable = true;
-        publish.addresses = true;
-        publish.workstation = true;
+        publish = {
+          enable = true;
+          addresses = true;
+        };
       };
     };
 }

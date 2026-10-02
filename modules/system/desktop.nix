@@ -3,6 +3,7 @@
     imports = [ self.modules.nixos.system-core ];
 
     boot.plymouth.enable = true;
+    networking.networkmanager.enable = true;
 
     # NOTE: Enable Audio
     security.rtkit.enable = true;

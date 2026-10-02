@@ -1,15 +1,22 @@
 {
-  lib,
   self,
   ...
 }:
 let
   username = "jay";
+  signingKey = "E756A04B17322D8D"; # yubikey
 in
 {
-  flake.modules.nixos.${username} = {
+  flake.modules.nixos.${username} = { config, ... }: {
+    sops.secrets."passwords/jay" = {
+      neededForUsers = true;
+      sopsFile = ./secrets.yaml;
+    };
+
+    users.mutableUsers = false;
     users.users.${username} = {
       isNormalUser = true;
+      hashedPasswordFile = config.sops.secrets."passwords/jay".path;
       description = "Jay";
       extraGroups = [
         "networkmanager"
@@ -19,15 +26,24 @@ in
     };
   };
 
-  flake.modules.homeManager.${username} = { pkgs, ... }: {
+  flake.modules.homeManager.${username} = { lib, pkgs, ... }: {
     imports = with self.modules.homeManager; [
+      user-core
+
       cli
       git
       gopass
       nvim
       proton
+      sops
       zen
     ];
+
+    identity = {
+      name = username;
+      email.primary = "me@jayparry.dev";
+      signingKey = lib.mkDefault signingKey;
+    };
 
     home.packages = with pkgs; [
       ente-auth

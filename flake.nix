@@ -1,5 +1,5 @@
 {
-  description = "Jay's NixOS Config / dotfiles";
+  description = "A flake for managing my personal machines and homelab";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -43,6 +43,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,5 +69,13 @@
     nix-secrets.url = "git+ssh://git@codeberg.org/berybin/nix-secrets.git?shallow=1";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      inputs.import-tree [
+        ./hosts
+        ./modules
+        ./users
+      ]
+    );
 }

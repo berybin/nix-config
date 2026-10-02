@@ -1,0 +1,19 @@
+keys:
+  users:
+    - &berikey F35885E623FB545108BAC30D3851B6FB7459EDBE # gpg key on my yubikey
+    - &jay-on-t14 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqoKekYddKVQDqQ6Leavuxqq6kT7/nJy33dMA5E2eMj jay@t14
+  hosts:
+    - &t14 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJAU2kv2e/1a5LV1yIRm1R1YTHx1OkRkgEBFsHoP7HLv root@t14
+
+creation_rules:
+  - path_regex: modules/users/secrets\.yaml$
+    pgp: *berikey
+    age:
+      - *t14
+      - *jay-on-t14
+
+  - path_regex: modules/hosts/t14/secrets\.yaml$
+    pgp: *berikey
+    age:
+      - *t14
+      - *jay-on-t14
