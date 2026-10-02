@@ -69,5 +69,12 @@
     nix-secrets.url = "git+ssh://git@codeberg.org/berybin/nix-secrets.git?shallow=1";
   };
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } (
+      inputs.import-tree [
+        ./hosts
+        ./modules
+      ]
+    );
 }
