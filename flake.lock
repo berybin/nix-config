@@ -92,6 +92,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789770686,
+        "narHash": "sha256-uZkBR7yHdIKUFB5SZdfgh1qkGfI3XmYmI/lTiquxbck=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "725ea35e410ad83be4931d1bff7e090eacaf3563",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -349,22 +369,6 @@
         "type": "github"
       }
     },
-    "nix-secrets": {
-      "locked": {
-        "lastModified": 1777287270,
-        "narHash": "sha256-g0Y/Mr9aqP+AtFGk7arAdquZMgiiE+T4CFTGGDdoOw8=",
-        "ref": "refs/heads/main",
-        "rev": "f8c4637769e396294e502d8e00d81605084d152f",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@codeberg.org/berybin/nix-secrets.git"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@codeberg.org/berybin/nix-secrets.git"
-      }
-    },
     "nix-vscode-extensions": {
       "inputs": {
         "nixpkgs": [
@@ -553,11 +557,11 @@
     "root": {
       "inputs": {
         "colmena": "colmena",
+        "disko": "disko",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "niri": "niri",
-        "nix-secrets": "nix-secrets",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2",

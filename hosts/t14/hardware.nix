@@ -1,7 +1,6 @@
 {
   flake.modules.nixos.t14 = {
     hardware.facter.reportPath = ./t14.facter.json;
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
