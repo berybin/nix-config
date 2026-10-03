@@ -3,7 +3,7 @@
     environment.systemPackages = with pkgs; [
       calibre
       onlyoffice-desktopeditors
-      papers
+      kdePackages.okular
     ];
   };
 }
