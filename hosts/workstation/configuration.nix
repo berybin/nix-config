@@ -9,6 +9,7 @@ let
     "office"
     "social"
     "tinkering"
+    "vscodium"
   ];
 in
 {
