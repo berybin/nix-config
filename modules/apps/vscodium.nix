@@ -1,8 +1,10 @@
 {
   flake.modules.homeManager.vscodium = { pkgs, ... }: {
     home.packages = with pkgs; [
-      ripgrep
+      nil
+      nixfmt-rs
       python3
+      ripgrep
       uv
       # platformio-core
     ];
@@ -49,10 +51,22 @@
           redhat.vscode-xml
           redhat.vscode-yaml
         ];
-      };
 
-      userSettings = {
-        "chat.disableAIFeatures" = true;
+        userSettings = {
+          "chat.disableAIFeatures" = true;
+          "chat.agent.enabled" = false;
+
+          "workbench.iconTheme" = "vscode-icons";
+          "workbench.colorTheme" = "Dracula Theme";
+
+          "editor.formatOnSave" = true;
+          "editor.lineNumbers" = "relative";
+
+          "redhat.telemetry.enabled" = false;
+          "[markdown]" = {
+            "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
+          };
+        };
       };
     };
   };
