@@ -40,6 +40,8 @@
         shell.telemetry_enabled = true;
         shell.launch_apps_as_systemd_services = true;
 
+        plugins = import ./_plugins.nix
+
         wallpaper = {
           enabled = true;
           default.path = ./wallpaper.jpg;
