@@ -29,7 +29,7 @@
     };
   };
 
-  flake.modules.homeManager.noctalia = {
+  flake.modules.homeManager.noctalia = { lib, pkgs, ... }: {
     imports = [ inputs.noctalia.homeModules.default ];
 
     programs.noctalia = {
@@ -66,7 +66,15 @@
         };
 
         widget.clock.format = "{:%a | %d %b | %r}";
-        widget.cat.type = "noctalia/bongocat:cat";
+        widget.cat = {
+          type = "noctalia/bongocat:cat";
+          settings = {
+            executable_path = lib.getExe pkgs.evtest;
+            audio_spectrum = true;
+            tappy_mode = true;
+            rave_mode = true;
+          };
+        };
 
         idle.behavior = {
           lock = {
