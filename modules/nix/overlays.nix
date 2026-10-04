@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 
 let
   pkgs-stable =
@@ -8,11 +8,11 @@ let
       config.allowUnfree = true;
     };
 
-  mkStablePkg = name: _self: super: {
-    ${name} = (pkgs-stable super.stdenv.hostPlatform.system).${name};
+  mkStablePkg = name: _final: prev: {
+    ${name} = (pkgs-stable prev.stdenv.hostPlatform.system).${name};
   };
 
-  localPkgs = final: _prev: import ../../packages { pkgs = final; };
+  localPkgs = _final: prev: self.packages.${prev.stdenv.hostPlatform.system} or { };
 
 in
 {

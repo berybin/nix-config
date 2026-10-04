@@ -1,5 +1,8 @@
 {
   perSystem = { pkgs, ... }: {
-    packages = import ../../packages { inherit pkgs; };
+    packages = pkgs.lib.filesystem.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ../../packages;
+    };
   };
 }
