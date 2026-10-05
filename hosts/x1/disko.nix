@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-  flake.diskoConfigurations.x1 = { lib, config, ... }: {
+  flake.diskoConfigurations.x1 = {
     imports = [ inputs.disko.nixosModules.disko ];
 
     disko.devices = {
@@ -25,16 +25,12 @@
               content = {
                 type = "luks";
                 name = "cryptroot";
+                passwordFile = "/tmp/disk-encryption.key";
                 settings = {
-                  # keyFile = "/key/x1-unlock.key";
+                  keyFile = "/keys/x1-unlock.key";
+                  keyFileTimeout = 5;
                   allowDiscards = true;
-                  # fallbackToPassword = true;
-                  # preLVM = false; # If this is true the decryption is attempted before the postDeviceCommands can run
                 };
-                passwordFile = "/tmp/password.key";
-                additionalKeyFiles = [
-                  "/tmp/usb.key"
-                ];
                 content = {
                   type = "btrfs";
                   extraArgs = [
@@ -66,6 +62,12 @@
                     };
                     "@swap" = {
                       mountpoint = "/.swapvol";
+                      mountOptions = [
+                        "compress=no"
+                        "noatime"
+                        # btrfs swapfiles require compression disabled;
+                        # explicitly override the inherited compress=zstd from the parent mount
+                      ];
                       swap.swapfile.size = "8G";
                     };
                   };
@@ -82,21 +84,29 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Kernel modules needed for mounting USB VFAT devices in initrd stage
-    # boot.initrd.kernelModules = [
-    #   "uas"
-    #   "usbcore"
-    #   "usb_storage"
-    #   "vfat"
-    #   "nls_cp437"
-    #   "nls_iso8859_1"
-    # ];
+    boot.initrd = {
+      kernelModules = [
+        "uas"
+        "usbcore"
+        "usb_storage"
+        "vfat"
+        "nls_cp437"
+        "nls_iso8859_1"
+      ];
 
-    # # Mount USB key before trying to decrypt root filesystem
-    # boot.initrd.postDeviceCommands = lib.mkBefore ''
-    #   mkdir -m 0755 -p /key
-    #   sleep 2 # To make sure the USB key has been loaded
-    #   mount -n -t vfat -o ro /dev/disk/by-label/KEYS /key
-    # '';
+      systemd.mounts = [
+        {
+          what = "/dev/disk/by-label/KEYS";
+          where = "/keys";
+          type = "vfat";
+          options = "ro,nofail";
+          unitConfig = {
+            JobRunningTimeoutSec = 5;
+          };
+        }
+      ];
+    };
+
   };
 
   flake.modules.nixos.x1.imports = [
