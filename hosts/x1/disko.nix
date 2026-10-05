@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-  flake.diskoConfigurations.x1 = {
+  flake.diskoConfigurations.x1 = { lib, config, ... }: {
     imports = [ inputs.disko.nixosModules.disko ];
 
     disko.devices = {
@@ -25,8 +25,16 @@
               content = {
                 type = "luks";
                 name = "cryptroot";
-                settings.allowDiscards = true;
-                passwordFile = "/tmp/secret.key";
+                settings = {
+                  # keyFile = "/key/x1-unlock.key";
+                  allowDiscards = true;
+                  # fallbackToPassword = true;
+                  # preLVM = false; # If this is true the decryption is attempted before the postDeviceCommands can run
+                };
+                passwordFile = "/tmp/password.key";
+                additionalKeyFiles = [
+                  "/tmp/usb.key"
+                ];
                 content = {
                   type = "btrfs";
                   extraArgs = [
@@ -72,6 +80,23 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.configurationLimit = 20;
     boot.loader.efi.canTouchEfiVariables = true;
+
+    # Kernel modules needed for mounting USB VFAT devices in initrd stage
+    # boot.initrd.kernelModules = [
+    #   "uas"
+    #   "usbcore"
+    #   "usb_storage"
+    #   "vfat"
+    #   "nls_cp437"
+    #   "nls_iso8859_1"
+    # ];
+
+    # # Mount USB key before trying to decrypt root filesystem
+    # boot.initrd.postDeviceCommands = lib.mkBefore ''
+    #   mkdir -m 0755 -p /key
+    #   sleep 2 # To make sure the USB key has been loaded
+    #   mount -n -t vfat -o ro /dev/disk/by-label/KEYS /key
+    # '';
   };
 
   flake.modules.nixos.x1.imports = [
