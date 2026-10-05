@@ -26,9 +26,8 @@
                 type = "luks";
                 name = "cryptroot";
                 passwordFile = "/tmp/disk-encryption.key";
+                additionalKeyFiles = [ "/tmp/usb.key" ];
                 settings = {
-                  keyFile = "/keys/x1-unlock.key";
-                  keyFileTimeout = 5;
                   allowDiscards = true;
                 };
                 content = {
@@ -85,6 +84,11 @@
 
     # Kernel modules needed for mounting USB VFAT devices in initrd stage
     boot.initrd = {
+      luks.devices."cryptroot" = {
+        keyFile = "/keys/x1-unlock.key"; # workaround to bootstrap both a password and unattended boot via USB
+        keyFileTimeout = 5;
+      };
+
       kernelModules = [
         "uas"
         "usbcore"
