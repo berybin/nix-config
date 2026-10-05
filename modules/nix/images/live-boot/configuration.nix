@@ -1,9 +1,6 @@
 { self, ... }: {
-  flake.modules.nixos.bootstrap-minimal-xfce =
+  flake.modules.nixos.live-boot =
     {
-      lib,
-      pkgs,
-      config,
       modulesPath,
       ...
     }:
@@ -14,7 +11,7 @@
         "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
       ];
 
-      image.baseName = lib.mkForce "bootstrap-minimal-xfce-${pkgs.stdenv.hostPlatform.system}";
+      isoImage.edition = "live-boot";
 
       services.xserver = {
         enable = true;

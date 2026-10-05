@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.modules.nixos.bootstrap-core =
+  flake.modules.nixos.image-core =
     {
       lib,
       config,
@@ -14,6 +14,11 @@
         "nix-command"
         "flakes"
       ];
+
+      security.sudo = {
+        enable = true;
+        wheelNeedsPassword = false;
+      };
 
       users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
       services.openssh = {
