@@ -55,6 +55,7 @@
             vue.volar
             redhat.vscode-xml
             redhat.vscode-yaml
+            vscodevim.vim
           ];
 
           userSettings = {
