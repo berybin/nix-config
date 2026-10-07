@@ -10,7 +10,6 @@
         berynet
       ];
 
-      isoImage.compressImage = true;
       nix.settings.experimental-features = [
         "nix-command"
         "flakes"
