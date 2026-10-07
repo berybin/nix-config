@@ -29,6 +29,11 @@
                 additionalKeyFiles = [ "/tmp/usb.key" ];
                 settings = {
                   allowDiscards = true;
+                  keyFileTimeout = 15;
+                  crypttabExtraOpts = [
+                    "fido2-device=auto"
+                    "token-timeout=10"
+                  ];
                 };
                 content = {
                   type = "btrfs";
@@ -82,13 +87,10 @@
     boot.loader.systemd-boot.configurationLimit = 20;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    # Kernel modules needed for mounting USB VFAT devices in initrd stage
     boot.initrd = {
-      luks.devices."cryptroot" = {
-        keyFile = "/keys/x1-unlock.key"; # workaround to bootstrap both a password and unattended boot via USB
-        keyFileTimeout = 5;
-      };
+      luks.devices."cryptroot".keyFile = "/keys/x1-unlock.key"; # workaround to bootstrap both a password and unattended boot via USB
 
+      # Kernel modules needed for mounting USB VFAT devices in initrd stage
       kernelModules = [
         "uas"
         "usbcore"
@@ -104,13 +106,11 @@
           where = "/keys";
           type = "vfat";
           options = "ro,nofail";
-          unitConfig = {
-            JobRunningTimeoutSec = 5;
-          };
+          unitConfig.JobTimeoutSec = "10s";
+          unitConfig.TimeoutSec = "10s";
         }
       ];
     };
-
   };
 
   flake.modules.nixos.x1.imports = [
