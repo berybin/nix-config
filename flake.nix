@@ -23,6 +23,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -65,10 +71,8 @@
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
