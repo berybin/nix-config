@@ -117,16 +117,20 @@
         "nls_iso8859_1"
       ];
 
-      systemd.mounts = [
-        {
-          what = "/dev/disk/by-label/KEYS";
-          where = "/keys";
-          type = "vfat";
-          options = "ro,nofail";
-          unitConfig.JobTimeoutSec = "10s";
-          unitConfig.TimeoutSec = "10s";
-        }
-      ];
+      systemd.mounts =
+        let
+          timeout = "5s";
+        in
+        [
+          {
+            what = "/dev/disk/by-label/KEYS";
+            where = "/keys";
+            type = "vfat";
+            options = "ro,nofail";
+            unitConfig.JobTimeoutSec = timeout;
+            unitConfig.TimeoutSec = timeout;
+          }
+        ];
     };
   };
 

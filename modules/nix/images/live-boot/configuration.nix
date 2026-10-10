@@ -1,14 +1,19 @@
 { self, ... }: {
   flake.modules.nixos.live-boot =
     {
+      pkgs,
       modulesPath,
       ...
     }:
     {
 
       imports = [
-        self.modules.nixos.bootstrap-core
         "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+        self.modules.nixos.image-core
+      ];
+
+      environment.systemPackages = with pkgs; [
+        mkberyusb
       ];
 
       isoImage.edition = "live-boot";

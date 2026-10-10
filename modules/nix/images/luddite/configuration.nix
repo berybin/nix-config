@@ -2,14 +2,11 @@
   flake.modules.nixos.luddite =
     {
       lib,
-      pkgs,
       ...
     }:
     {
-
       imports = [
         self.modules.nixos.live-boot
-        self.packages.${pkgs.stdenv.hostPlatform.system}.mkberyusb
       ];
 
       isoImage.edition = lib.mkForce "luddite";

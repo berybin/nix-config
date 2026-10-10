@@ -1,55 +1,67 @@
 set -euo pipefail
-
 echo "Starting impermanence rollback..."
 
+# ---------------------------------------------------------------------------------
+# Mount the unencrypted root volume.
+# ---------------------------------------------------------------------------------
 LUKS_DEVICE="/dev/mapper/cryptroot"
 if [[ ! -b $LUKS_DEVICE ]]; then
-    echo "Error: No LUKS device found. $LUKS_DEVICE was not a block device."
+    echo "ERROR: No LUKS device found. $LUKS_DEVICE was not a block device."
     exit 0
 fi
-
 echo "LUKS device found: $LUKS_DEVICE"
-
 MOUNTPOINT="/mnt"
 mkdir -p "$MOUNTPOINT"
-
-if ! mount -t btrfs -o subvol=/ "$LUKS_DEVICE" "$MOUNTPOINT"; then
-    echo "Error: failed to mount filesystem"
+if ! mount -t btrfs "$LUKS_DEVICE" "$MOUNTPOINT"; then
+    echo "ERROR: failed to mount filesystem"
     exit 1
 fi
-
 trap 'umount "$MOUNTPOINT"' EXIT
 
-if [[ ! -e "$MOUNTPOINT/@" ]]; then
-    echo "Error: subvolume $MOUNTPOINT/@ is missing or is not a BTRFS subvolume"
+# ---------------------------------------------------------------------------------
+# Archive the previous root volume.
+#
+# I do this to recover any files/configs I may have forgotten to persist.
+# They get auto-deleted after 3 days.
+# ---------------------------------------------------------------------------------
+ROOT_VOL="$MOUNTPOINT/@"
+BLANK_VOL="$MOUNTPOINT/@blank"
+
+if [[ ! -d "$ROOT_VOL" ]]; then
+    echo "ERROR: $ROOT_VOL is missing or is not a BTRFS subvolume"
     exit 1
 fi
 
-if [[ ! -d "$MOUNTPOINT/@blank" ]]; then
-    echo "Error: $MOUNTPOINT/@blank snapshot not found, skipping rollback"
+if [[ ! -d "$BLANK_VOL" ]]; then
+    echo "ERROR: $BLANK_VOL snapshot not found, skipping rollback"
     exit 0
 fi
 
-ARCHIVE="$MOUNTPOINT/root_archive"
-mkdir -p $ARCHIVE
-
-timestamp=$(date "+%Y-%m-%-d_%H:%M:%S_%Z")
-
+ARCHIVE_DIR="$MOUNTPOINT/root_archive"
+mkdir -p $ARCHIVE_DIR
+ARCHIVE_TARGET="$ARCHIVE_DIR/$(date "+%Y-%m-%-d_%H:%M:%S_%Z")"
 echo "Archiving the current root filesystem..."
-mv -- $MOUNTPOINT/@ "$ARCHIVE/$timestamp"
+mv -- "$ROOT_VOL" "$ARCHIVE_TARGET"
 
-find $ARCHIVE -type d -mindepth 1 -maxdepth 1 -mtime +7 | while read -r arch; do
-    btrfs subvolume show "$arch" || {
-        echo "Not a subvolume; refusing to delete: $arch" >&2
-        exit 1
-    }
+# ---------------------------------------------------------------------------------
+# Delete any archived root volumes older than 3 days
+# ---------------------------------------------------------------------------------
+echo "Deleting archived roots older than 3 days..."
+find $ARCHIVE_DIR -mindepth 1 -maxdepth 1 -type d -mtime +3 | while read -r archive; do
+    if ! btrfs subvolume show "$archive" >dev/null 2>&1; then
+        echo "WARN: $archive is not a subvolume - refusing to delete"
+        continue
+    fi
 
-    btrfs subvolume delete --recursive "$arch" || exit 1
+    btrfs subvolume delete --recursive "$archive" || echo "WARN: Failed to delete $archive"
 done
 
-echo "Restoring root (@) subvolume from @blank"
-if ! btrfs subvolume snapshot "$MOUNTPOINT/@blank" "$MOUNTPOINT/@"; then
-    echo "Failed to restore root subvolume from the @blank snapshot"
+# ---------------------------------------------------------------------------------
+# Restore the root subvolume from the blank snapshot
+# ---------------------------------------------------------------------------------
+echo "Restoring @ from @blank"
+if ! btrfs subvolume snapshot "$BLANK_VOL" "$ROOT_VOL"; then
+    echo "ERROR: Failed to restore root subvolume from the blank snapshot"
     exit 1
 fi
 

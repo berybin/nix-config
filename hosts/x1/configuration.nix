@@ -1,18 +1,14 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
   flake.modules.nixos.x1 = { lib, config, ... }: {
     imports = [
       self.modules.generic.berynet
       self.modules.nixos.impermanence
+      inputs.home-manager.nixosModules.home-manager
     ];
+    services.desktopManager.plasma6.enable = true;
+    services.displayManager.plasma-login-manager.enable = true;
 
-    services.xserver = {
-      enable = true;
-      desktopManager.xfce.enable = true;
-      displayManager.lightdm.enable = true;
-    };
-
-    services.displayManager.defaultSession = "xfce";
     services.displayManager.autoLogin.user = "nixos";
     services.getty.autologinUser = "nixos";
 
@@ -47,6 +43,10 @@
       # Allow the graphical user to login without password
       initialHashedPassword = "";
     };
+
+    home-manager.users.nixos.imports = [
+      ./_home.nix
+    ];
 
     systemd.sleep.settings.Sleep = {
       AllowHibernation = "no";
