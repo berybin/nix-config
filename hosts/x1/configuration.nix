@@ -3,6 +3,7 @@
   flake.modules.nixos.x1 = { lib, config, ... }: {
     imports = [
       self.modules.generic.berynet
+      self.modules.nixos.impermanence
     ];
 
     services.xserver = {
