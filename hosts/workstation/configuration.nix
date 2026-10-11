@@ -9,6 +9,7 @@ let
     "office"
     "social"
     "tinkering"
+    "vintagestory"
     "vscodium"
   ];
 in
