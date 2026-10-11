@@ -1,10 +1,7 @@
-{ lib, ... }:
 {
-  imports = [
-    ./core.nix
-  ];
+  imports = [ ./core.nix ];
 
-  isoImage.edition = lib.mkDefault "bery-graphical";
+  isoImage.edition = "BeryGraphical";
 
   services.desktopManager.plasma6.enable = true;
   services.displayManager.plasma-login-manager.enable = true;

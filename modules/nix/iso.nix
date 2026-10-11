@@ -1,9 +1,6 @@
 { self, inputs, ... }: {
   perSystem =
     {
-      lib,
-      pkgs,
-      config,
       system,
       ...
     }:
@@ -14,22 +11,25 @@
             name:
             (inputs.nixpkgs.lib.nixosSystem {
               inherit system;
-              modules = [
-                self.modules.nixos.berynet
-                "../../iso/${name}.nix"
-                {
-                  nixpkgs.hostPlatform = system;
-                  users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
-                  environment.systemPackages = with pkgs; [
-                    mkberyusb
-                  ];
-                }
-              ];
+              modules =
+                let
+                  isoImportPath = "../../iso/${name}.nix";
+                in
+                [
+                  ./${isoImportPath}
+                  self.modules.generic.berynet
+                  {
+                    networking.hostName = name;
+                    nixpkgs.hostPlatform = system;
+                    nixpkgs.overlays = [ self.overlays.default ];
+                  }
+                ];
             }).config.system.build.isoImage;
         in
         {
           iso-graphical = mkIso "graphical";
           iso-luddite = mkIso "luddite";
+          iso-server-bootstrap = mkIso "server-bootstrap";
         };
     };
 }

@@ -1,4 +1,10 @@
-{ pkgs, modulesPath, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  modulesPath,
+  ...
+}:
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
@@ -10,10 +16,10 @@
   ];
 
   security.sudo.wheelNeedsPassword = false;
-
   time.timeZone = "Australia/Sydney";
   i18n.defaultLocale = "en_AU.UTF-8";
 
+  users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
   services.openssh.enable = true;
   services.avahi = {
     enable = true;
@@ -31,6 +37,7 @@
     git
     gparted
     htop
+    mkberyusb
     nixos-facter
     smartmontools
     usbutils

@@ -1,8 +1,6 @@
 { lib, ... }:
 {
-  imports = [
-    ./graphical
-  ];
+  imports = [ ./graphical ];
 
   isoImage.edition = "luddite";
 
