@@ -6,6 +6,7 @@
 
 writeShellApplication {
   name = "mod2mp4";
+  derivationArgs.version = "1.0";
   meta = {
     description = "Converts MOD files to MP4 - used to import video from my JVC Everio Camcorder.";
     license = lib.licenses.mit;
