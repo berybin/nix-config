@@ -46,14 +46,24 @@ mv -- "$ROOT_VOL" "$ARCHIVE_TARGET"
 # ---------------------------------------------------------------------------------
 # Delete any archived root volumes older than 3 days
 # ---------------------------------------------------------------------------------
-echo "Deleting archived roots older than 3 days..."
-find $ARCHIVE_DIR -mindepth 1 -maxdepth 1 -type d -mtime +3 | while read -r archive; do
-    if ! btrfs subvolume show "$archive" >dev/null 2>&1; then
-        echo "WARN: $archive is not a subvolume - refusing to delete"
-        continue
+delete_subvolume() {
+    local subvol=$1
+    if ! btrfs subvolume show "$subvol" >dev/null 2>&1; then
+        echo "WARN: $subvol is not a subvolume - refusing to delete"
+        return
     fi
 
-    btrfs subvolume delete --recursive "$archive" || echo "WARN: Failed to delete $archive"
+    btrfs subvolume delete --recursive "$subvol" || echo "WARN: Failed to delete $subvol"
+}
+
+echo "Deleting archived roots..."
+find $ARCHIVE_DIR -mindepth 1 -maxdepth 1 -type d -mtime +3 | while read -r archive; do
+    delete_subvolume "$archive"
+done
+
+# only keep 10 roots archived `tail -n +11`
+find $ARCHIVE_DIR -mindepth 1 -maxdepth 1 -type d | sort | tail -n +11 | while read -r archive; do
+    delete_subvolume "$archive"
 done
 
 # ---------------------------------------------------------------------------------
