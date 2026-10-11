@@ -11,19 +11,15 @@
             name:
             (inputs.nixpkgs.lib.nixosSystem {
               inherit system;
-              modules =
-                let
-                  isoImportPath = "../../iso/${name}.nix";
-                in
-                [
-                  ./${isoImportPath}
-                  self.modules.generic.berynet
-                  {
-                    networking.hostName = name;
-                    nixpkgs.hostPlatform = system;
-                    nixpkgs.overlays = [ self.overlays.default ];
-                  }
-                ];
+              modules = [
+                ./${"../../iso/${name}"}
+                self.modules.generic.berynet
+                {
+                  networking.hostName = name;
+                  nixpkgs.hostPlatform = system;
+                  nixpkgs.overlays = [ self.overlays.default ];
+                }
+              ];
             }).config.system.build.isoImage;
         in
         {
