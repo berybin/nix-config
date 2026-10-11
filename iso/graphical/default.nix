@@ -1,5 +1,5 @@
 {
-  imports = [ ./core.nix ];
+  imports = [ ../core.nix ];
 
   isoImage.edition = "BeryGraphical";
 
