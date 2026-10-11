@@ -39,11 +39,6 @@
       # Do NOT add `inputs.nixpkgs.follows = "nixpkgs"` - niri has a binary cache
     };
 
-    nixos-anywhere = {
-      url = "github:nix-community/nixos-anywhere";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
