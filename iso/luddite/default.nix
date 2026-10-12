@@ -2,7 +2,7 @@
 {
   imports = [ ../graphical ];
 
-  isoImage.edition = "luddite";
+  isoImage.edition = lib.mkForce "luddite";
 
   # Disable networking so the system is air-gapped
   services.openssh.enable = false;
