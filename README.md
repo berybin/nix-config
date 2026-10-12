@@ -9,10 +9,10 @@ It's a Nix Flake built and organised using the [Flake Parts](https://flake.parts
 ## A few features of my config
 
 - Structured to manage multiple hosts with multiple users
-- [**Custom Live Boot ISOs**](#custom-live-boot-isos) for [bootstrapping new machines](#-bootstrapping-a-new-machine)
-- [**Secrets Management with SOPS and sops-nix**](#-secrets-management-with-sops-and-sops-nix)
-- [**Declarative disk partitioning and formatting with disko**](#-declarative-disk-partitioning-and-formatting-with-disko) / [**Encrypted root filesystem with LUKS and BTRFS**](#-encrypted-root-filesystem-with-luks-and-btrfs)
-- [**Opt-in filesystem persistence with Impermanence**](#-opt-in-filesystem-persistence-with-impermanence)
+- [**Custom Live Boot ISOs**](#custom-live-boot-isos) for [bootstrapping new machines](#bootstrapping-a-new-machine)
+- [**Secrets Management with SOPS and sops-nix**](#secrets-management-with-sops-and-sops-nix)
+- [**Declarative disk partitioning and formatting with disko**](#declarative-disk-partitioning-and-formatting-with-disko) / [**Encrypted root filesystem with LUKS and BTRFS**](#encrypted-root-filesystem-with-luks-and-btrfs)
+- [**Opt-in filesystem persistence with Impermanence**](#opt-in-filesystem-persistence-with-impermanence)
 
 ## Repository Layout
 
@@ -49,7 +49,7 @@ nix build .#iso-server-minimal
 sudo dd if=./result/iso/<RESULT_ISO>.iso of=/dev/sdX bs=4M conv=fsync status=progress
 ```
 
-## 💾 Bootstrapping a new machine
+## Bootstrapping a new machine
 
 To install NixOS on any of my devices, I use [nixos-anywhere](https://nix-community.github.io/nixos-anywhere/) ([no OS guide](https://nix-community.github.io/nixos-anywhere/howtos/no-os.html)).
 
@@ -105,7 +105,7 @@ This is done with the `--disk-encryption-keys` flag.
 
 </details>
 
-## 🔐 Secrets Management with SOPS and sops-nix
+## Secrets Management with SOPS and sops-nix
 
 Each host has their own sops secret file if needed. Generally stored at `/hosts/<HOST>/secret.yaml`\
 The `.sops.yaml` in the root of this repo specifies the recipients of each secret file.
@@ -124,25 +124,25 @@ sops updatekeys path/to/secrets.yaml
 - [sops-nix](https://github.com/Mic92/sops-nix)
 - [NixOS Secrets Management Video](https://www.youtube.com/watch?v=6EMNHDOY-wo) and [related article](https://unmovedcentre.com/posts/secrets-management/)
 
-## 💽 Declarative disk partitioning and formatting with disko
+## Declarative disk partitioning and formatting with disko
 
 > [!WARNING]
 > This is still a work in progress.
 
-## 🔐 Encrypted root filesystem with LUKS and BTRFS
+## Encrypted root filesystem with LUKS and BTRFS
 
 > [!WARNING]
 > This is also a work in progress.\
 > I have it working on a spare device, but I haven't set it up on any machines that I daily drive just yet.
 
-## 📁 Opt-in filesystem persistence with Impermanence
+## Opt-in filesystem persistence with Impermanence
 
 > [!WARNING]
 > Believe it or not, but this is also a work in progress.
 
 [Impermanence](https://github.com/nix-community/impermanence) lets you choose what files and directories you want to keep between reboots - the rest are thrown away.
 
-I achieve this using BTRFS subvolumes and a `@blank` subvolume snapshot which is created just after [disko](#-declarative-disk-partitioning-and-formatting-with-disko) is finished formatting the disk.
+I achieve this using BTRFS subvolumes and a `@blank` subvolume snapshot which is created just after [disko](#declarative-disk-partitioning-and-formatting-with-disko) is finished formatting the disk.
 
 ## Reference & Inspiration
 
