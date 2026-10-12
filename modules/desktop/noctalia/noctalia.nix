@@ -29,7 +29,7 @@
     };
   };
 
-  flake.modules.homeManager.noctalia = {
+  flake.modules.homeManager.noctalia = { lib, pkgs, ... }: {
     imports = [ inputs.noctalia.homeModules.default ];
 
     programs.noctalia = {
@@ -39,6 +39,9 @@
       settings = {
         shell.telemetry_enabled = true;
         shell.launch_apps_as_systemd_services = true;
+
+        plugins = import ./_plugins.nix;
+        desktop_widgets = import ./_desktop-widgets.nix;
 
         wallpaper = {
           enabled = true;
@@ -56,9 +59,22 @@
         bar.default = {
           margin_ends = 0;
           widget_spacing = 12;
+          center = [
+            "clock"
+            "cat"
+          ];
         };
 
         widget.clock.format = "{:%a | %d %b | %r}";
+        widget.cat = {
+          type = "noctalia/bongocat:cat";
+          settings = {
+            executable_path = lib.getExe pkgs.evtest;
+            audio_spectrum = true;
+            tappy_mode = true;
+            rave_mode = true;
+          };
+        };
 
         idle.behavior = {
           lock = {

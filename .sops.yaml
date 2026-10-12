@@ -4,15 +4,17 @@ keys:
     - &jay-on-t14 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqoKekYddKVQDqQ6Leavuxqq6kT7/nJy33dMA5E2eMj jay@t14
   hosts:
     - &t14 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJAU2kv2e/1a5LV1yIRm1R1YTHx1OkRkgEBFsHoP7HLv root@t14
+    - &workstation ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLHuq5XWE7hALF6H8w3oOZD33kqyJtyI2jEonEf9c7O root@workstation
 
 creation_rules:
-  - path_regex: modules/users/secrets\.yaml$
+  - path_regex: users/secrets\.yaml$
     pgp: *berikey
     age:
       - *t14
+      - *workstation
       - *jay-on-t14
 
-  - path_regex: modules/hosts/t14/secrets\.yaml$
+  - path_regex: hosts/t14/secrets\.yaml$
     pgp: *berikey
     age:
       - *t14

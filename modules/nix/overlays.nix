@@ -1,22 +1,25 @@
-{ inputs, ... }:
-{
-  flake.overlays =
-    let
-      pkgs-stable =
-        system:
-        import inputs.nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
+{ self, inputs, ... }:
 
-      mkStablePkg = name: _self: super: {
-        ${name} = (pkgs-stable super.stdenv.hostPlatform.system).${name};
-      };
-    in
-    {
-      default = inputs.nixpkgs.lib.composeManyExtensions [
-        inputs.nur.overlays.default
-        (mkStablePkg "freecad")
-      ];
+let
+  pkgs-stable =
+    system:
+    import inputs.nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
     };
+
+  mkStablePkg = name: _final: prev: {
+    ${name} = (pkgs-stable prev.stdenv.hostPlatform.system).${name};
+  };
+
+  localPkgs = _final: prev: self.packages.${prev.stdenv.hostPlatform.system} or { };
+
+in
+{
+  flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
+    localPkgs
+    inputs.nur.overlays.default
+    inputs.nix-vscode-extensions.overlays.default
+    (mkStablePkg "freecad")
+  ];
 }

@@ -3,12 +3,17 @@
   flake.modules.homeManager = {
     cli = {
       imports = with self.modules.homeManager; [
+        btop
         fastfetch
         fish
         kitty
         starship
         zoxide
       ];
+    };
+
+    btop = {
+      programs.btop.enable = true;
     };
 
     fastfetch = {

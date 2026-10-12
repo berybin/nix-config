@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
       freecad
       kicad
+      mkberyusb
       orca-slicer
       smartmontools
     ];

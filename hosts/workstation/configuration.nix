@@ -9,6 +9,8 @@ let
     "office"
     "social"
     "tinkering"
+    "vintagestory"
+    "vscodium"
   ];
 in
 {
@@ -16,6 +18,7 @@ in
     imports = with self.modules.nixos; [
       system-desktop
       desktop
+      (self.factory.sops { secretsFile = ./secrets.yaml; })
       (self.lib.loadNixosAndHmModulesForUser config modules "jay")
     ];
 
