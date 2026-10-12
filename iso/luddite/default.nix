@@ -5,7 +5,7 @@
   isoImage.edition = "luddite";
 
   # Disable networking so the system is air-gapped
-  # Comment all of these lines out if you'll need internet access
+  services.openssh.enable = false;
   boot.initrd.network.enable = false;
   networking = {
     resolvconf.enable = false;

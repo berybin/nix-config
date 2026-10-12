@@ -20,7 +20,7 @@
   i18n.defaultLocale = "en_AU.UTF-8";
 
   users.users.root.openssh.authorizedKeys.keys = lib.attrValues config.berynet.keys;
-  services.openssh.enable = true;
+  services.openssh.enable = lib.mkDefault true;
   services.avahi = {
     enable = true;
     nssmdns4 = true;
