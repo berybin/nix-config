@@ -13,8 +13,10 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_${finalAttrs.version}.tar.gz";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+    hash = "sha256-p9SlIGBFkKlt6BLubGuvRATUPYbPHsT7rBs6WAtSyEc=";
   };
+
+  sourceRoot = ".";
 
   __structuredAttrs = true;
 
