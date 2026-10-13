@@ -3,7 +3,11 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        vintagestory
+        (vintagestory.override {
+          waylandSupport = true;
+          wayland = pkgs.wayland;
+          x11Support = false;
+        })
       ];
     };
 }
