@@ -65,6 +65,20 @@
             open-focused = true;
           }
         ];
+
+        environment."NIXOS_OZONE_WL" = "1";
+      };
+
+      xdg.portal = {
+        enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        config.niri = {
+          default = [
+            "gnome"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        };
       };
     };
 }
