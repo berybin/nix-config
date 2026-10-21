@@ -9,6 +9,91 @@
     let
       name = "vintagestory";
       cfg = config.services.vintagestory-server;
+
+      modType = lib.types.submodule (
+        { config, ... }: {
+          options = {
+            file-id = lib.mkOption {
+              type = lib.types.ints.positive;
+              example = 654321;
+              description = ''
+                VS Mod DB file ID. Each new release of a mod gets a unique file ID. The download url for a mod
+                is as follows: `https://mods.vintagestory.at/download/<FILE_ID>/<FILENAME>`.
+
+                This option represents the <FILE_ID> portion of the download url.
+              '';
+            };
+
+            filename = lib.mkOption {
+              type = lib.types.strMatching "[a-zA-Z0-9._-]+\\.zip";
+              example = "BetterRuinsv0.6.4.zip";
+              description = ''
+                Zip filename as it appears in the ModDB URL, also used as the installed filename.
+                Mod authors don't follow a strict naming scheme, so this wildly varies between mods.
+              '';
+            };
+
+            hash = lib.mkOption {
+              type = lib.types.str;
+              example = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+              default = lib.fakeHash;
+              description = "Mod source hash.";
+            };
+
+            url = lib.mkOption {
+              type = lib.types.str;
+              readOnly = true;
+              default = "https://mods.vintagestory.at/download/${toString config.file-id}/${config.filename}";
+            };
+          };
+        }
+      );
+
+      vsModTree = pkgs.linkFarm "vs-mods" (
+        map (mod: {
+          name = mod.filename;
+          path = pkgs.fetchurl {
+            name = mod.filename;
+            inherit (mod) url hash;
+          };
+        }) cfg.mods
+      );
+
+      syncMods = pkgs.writeShellApplication {
+        name = "${name}-sync-server-mods";
+        runtimeInputs = [ pkgs.rsync ];
+        text = ''
+          dest="${cfg.dataDir}/Mods"
+          mkdir -p "$dest"
+          rsync -rL --delete ${vsModTree}/ "$dest/"
+        '';
+      };
+
+      serverconfigOverridesFile = pkgs.writeText "serverconfig-overrides.json" (
+        builtins.toJSON cfg.serverConfig
+      );
+
+      overrideServerConfig = pkgs.writeShellApplication {
+        name = "${name}-override-serverconfig";
+        runtimeInputs = [ pkgs.jq ];
+        text = ''
+          server_config="${cfg.dataDir}/serverconfig.json"
+
+          if [ ! -f "$server_config" ]; then
+            echo "serverconfig.json does not exist yet - skipping overrides"
+            exit 0
+          fi
+
+          tmp="$(mktemp)"
+          trap 'rm -f "$tmp"' EXIT
+
+          # https://stackoverflow.com/questions/19529688/how-to-merge-2-json-objects-from-2-files-using-jq#24904276
+          jq -s '.[0] * .[1]' "$server_config" "${serverconfigOverridesFile}" > "$tmp"
+
+          cat "$tmp" > "$server_config"
+        '';
+      };
+
     in
     {
 
@@ -55,6 +140,21 @@
           '';
         };
 
+        mods = lib.mkOption {
+          type = lib.types.listOf modType;
+          default = [ ];
+          description = "Mods to install into the `/Mods` directory under `services.vintagestory-server.dataDir`";
+          example = lib.literalExpression ''
+            [ 
+              { 
+                file-id = 123882;
+                filename = "BetterRuinsv0.6.4.zip";
+                hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+              }
+            ];
+          '';
+        };
+
         port = lib.mkOption {
           type = lib.types.port;
           default = 42420;
@@ -84,30 +184,15 @@
           wantedBy = [ "multi-user.target" ];
           after = [ "network.target" ];
 
-          preStart =
-            let
-              serverconfigOverridesFile = pkgs.writeText "serverconfig-overrides.json" (
-                builtins.toJSON cfg.serverConfig
-              );
-            in
-            ''
-              set -euo pipefail
+          restartTriggers = [
+            vsModTree
+            cfg.serverConfig
+          ];
 
-              server_config=${lib.escapeShellArg "${cfg.dataDir}/serverconfig.json"}
-
-              if [ ! -f "$server_config" ]; then
-                echo "serverconfig.json does not exist yet - skipping overrides"
-                exit 0
-              fi
-
-              tmp="$(mktemp)"
-              trap 'rm -f "$tmp"' EXIT
-
-              ${lib.getExe pkgs.jq} -s '.[0] * .[1]' \
-                "$server_config" "${serverconfigOverridesFile}" > "$tmp"
-
-              cat "$tmp" > "$server_config"
-            '';
+          preStart = ''
+            ${lib.getExe overrideServerConfig}
+            ${lib.getExe syncMods}
+          '';
 
           serviceConfig = lib.mkMerge [
             {
