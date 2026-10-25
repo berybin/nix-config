@@ -1,6 +1,9 @@
-{ lib, ... }:
+{ lib, modulesPath, ... }:
 {
-  imports = [ ../graphical ];
+  imports = [
+    ../graphical
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+  ];
 
   isoImage.edition = lib.mkForce "luddite";
 
