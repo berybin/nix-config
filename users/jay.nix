@@ -49,6 +49,7 @@ in
     };
 
     home.packages = with pkgs; [
+      colmena
       ente-auth
       mod2mp4
       obsidian
