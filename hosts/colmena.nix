@@ -17,6 +17,7 @@ in
       deployment = {
         targetHost = "vs.berybin.dev";
         targetUser = "bery";
+        tags = [ "berynet" ];
       };
     };
   };
