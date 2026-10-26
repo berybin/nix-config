@@ -47,6 +47,7 @@ in
 
     home.packages = with pkgs; [
       ente-auth
+      mod2mp4
       obsidian
     ];
 
