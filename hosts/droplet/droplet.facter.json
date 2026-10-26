@@ -367,7 +367,7 @@
           "/dev/disk/by-label/config-2",
           "/dev/disk/by-path/pci-0000:00:07.0",
           "/dev/disk/by-path/virtio-pci-0000:00:07.0",
-          "/dev/disk/by-uuid/2026-10-26-05-26-48-00",
+          "/dev/disk/by-uuid/2026-10-26-07-32-03-00",
           "/dev/vdb"
         ],
         "resources": [
@@ -949,7 +949,7 @@
     "network_interface": [
       {
         "index": 29,
-        "attached_to": 20,
+        "attached_to": 17,
         "class_list": [
           "network_interface"
         ],
@@ -964,20 +964,20 @@
           "value": 1
         },
         "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/ens4",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:04.0/virtio2",
-        "unix_device_name": "ens4",
+        "sysfs_id": "/class/net/ens3",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:03.0/virtio1",
+        "unix_device_name": "ens3",
         "unix_device_names": [
-          "ens4"
+          "ens3"
         ],
         "resources": [
           {
             "type": "hwaddr",
-            "address": 100
+            "address": 98
           },
           {
             "type": "phwaddr",
-            "address": 100
+            "address": 98
           }
         ],
         "driver": "virtio_net",
@@ -1014,7 +1014,7 @@
       },
       {
         "index": 31,
-        "attached_to": 17,
+        "attached_to": 20,
         "class_list": [
           "network_interface"
         ],
@@ -1029,20 +1029,20 @@
           "value": 1
         },
         "model": "Ethernet network interface",
-        "sysfs_id": "/class/net/ens3",
-        "sysfs_device_link": "/devices/pci0000:00/0000:00:03.0/virtio1",
-        "unix_device_name": "ens3",
+        "sysfs_id": "/class/net/ens4",
+        "sysfs_device_link": "/devices/pci0000:00/0000:00:04.0/virtio2",
+        "unix_device_name": "ens4",
         "unix_device_names": [
-          "ens3"
+          "ens4"
         ],
         "resources": [
           {
             "type": "hwaddr",
-            "address": 98
+            "address": 100
           },
           {
             "type": "phwaddr",
-            "address": 98
+            "address": 100
           }
         ],
         "driver": "virtio_net",

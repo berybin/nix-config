@@ -17,6 +17,9 @@
         bery
       ];
 
+      security.sudo.wheelNeedsPassword = false;
+      nix.settings.trusted-users = [ "bery" ];
+
       system.stateVersion = "26.11";
     };
 }
