@@ -47,6 +47,14 @@
           gs = "git status";
           gtn = "git tag $(${lib.getExe pkgs.svu} next)"; # tag with next semver tag
         };
+
+        functions = {
+          develop = {
+            body = "nix develop --command fish";
+            wraps = "nix develop";
+          };
+
+        };
       };
     };
 
