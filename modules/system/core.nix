@@ -2,7 +2,10 @@
   flake.modules.nixos.system-core =
     { pkgs, ... }:
     {
-      imports = [ self.modules.nixos.ssh-access ];
+      imports = [
+        self.modules.nixos.ssh-access
+        self.modules.generic.berynet
+      ];
 
       nixpkgs.config.allowUnfree = true;
       nix = {
