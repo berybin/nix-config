@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-  flake.diskoConfigurations.nix-droplet = {
+  flake.diskoConfigurations.droplet = {
     imports = [ inputs.disko.nixosModules.disko ];
 
     disko.devices = {
@@ -10,15 +10,9 @@
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
-              type = "EF00";
-              size = "512M";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
+            boot = {
+              size = "1M";
+              type = "EF02"; # for grub MBR
             };
             root = {
               size = "100%";
@@ -71,7 +65,7 @@
     };
   };
 
-  flake.modules.nixos.nix-droplet.imports = [
-    self.diskoConfigurations.nix-droplet
+  flake.modules.nixos.droplet.imports = [
+    self.diskoConfigurations.droplet
   ];
 }
