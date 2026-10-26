@@ -13,14 +13,14 @@
       modType = lib.types.submodule (
         { config, ... }: {
           options = {
-            file-id = lib.mkOption {
+            download-id = lib.mkOption {
               type = lib.types.ints.positive;
               example = 654321;
               description = ''
-                VS Mod DB file ID. Each new release of a mod gets a unique file ID. The download url for a mod
-                is as follows: `https://mods.vintagestory.at/download/<FILE_ID>/<FILENAME>`.
+                VS Mod DB file download ID. Each new release of a mod gets a unique download ID. The download url for a mod
+                is as follows: `https://mods.vintagestory.at/download/<DOWNLOAD_ID>/<FILENAME>`.
 
-                This option represents the <FILE_ID> portion of the download url.
+                This option represents the <DOWNLOAD_ID> portion of the download url.
               '';
             };
 
@@ -43,13 +43,13 @@
             url = lib.mkOption {
               type = lib.types.str;
               readOnly = true;
-              default = "https://mods.vintagestory.at/download/${toString config.file-id}/${config.filename}";
+              default = "https://mods.vintagestory.at/download/${toString config.download-id}/${config.filename}";
             };
           };
         }
       );
 
-      vsModTree = pkgs.linkFarm "vs-mods" (
+      vsModTree = pkgs.linkFarm "${name}-mods" (
         map (mod: {
           name = mod.filename;
           path = pkgs.fetchurl {
@@ -147,7 +147,7 @@
           example = lib.literalExpression ''
             [ 
               { 
-                file-id = 123882;
+                download-id = 123882;
                 filename = "BetterRuinsv0.6.4.zip";
                 hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
               }
@@ -186,7 +186,7 @@
 
           restartTriggers = [
             vsModTree
-            cfg.serverConfig
+            serverconfigOverridesFile
           ];
 
           preStart = ''
@@ -196,7 +196,7 @@
 
           serviceConfig = lib.mkMerge [
             {
-              ExecStart = "${cfg.package}/bin/vintagestory-server --dataPath ${cfg.dataDir} --port ${cfg.port}";
+              ExecStart = "${cfg.package}/bin/vintagestory-server --dataPath ${cfg.dataDir} --port ${toString cfg.port}";
               Restart = "always";
               User = cfg.user;
               Group = cfg.group;
