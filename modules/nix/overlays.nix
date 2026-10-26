@@ -18,6 +18,7 @@ in
 {
   flake.overlays.default = inputs.nixpkgs.lib.composeManyExtensions [
     localPkgs
+    inputs.colmena.overlays.default
     inputs.nur.overlays.default
     inputs.nix-vscode-extensions.overlays.default
     (mkStablePkg "freecad")
