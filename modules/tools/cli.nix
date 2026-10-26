@@ -1,5 +1,9 @@
 { lib, self, ... }:
 {
+  flake.modules.nixos.cli = {
+    programs.fish.enable = true;
+  };
+
   flake.modules.homeManager = {
     cli = {
       imports = with self.modules.homeManager; [
@@ -23,6 +27,9 @@
     fish = { pkgs, config, ... }: {
       programs.fish = {
         enable = true;
+        interactiveShellInit = ''
+          set fish_greeting # Disable greeting
+        '';
         shellAbbrs = {
           # quickly scan network for hostnames using avahi
           # ab = "avahi-browse --all --ignore-local --resolve --terminate";
@@ -39,15 +46,6 @@
           gaa = "git add .";
           gs = "git status";
           gtn = "git tag $(${lib.getExe pkgs.svu} next)"; # tag with next semver tag
-        };
-
-        functions = {
-          # overwrite fish_command_not_found - https://github.com/fish-shell/fish-shell/issues/2691
-          # solution found copying home-manager example - https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix#L367
-          __fish_command_not_found_handler = {
-            body = "__fish_default_command_not_found_handler $argv[1]";
-            onEvent = "fish_command_not_found";
-          };
         };
       };
     };

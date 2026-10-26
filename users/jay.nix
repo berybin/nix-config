@@ -7,7 +7,9 @@ let
   signingKey = "E756A04B17322D8D"; # yubikey
 in
 {
-  flake.modules.nixos.${username} = { config, ... }: {
+  flake.modules.nixos.${username} = { pkgs, config, ... }: {
+    imports = [ self.modules.nixos.cli ];
+
     sops.secrets."passwords/jay" = {
       neededForUsers = true;
       sopsFile = ./secrets.yaml;
@@ -18,6 +20,7 @@ in
       isNormalUser = true;
       hashedPasswordFile = config.sops.secrets."passwords/jay".path;
       description = "Jay";
+      shell = pkgs.fish;
       extraGroups = [
         "networkmanager"
         "wheel"
