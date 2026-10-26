@@ -46,7 +46,7 @@
               sponsorblock
               ublock-origin
               vimium
-              wappalyzer
+              # wappalyzer
             ];
           };
         };
