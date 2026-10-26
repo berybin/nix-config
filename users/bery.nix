@@ -7,6 +7,7 @@ in
     users.users.${username} = {
       inherit description;
       isNormalUser = true;
+      initialHashedPassword = "";
       extraGroups = [
         "wheel"
       ];
