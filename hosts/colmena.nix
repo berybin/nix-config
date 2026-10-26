@@ -2,7 +2,7 @@
 let
   mkColmenaNode =
     system: hostname: config:
-    ((self.lib.mkCoreSystem system hostname) // config);
+    ((self.lib.mkHostModule system hostname) // config);
 in
 {
   flake.colmenaHive = inputs.colmena.lib.makeHive {
