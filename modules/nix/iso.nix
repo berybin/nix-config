@@ -29,7 +29,7 @@
           iso-graphical = mkIso "graphical";
           iso-luddite = mkIso "luddite";
           iso-server-bootstrap = mkIso "server-bootstrap";
-          iso-digital-ocean = (mkImage "digital-ocean-bootstrap").digitalOceanImage;
+          iso-digital-ocean = (mkImage "digital-ocean-bootstrap").config.system.build.digitalOceanImage;
         };
     };
 }
