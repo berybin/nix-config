@@ -15,6 +15,8 @@
         system-server
         impermanence
         bery
+
+        (self.factory.sops { secretsFile = ./secrets.yaml; })
       ];
 
       security.sudo.wheelNeedsPassword = false;
