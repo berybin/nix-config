@@ -103,6 +103,64 @@ This is done with the `--disk-encryption-keys` flag.
 
 `--disk-encryption-keys /path/to/store/target/secret.key /path/to/local/secret.key`
 
+### Bootstrapping an Underspecced VPS
+
+This section is a write up following my trials and tribulations trying to install NixOS using nixos-anywhere on a low spec VPS in Digital Ocean.
+
+Essentially, during the nixos-anywhere installation, `/nix/.rw-store` was too small, causing the installation to grind to a halt.
+
+`nixos-anywhere` runs in several phases. By default it runs phases in order: `kexec,disko,install,reboot`.\
+However, you can manually choose which phases run using the `--phases` flag.
+
+To install NixOS on a VPS, I broke it up into `kexec,disko` phases, and `install,reboot` phases.\
+Inbetween phases, I had to SSH into the kexec environment and remount the `/nix/.rw-store` with a larger size.
+
+> [!NOTE]
+> The `--no-substitute-on-destination` also helps with the installation.
+>
+> <https://github.com/nix-community/nixos-anywhere/issues/402#issuecomment-2478702807>
+
+#### Run the `kexec,disko` Phase
+
+```shell
+nixos-anywhere --flake .#<HOST> \
+  --generate-hardware-config nixos-facter ./hosts/<HOST>/<HOST>.facter.json \
+  --target-host root@<IP> \
+  --no-substitute-on-destination \
+  --phases kexec,disko
+```
+
+```diff
++ --no-substitute-on-destination \
++ --phases kexec,disko
+```
+
+#### After that has completed, SSH into the kexec environment and remount `/nix/.rw-store` with a larger size
+
+```shell
+ssh root@<IP>
+
+findmnt /nix/.rw-store
+df -h /nix/.rw-store
+
+mount -o remount,size=3G /nix/.rw-store
+df -h /nix/.rw-store
+```
+
+#### Run the `install,reboot` Phase
+
+```shell
+nixos-anywhere --flake .#<HOST> \
+  --target-host root@<IP> \
+  --no-substitute-on-destination \
+  --phases install,reboot
+```
+
+```diff
++ --no-substitute-on-destination \
++ --phases kexec,disko
+```
+
 </details>
 
 ## Secrets Management with SOPS and sops-nix
