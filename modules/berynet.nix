@@ -14,6 +14,14 @@
         jay-t14 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqoKekYddKVQDqQ6Leavuxqq6kT7/nJy33dMA5E2eMj jay@t14";
         jay-workstation = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOuTx2oW/e+l/LjMFS4TEw7EkMgWYTU5ZttyuJN67HPi jays nixos desktop";
       };
+
+      # wireguard public keys
+      wireguard = {
+        droplet = {
+          pubkey = "Bh3o5mDJUony6MI+PepHYxiaQ8aKl4eupYBNEFpKMQY=";
+          address = [ "10.45.0.1/24" ];
+        };
+      };
     };
   };
 }
