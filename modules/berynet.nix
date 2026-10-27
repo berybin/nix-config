@@ -18,8 +18,12 @@
       # wireguard public keys
       wireguard = {
         droplet = {
-          pubkey = "Bh3o5mDJUony6MI+PepHYxiaQ8aKl4eupYBNEFpKMQY=";
-          address = [ "10.45.0.1/24" ];
+          publicKey = "Bh3o5mDJUony6MI+PepHYxiaQ8aKl4eupYBNEFpKMQY=";
+          ip = "10.45.0.1";
+        };
+        nucbox = {
+          publicKey = "";
+          ip = "10.45.0.2";
         };
       };
     };
