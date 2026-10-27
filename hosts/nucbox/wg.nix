@@ -10,8 +10,7 @@
         {
           inherit (config.berynet.wireguard.droplet) publicKey;
           allowedIPs = [ "${config.berynet.wireguard.droplet.ip}/32" ];
-          endpoint = "vs.berybin.dev:42420";
-
+          endpoint = "vs.berybin.dev:51820";
           persistentKeepalive = 25; # keep the NAT mapping alive
         }
       ];

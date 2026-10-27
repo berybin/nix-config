@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.nixos.nucbox = {
+  flake.modules.nixos.nucbox = { config, ... }: {
     imports = with self.modules.nixos; [
       (self.factory.sops { secretsFile = ./secrets.yaml; })
       system-server
@@ -13,12 +13,21 @@
       vintagestory-server
     ];
 
+    environment.persistence."/persist" = {
+      hideMounts = true;
+      directories = [
+        "/var/lib/vintagestory"
+      ];
+    };
+
     services.vintagestory-server = {
       enable = true;
+      port = config.berynet.vintagestory.port;
       openFirewall = true;
       serverConfig = {
         ServerName = "Bery's Story [nucbox]";
         WelcomeMessage = "Welcome {0}, don't freakin die pls";
+        WhitelistMode = "off";
       };
       mods = [
         # {

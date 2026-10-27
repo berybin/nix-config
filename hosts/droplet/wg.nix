@@ -12,12 +12,9 @@
       peers = [
         {
           inherit (config.berynet.wireguard.nucbox) publicKey;
-          allowedIPs = [
-            "${config.berynet.wireguard.nucbox.ip}/32"
-          ];
+          allowedIPs = [ "${config.berynet.wireguard.nucbox.ip}/32" ];
         }
       ];
-
     };
   };
 }

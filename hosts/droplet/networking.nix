@@ -2,26 +2,24 @@
   flake.modules.nixos.droplet =
     { config, ... }:
     let
-      vintageStoryGamePort = 42420;
+      vintageStoryGamePort = config.berynet.vintagestory.port;
       nucboxIP = config.berynet.wireguard.nucbox.ip;
       dropletIP = config.berynet.wireguard.droplet.ip;
     in
     {
-      boot.kernel.sysctl = {
-        "net.ipv4.ip_forward" = true;
-      };
+      boot.kernel.sysctl."net.ipv4.ip_forward" = true;
 
       networking = {
         firewall = {
-          enable = true;
           allowedTCPPorts = [ vintageStoryGamePort ];
           allowedUDPPorts = [ vintageStoryGamePort ];
         };
 
         nat = {
           enable = true;
-          internalInterfaces = [ "ens3" ];
-          externalInterface = "wg0";
+          externalInterface = "ens3";
+          internalInterfaces = [ "wg0" ];
+
           forwardPorts = [
             {
               proto = "tcp";
