@@ -15,8 +15,12 @@
         jay-workstation = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOuTx2oW/e+l/LjMFS4TEw7EkMgWYTU5ZttyuJN67HPi jays nixos desktop";
       };
 
-      # wireguard public keys
+      # wireguard config and public keys
       wireguard = {
+        server = {
+          address = "vs.berybin.dev";
+          port = 51820;
+        };
         droplet = {
           publicKey = "Bh3o5mDJUony6MI+PepHYxiaQ8aKl4eupYBNEFpKMQY=";
           ip = "10.45.0.1";
