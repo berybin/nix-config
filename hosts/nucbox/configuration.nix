@@ -27,7 +27,7 @@
       serverConfig = {
         ServerName = "Bery's Story [nucbox]";
         WelcomeMessage = "Welcome {0}, don't freakin die pls";
-        WhitelistMode = "off";
+        WhitelistMode = "on";
       };
       mods = [
         # {
