@@ -32,10 +32,7 @@
       services.avahi = {
         enable = true;
         nssmdns4 = true;
-        publish = {
-          enable = true;
-          addresses = true;
-        };
+        settings.publish.publish-addresses = true;
       };
     };
 }
