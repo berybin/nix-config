@@ -22,7 +22,7 @@
           ip = "10.45.0.1";
         };
         nucbox = {
-          publicKey = "";
+          publicKey = "k45feyKV/7/igfZ6WDSKK1CFulMljvgB6xNJWe0ckRs=";
           ip = "10.45.0.2";
         };
       };

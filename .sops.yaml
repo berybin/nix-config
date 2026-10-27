@@ -6,6 +6,7 @@ keys:
     - &t14 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJAU2kv2e/1a5LV1yIRm1R1YTHx1OkRkgEBFsHoP7HLv root@t14
     - &workstation ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLHuq5XWE7hALF6H8w3oOZD33kqyJtyI2jEonEf9c7O root@workstation
     - &droplet ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINxzxjr9LcZwiOjmJrTdnGU1JPUBkfhXCT6LbhEfoU9t root@droplet
+    - &nucbox ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFqDpKQb63QfcJDzDcD04SYK4VNI/X/6QyFKLFv9okHQ root@nucbox
 
 creation_rules:
   - path_regex: users/secrets\.yaml$
@@ -25,3 +26,9 @@ creation_rules:
     pgp: *berikey
     age:
       - *droplet
+
+  - path_regex: hosts/nucbox/secrets\.yaml$
+    pgp: *berikey
+    age:
+      - *nucbox
+

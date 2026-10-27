@@ -5,7 +5,7 @@
 {
   flake.modules.nixos.nucbox = {
     imports = with self.modules.nixos; [
-      # (self.factory.sops { secretsFile = ./secrets.yaml; })
+      (self.factory.sops { secretsFile = ./secrets.yaml; })
       system-server
       impermanence
       bery

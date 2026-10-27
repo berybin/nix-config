@@ -20,5 +20,13 @@ in
         tags = [ "berynet" ];
       };
     };
+
+    nucbox = mkColmenaNode "x86_64-linux" "nucbox" {
+      deployment = {
+        targetHost = "10.42.4.10";
+        targetUser = "bery";
+        tags = [ "berynet" ];
+      };
+    };
   };
 }
