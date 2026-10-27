@@ -14,14 +14,20 @@ possible_root_devices=(
 found_root_device=""
 
 for dev in "${possible_root_devices[@]}"; do
-    if [[ ! -b "$dev" ]]; then
-        echo "INFO: $dev wasn't found or was not a block device."
-        continue
-    fi
+    # This script was running before my VPS was able to setup device nodes and /dev/disk/by-label/ symlinks
+    # The following for-loop tries each possible root device for 5 seconds before trying the next.
+    # This gives the machine time to set all these up
+    for _ in {1..50}; do
+        if [[ -b "$dev" ]]; then
+            found_root_device="$dev"
+            echo "Root device found: $found_root_device"
+            break 2
+        fi
+        sleep 0.1
+    done
 
-    found_root_device="$dev"
-    echo "Root device found: $found_root_device..."
-    break
+    echo "INFO: $dev wasn't found, trying next potential block device"
+
 done
 
 if [[ -z "$found_root_device" || ! -b "$found_root_device" ]]; then
