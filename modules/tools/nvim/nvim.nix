@@ -232,7 +232,7 @@
         vimAlias = true;
         viAlias = true;
         vimdiffAlias = true;
-        defaultEditor = true;
+        # defaultEditor = true;
 
         withPython3 = false;
         withRuby = false;

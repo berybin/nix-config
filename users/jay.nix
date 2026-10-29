@@ -48,17 +48,22 @@ in
       signingKey = lib.mkDefault signingKey;
     };
 
-    home.packages = with pkgs; [
-      colmena
-      ente-auth
-      mod2mp4
-      obsidian
-    ];
-
     home = {
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
       stateVersion = "25.05";
+
+      sessionVariables = {
+        EDITOR = "codium --wait";
+        VISUAL = "codium --wait";
+      };
+
+      packages = with pkgs; [
+        colmena
+        ente-auth
+        mod2mp4
+        obsidian
+      ];
     };
   };
 }
