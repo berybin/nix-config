@@ -19,7 +19,7 @@
         fail2ban
       ];
 
-      environment."/persist" = {
+      environment.persistence."/persist" = {
         directories = [
           "/var/lib/fail2ban"
         ];
