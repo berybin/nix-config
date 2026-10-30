@@ -19,6 +19,12 @@
         fail2ban
       ];
 
+      environment."/persist" = {
+        directories = [
+          "/var/lib/fail2ban"
+        ];
+      };
+
       security.sudo.wheelNeedsPassword = false;
       nix.settings.trusted-users = [ "bery" ];
 
