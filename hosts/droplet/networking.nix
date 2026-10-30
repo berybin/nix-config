@@ -9,8 +9,6 @@
     {
       boot.kernel.sysctl."net.ipv4.ip_forward" = true;
 
-      services.fail2ban.enable = true;
-
       networking = {
         firewall = {
           allowedTCPPorts = [ vintageStoryGamePort ];

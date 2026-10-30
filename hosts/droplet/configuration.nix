@@ -11,12 +11,12 @@
     {
       imports = with self.modules.nixos; [
         "${modulesPath}/virtualisation/digital-ocean-image.nix"
-
         system-server
         impermanence
         bery
 
         (self.factory.sops { secretsFile = ./secrets.yaml; })
+        fail2ban
       ];
 
       security.sudo.wheelNeedsPassword = false;
