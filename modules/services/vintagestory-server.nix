@@ -40,9 +40,9 @@
 
       vsModTree = pkgs.linkFarm "${name}-mods" (
         map (mod: {
-          name = mod.filename;
+          name = (baseNameOf mod.filename);
           path = pkgs.fetchurl {
-            name = mod.filename;
+            name = (baseNameOf mod.filename);
             inherit (mod) url hash;
           };
         }) cfg.mods
