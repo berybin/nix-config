@@ -13,22 +13,11 @@
       modType = lib.types.submodule (
         { config, ... }: {
           options = {
-            download-id = lib.mkOption {
-              type = lib.types.ints.positive;
-              example = 654321;
-              description = ''
-                VS Mod DB file download ID. Each new release of a mod gets a unique download ID. The download url for a mod
-                is as follows: `https://mods.vintagestory.at/download/<DOWNLOAD_ID>/<FILENAME>`.
-
-                This option represents the <DOWNLOAD_ID> portion of the download url.
-              '';
-            };
-
             filename = lib.mkOption {
-              type = lib.types.strMatching "[a-zA-Z0-9.+_-]+\\.zip";
-              example = "BetterRuinsv0.6.4.zip";
+              type = lib.types.strMatching "[a-zA-Z0-9/.+_-]+\\.zip";
+              example = "123599/primitivesurvival_5.1.4.zip";
               description = ''
-                Zip filename as it appears in the ModDB URL, also used as the installed filename.
+                Zip filename as it appears in the ModDB URL (must also include the download ID number).
                 Mod authors don't follow a strict naming scheme, so this wildly varies between mods.
               '';
             };
@@ -43,7 +32,7 @@
             url = lib.mkOption {
               type = lib.types.str;
               readOnly = true;
-              default = "https://mods.vintagestory.at/download/${toString config.download-id}/${config.filename}";
+              default = "https://mods.vintagestory.at/download/${config.filename}";
             };
           };
         }

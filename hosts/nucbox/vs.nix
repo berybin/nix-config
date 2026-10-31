@@ -16,8 +16,7 @@
       # nix store prefetch-file --json "URL" | jq -r .hash
       mods = [
         {
-          download-id = 131510;
-          filename = "Wilderlands+Onus+Moderatus+2.0.5.zip";
+          filename = "131510/Wilderlands+Onus+Moderatus+2.0.5.zip";
           hash = "sha256-wGDNndRRjGGd+hVEgoVVfUTQ5DqR+41f4NzXMdmDu98=";
         }
       ];
