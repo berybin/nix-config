@@ -25,7 +25,7 @@
             };
 
             filename = lib.mkOption {
-              type = lib.types.strMatching "[a-zA-Z0-9._-]+\\.zip";
+              type = lib.types.strMatching "[a-zA-Z0-9.+_-]+\\.zip";
               example = "BetterRuinsv0.6.4.zip";
               description = ''
                 Zip filename as it appears in the ModDB URL, also used as the installed filename.
