@@ -146,6 +146,81 @@
 
         # QoL =========================================================
         {
+          filename = "114621/betterinsulation_0.3.0.zip";
+          hash = "sha256-tNblfZKWjZcS2/9c+pnHDXSk2YUOifRqhnGFLbK/qM0=";
+        }
+        {
+          filename = "130705/BloodTrail-v1.2.12.zip";
+          hash = "sha256-Js+VEnmwJPdp7GxdR2j1mHfhBL04b8TjK3Ni+kSUbkM=";
+        }
+        {
+          filename = "129738/candela_1.0.1.zip";
+          hash = "sha256-GcAFvvHGWo774sc5u+4xAzb8et2s03D8dy1agEySKM8=";
+        }
+
+        ## Chisel =====================================================
+        {
+          filename = "127670/ChiselTools1.17.9.zip";
+          hash = "sha256-jV1Atm8zL1wdFNho/OZ73192qVqapRhfg4nCNTnZD+E=";
+        }
+        {
+          filename = "116213/chiseledgroundplacement_0.2.2.zip";
+          hash = "sha256-XwUdsQpDrYXv2PhrgAVzYUa7tC4rRCccrKUfOLfCQdE=";
+        }
+        {
+          filename = "114866/chiseledwallmounting_0.3.2.zip";
+          hash = "sha256-ORG89v7nEW5EoIT6lXGI+d4lihwBljBBVbnj/LAKv60=";
+        }
+        ## END Chisel =================================================
+        # {
+        #   filename = "https://mods.vintagestory.at/download/133671/crucibulum_1.8.0.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/87040/CureFirewood_1.0.1.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/116217/densegroundstorage_0.3.3.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/86676/fixperishrate_1.0.1.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/73777/forestpreserve.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/121500/gridforbeams-2.2.196.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/133328/vscngroundworks_1.0.2.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/131980/hottersmelting_1.1.6.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/125630/leanable_1.0.7.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/118217/Molds_v0.3.7.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/117393/MoreRockDrops_2x.zip";
+        #   hash = "";
+        # }
+        # {
+        #   filename = "https://mods.vintagestory.at/download/115330/nooffhandhungerpenalty_1.0.0.zip";
+        #   hash = "";
+        # }
+        {
           filename = "122478/openhand_1.1.2.zip";
           hash = "sha256-idYr3PObigA9yxgHHO0s+OFJSSlAL0PK4wgCT0dtntg=";
         }
