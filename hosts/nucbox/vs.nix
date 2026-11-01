@@ -131,11 +131,29 @@
         }
 
         # Prospecting =================================================
+        {
+          filename = "127840/bettererprospecting_3.4.12.zip";
+          hash = "sha256-IPafpnC/ayGgwzM3DCdsmnxLUnDLsNPHKfbbUyRsPzo=";
+        }
+        {
+          filename = "91913/easyprospect_1.3.1.zip";
+          hash = "sha256-Xsb0V8jZGweL+ygLrjENnUTmLZ2ES56eBWKGg4R28Tc=";
+        }
+        {
+          filename = "86405/ProspectTogether-2.2.1.zip";
+          hash = "sha256-1spaOxmNNjX2op+OAAMYf6h8vuT79x0/CshZUIOSRTg=";
+        }
 
         # QoL =========================================================
         {
           filename = "122478/openhand_1.1.2.zip";
           hash = "sha256-idYr3PObigA9yxgHHO0s+OFJSSlAL0PK4wgCT0dtntg=";
+        }
+
+        ## Salty's ====================================================
+        {
+          filename = "86508/ClickToPick_2.1.4.zip";
+          hash = "sha256-dokiV1/174UPmHSvwN+V1bJE9KJaF7tA7kqRsalisE4=";
         }
 
         # Systems / Mechanics =========================================
