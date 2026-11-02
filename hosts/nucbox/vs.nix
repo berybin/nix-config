@@ -20,6 +20,7 @@
         WorldConfig = {
           AllowCreativeMode = false;
           WorldName = "Bery's World";
+          MapSizeY = 448;
 
           WorldConfiguration = {
             allowUndergroundFarming = true;
