@@ -19,7 +19,7 @@ writeShellApplication {
   text = ''
     if [[ $# -ne 1 ]]; then
       echo "usage: nix-fetch-sri <URL>"
-      return 2
+      exit 1
     fi
 
     nix store prefetch-file --json "$1" | jq -er '.hash'
