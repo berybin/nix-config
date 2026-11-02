@@ -70,10 +70,10 @@
           filename = "92492/CartwrightsCaravan_1.9.1.zip";
           hash = "sha256-6YsgTKTO7LQVVccYk2QYSgYSDVoPZpOk2+q86g7MUJM=";
         }
-        {
-          filename = "107305/immersive-inventory-slots-net10-1.0.2.zip";
-          hash = "sha256-rpBeBXWS82wFVYhptw1J5NfaepTTpSUPXRYUCgzjLts=";
-        }
+        # {
+        #   filename = "107305/immersive-inventory-slots-net10-1.0.2.zip";
+        #   hash = "sha256-rpBeBXWS82wFVYhptw1J5NfaepTTpSUPXRYUCgzjLts=";
+        # }
         {
           filename = "126092/ToolBelt_0.3.6.zip";
           hash = "sha256-B5jyObIjHQWm9XXRfS6xTi3I6mvhTPh7fkRHEgDVeEw=";
