@@ -144,6 +144,14 @@
           hash = "sha256-du6LDcHDtGJELeAsb0b6fZ5dFHcdyP7nBg4mf3TZs3Y=";
         }
         {
+          filename = "87717/farseer_1.4.0.zip";
+          hash = "sha256-uskWdGtXwhTjHQ2RicT3vIvhG2icI46n1svzLevDArw=";
+        }
+        {
+          filename = "94588/algernonsterrainsampler_1.3.0.zip";
+          hash = "sha256-NRnHkROAgEHcsi/Q/jOMk/a2aWmcyPRWVGoMEYci47Q=";
+        }
+        {
           filename = "132967/lodestone_1.1.1.zip";
           hash = "sha256-1+hPd0bTSmSNKlvCcCizKyx2HM5ZOoG52PBhA3dPSrI=";
         }
