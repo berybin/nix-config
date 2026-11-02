@@ -14,7 +14,7 @@
       openFirewall = true;
       serverConfig = {
         ServerName = "Bery's Story";
-        StartupCommands = "/time calendarspeedmul 0.3";
+        StartupCommands = "/time calendarspeedmul 0.25";
 
         MapSizeY = 448;
         WorldConfig = {
@@ -35,7 +35,7 @@
             lightningFires = true;
             microblockChiseling = "all";
             oceanscale = "4";
-            playerHungerSpeed = "0.7";
+            playerHungerSpeed = "0.42";
             upheavelCommonness = "0.0";
           };
         };
