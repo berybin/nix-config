@@ -33,6 +33,7 @@
 
       vintagestory = {
         port = 42420;
+        voicechatPort = 52525;
       };
     };
   };

@@ -1,6 +1,13 @@
 {
 
   flake.modules.nixos.nucbox = { lib, config, ... }: {
+    networking = {
+      firewall = {
+        allowedTCPPorts = [ config.berynet.vintagestory.voicechatPort ];
+        allowedUDPPorts = [ config.berynet.vintagestory.voicechatPort ];
+      };
+    };
+
     services.vintagestory-server = {
       enable = true;
       port = config.berynet.vintagestory.port;

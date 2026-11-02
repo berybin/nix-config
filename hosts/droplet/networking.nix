@@ -3,6 +3,7 @@
     { config, ... }:
     let
       vintageStoryGamePort = config.berynet.vintagestory.port;
+      vsVoicechatPort = config.berynet.vintagestory.voicechatPort;
       nucboxIP = config.berynet.wireguard.nucbox.ip;
       dropletIP = config.berynet.wireguard.droplet.ip;
     in
@@ -31,6 +32,16 @@
               sourcePort = vintageStoryGamePort;
               destination = "${nucboxIP}:${toString vintageStoryGamePort}";
             }
+            {
+              proto = "tcp";
+              sourcePort = vsVoicechatPort;
+              destination = "${nucboxIP}:${toString vsVoicechatPort}";
+            }
+            {
+              proto = "udp";
+              sourcePort = vsVoicechatPort;
+              destination = "${nucboxIP}:${toString vsVoicechatPort}";
+            }
           ];
         };
 
@@ -44,6 +55,9 @@
 
                 oifname "wg0" ip daddr ${nucboxIP} tcp dport ${toString vintageStoryGamePort} snat to ${dropletIP}
                 oifname "wg0" ip daddr ${nucboxIP} udp dport ${toString vintageStoryGamePort} snat to ${dropletIP}
+                
+                oifname "wg0" ip daddr ${nucboxIP} tcp dport ${toString vsVoicechatPort} snat to ${dropletIP}
+                oifname "wg0" ip daddr ${nucboxIP} udp dport ${toString vsVoicechatPort} snat to ${dropletIP}
               }
             '';
           };
