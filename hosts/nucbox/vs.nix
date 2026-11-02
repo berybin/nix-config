@@ -14,17 +14,35 @@
       openFirewall = true;
       serverConfig = {
         ServerName = "Bery's Story";
+        StartupCommands = "/time calendarspeedmul 0.3";
+
+        MapSizeY = 448;
         WorldConfig = {
           AllowCreativeMode = false;
           WorldName = "Bery's World";
+
+          WorldConfiguration = {
+            allowUndergroundFarming = true;
+            caveIns = "on";
+            classExclusiveRecipes = false;
+            colorAccurateWorldmap = true;
+            creatureSwimSpeed = "0.9";
+            daysPerMonth = "12";
+            graceTimer = "10";
+            landcover = "0.4";
+            landformScale = "3.0";
+            lightningFires = true;
+            microblockChiseling = "all";
+            oceanscale = "4";
+            playerHungerSpeed = "0.7";
+            upheavelCommonness = "0.0";
+          };
         };
       };
 
       # nix store prefetch-file --json "URL" | jq -r .hash
       mods = [
-
         # BRUTAL HARDCORE MODE ========================================
-
         {
           filename = "135049/berys-belt-crafting-v1.0.1.zip";
           hash = "sha256-vxZoFgan3oHTB1tQ8yz9bQ3y+gJtzzHlSow91utRmQI=";
@@ -35,7 +53,6 @@
         }
 
         ## Backpack ===================================================
-
         {
           filename = "116855/ImmersiveBackpacks_1.3.4.zip";
           hash = "sha256-NNaP6hvRN+QnRJpsWR8sTyjmEuLJFti/p/CWSUCGIeo=";
@@ -689,10 +706,6 @@
           hash = "sha256-xVdK7mweOOFeuuaKiJ4MrgXQYbCSc/8l6rVuYw1SbN0=";
         }
         {
-          filename = "133384/scribe_1.4.4.zip";
-          hash = "sha256-B0Cc13w/uIVq09MymXIufQhat4j9TA3Lx7XXfF5SSsg=";
-        }
-        {
           filename = "129808/shadehouse_1.9.0.zip";
           hash = "sha256-4tEcOKFe1GPfmB49XCfWHE6BIm5fRQWJV46llOZN6nA=";
         }
@@ -749,10 +762,6 @@
         {
           filename = "115496/jsonpatcheslib_1.5.9.zip";
           hash = "sha256-tkRNOsUZuEZqfA85epwSzuvZxS4c5DwbD0mT53VEKpQ=";
-        }
-        {
-          filename = "133489/gui_4.0.0.zip";
-          hash = "sha256-gxDE4bd8P9UPvb+VD6vSEDoEraAKaXUDSmsbXT3D4AE=";
         }
         {
           filename = "128748/overhaulliblegacycompat_1.2.15.zip";
