@@ -63,15 +63,14 @@
             "chat.agent.enabled" = false;
 
             "workbench.iconTheme" = "vscode-icons";
+            "vsicons.dontShowNewVersionMessage" = true;
             "workbench.colorTheme" = "Dracula Theme";
 
             "editor.formatOnSave" = true;
             "editor.lineNumbers" = "relative";
 
             "redhat.telemetry.enabled" = false;
-            "[markdown]" = {
-              "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
-            };
+            "[markdown]"."editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
 
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = lib.getExe pkgs.nixd;
