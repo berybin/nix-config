@@ -17,7 +17,7 @@
       programs.vscodium = {
         enable = true;
 
-        profiles.default = {
+        profiles.bery = {
           extensions = with pkgs.open-vsx; [
             astro-build.astro-vscode
             mads-hartmann.bash-ide-vscode
@@ -55,7 +55,7 @@
             vue.volar
             redhat.vscode-xml
             redhat.vscode-yaml
-            vscodevim.vim
+            # vscodevim.vim
           ];
 
           userSettings = {
@@ -63,15 +63,14 @@
             "chat.agent.enabled" = false;
 
             "workbench.iconTheme" = "vscode-icons";
+            "vsicons.dontShowNewVersionMessage" = true;
             "workbench.colorTheme" = "Dracula Theme";
 
             "editor.formatOnSave" = true;
             "editor.lineNumbers" = "relative";
 
             "redhat.telemetry.enabled" = false;
-            "[markdown]" = {
-              "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
-            };
+            "[markdown]"."editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
 
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = lib.getExe pkgs.nixd;
@@ -90,6 +89,19 @@
 
             "bashIde.shellcheckPath" = lib.getExe pkgs.shellcheck;
             "bashIde.shfmt.path" = lib.getExe pkgs.shfmt;
+
+            "json.schemaDownload.trustedDomains" = {
+              "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json" = true;
+
+              "https://developer.microsoft.com/json-schemas/" = true;
+              "https://json-schema.org/" = true;
+              "https://json.schemastore.org/" = true;
+              "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+              "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+              "https://schemastore.azurewebsites.net/" = true;
+              "https://spec.openapis.org/" = true;
+              "https://www.schemastore.org/" = true;
+            };
           };
         };
       };

@@ -2,7 +2,10 @@
   flake.modules.nixos.system-core =
     { pkgs, ... }:
     {
-      imports = [ self.modules.nixos.ssh-access ];
+      imports = [
+        self.modules.nixos.ssh-access
+        self.modules.generic.berynet
+      ];
 
       nixpkgs.config.allowUnfree = true;
       nix = {
@@ -29,10 +32,7 @@
       services.avahi = {
         enable = true;
         nssmdns4 = true;
-        publish = {
-          enable = true;
-          addresses = true;
-        };
+        settings.publish.publish-addresses = true;
       };
     };
 }

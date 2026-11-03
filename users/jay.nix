@@ -7,7 +7,9 @@ let
   signingKey = "E756A04B17322D8D"; # yubikey
 in
 {
-  flake.modules.nixos.${username} = { config, ... }: {
+  flake.modules.nixos.${username} = { pkgs, config, ... }: {
+    imports = [ self.modules.nixos.cli ];
+
     sops.secrets."passwords/jay" = {
       neededForUsers = true;
       sopsFile = ./secrets.yaml;
@@ -18,6 +20,7 @@ in
       isNormalUser = true;
       hashedPasswordFile = config.sops.secrets."passwords/jay".path;
       description = "Jay";
+      shell = pkgs.fish;
       extraGroups = [
         "networkmanager"
         "wheel"
@@ -45,15 +48,22 @@ in
       signingKey = lib.mkDefault signingKey;
     };
 
-    home.packages = with pkgs; [
-      ente-auth
-      obsidian
-    ];
-
     home = {
       inherit username;
       homeDirectory = lib.mkDefault "/home/${username}";
       stateVersion = "25.05";
+
+      sessionVariables = {
+        EDITOR = "codium --wait";
+        VISUAL = "codium --wait";
+      };
+
+      packages = with pkgs; [
+        colmena
+        ente-auth
+        mod2mp4
+        obsidian
+      ];
     };
   };
 }

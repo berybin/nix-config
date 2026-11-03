@@ -5,18 +5,19 @@
   ...
 }:
 {
-  flake.lib = {
+  flake.lib = rec {
+    mkHostModule = system: hostname: {
+      imports = [ self.modules.nixos.${hostname} ];
+
+      networking.hostName = hostname;
+      nixpkgs.hostPlatform = lib.mkDefault system;
+      nixpkgs.overlays = [ self.overlays.default ];
+    };
+
     mkNixos = system: hostname: {
       ${hostname} = inputs.nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          self.modules.nixos.${hostname}
-          {
-            networking.hostName = hostname;
-            nixpkgs.hostPlatform = lib.mkDefault system;
-            nixpkgs.overlays = [ self.overlays.default ];
-          }
-        ];
+        modules = [ (mkHostModule system hostname) ];
       };
     };
 
