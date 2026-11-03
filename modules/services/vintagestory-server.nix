@@ -9,35 +9,9 @@
     let
       name = "vintagestory";
       cfg = config.services.vintagestory-server;
+      jsonFormat = pkgs.formats.json { };
 
-      modType = lib.types.submodule (
-        { config, ... }: {
-          options = {
-            filename = lib.mkOption {
-              type = lib.types.strMatching "[a-zA-Z0-9/.+_-]+\\.zip";
-              example = "123599/primitivesurvival_5.1.4.zip";
-              description = ''
-                Zip filename as it appears in the ModDB URL (must also include the download ID number).
-                Mod authors don't follow a strict naming scheme, so this wildly varies between mods.
-              '';
-            };
-
-            hash = lib.mkOption {
-              type = lib.types.str;
-              example = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-              default = lib.fakeHash;
-              description = "Mod source hash.";
-            };
-
-            url = lib.mkOption {
-              type = lib.types.str;
-              readOnly = true;
-              default = "https://mods.vintagestory.at/download/${config.filename}";
-            };
-          };
-        }
-      );
-
+      # handle mod installation
       vsModTree = pkgs.linkFarm "${name}-mods" (
         map (mod: {
           name = (baseNameOf mod.filename);
@@ -58,34 +32,73 @@
         '';
       };
 
-      serverconfigOverridesFile = pkgs.writeText "serverconfig-overrides.json" (
-        builtins.toJSON cfg.serverConfig
-      );
+      # handle mod config overrides
+      modConfigOverrideFiles = lib.mapAttrsToList (file: overrides: {
+        name = file;
+        path = jsonFormat.generate file overrides;
+      }) cfg.modConfigOverrides;
 
-      overrideServerConfig = pkgs.writeShellApplication {
+      modConfigOverrideDir = pkgs.linkFarm "${name}-mod-config-overrides" modConfigOverrideFiles;
+
+      overrideModConfigScript = pkgs.writeShellApplication {
+        name = "${name}-override-mod-configs";
+        runtimeInputs = [
+          pkgs.jq
+          pkgs.coreutils
+        ];
+        text = ''
+          for mod_override_file in ${lib.escapeShellArg modConfigOverrideDir}/*; do
+            [ -e "$mod_override_file" ] || continue
+
+            mod_config_filename=$(basename "$mod_override_file")
+
+            mod_config="${cfg.dataDir}/ModConfig/$mod_config_filename"
+            if [ ! -s "$mod_config" ]; then
+                echo "$mod_config does not exist - skipping overrides..."
+                continue
+            fi
+
+            echo "$mod_config exists - applying overrides..."
+            tmp="$(mktemp "${cfg.dataDir}/ModConfig/.$mod_config_filename.XXXXXX")"
+            trap 'rm -f "$tmp"' EXIT
+
+            jq -s '.[0] * .[1]' "$mod_config" "$mod_override_file" > "$tmp"
+
+            chmod --reference "$mod_config" "$tmp"
+            mv -f -- "$tmp" "$mod_config"
+          done
+        '';
+      };
+
+      # handle server config overrides
+      serverconfigOverridesFile = jsonFormat.generate "serverconfig-overrides.json" cfg.serverConfig;
+      overrideServerConfigScript = pkgs.writeShellApplication {
         name = "${name}-override-serverconfig";
-        runtimeInputs = [ pkgs.jq ];
+        runtimeInputs = [
+          pkgs.jq
+          pkgs.coreutils
+        ];
         text = ''
           server_config="${cfg.dataDir}/serverconfig.json"
 
           if [ ! -f "$server_config" ]; then
-            echo "serverconfig.json does not exist yet - skipping overrides"
+            echo "serverconfig.json does not exist yet - skipping overrides..."
             exit 0
           fi
 
-          tmp="$(mktemp)"
+          tmp="$(mktemp "${cfg.dataDir}/.serverconfig.json.XXXXXX")"
           trap 'rm -f "$tmp"' EXIT
 
           # https://stackoverflow.com/questions/19529688/how-to-merge-2-json-objects-from-2-files-using-jq#24904276
           jq -s '.[0] * .[1]' "$server_config" "${serverconfigOverridesFile}" > "$tmp"
 
-          cat "$tmp" > "$server_config"
+          chmod --reference "$server_config" "$tmp"
+          mv -f -- "$tmp" "$server_config"
         '';
       };
 
     in
     {
-
       options.services.vintagestory-server = {
         enable = lib.mkEnableOption "Vintage Story Server";
 
@@ -112,7 +125,7 @@
         };
 
         serverConfig = lib.mkOption {
-          type = lib.types.attrsOf lib.types.json;
+          type = lib.types.attrsOf jsonFormat.type;
           default = { };
           description = ''
             Partial overrides for the Vintage Story serverconfig.json file.
@@ -130,17 +143,63 @@
         };
 
         mods = lib.mkOption {
-          type = lib.types.listOf modType;
+          type = lib.types.listOf (
+            lib.types.submodule (
+              { config, ... }: {
+                options = {
+                  filename = lib.mkOption {
+                    type = lib.types.strMatching "[a-zA-Z0-9/.+_-]+\\.zip";
+                    example = "123599/primitivesurvival_5.1.4.zip";
+                    description = ''
+                      Zip filename as it appears in the ModDB URL (must also include the download ID number).
+                      Mod authors don't follow a strict naming scheme, so this wildly varies between mods.
+                    '';
+                  };
+
+                  hash = lib.mkOption {
+                    type = lib.types.str;
+                    example = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+                    default = lib.fakeHash;
+                    description = "Mod source hash.";
+                  };
+
+                  url = lib.mkOption {
+                    type = lib.types.str;
+                    readOnly = true;
+                    default = "https://mods.vintagestory.at/download/${config.filename}";
+                  };
+                };
+              }
+            )
+          );
           default = [ ];
           description = "Mods to install into the `/Mods` directory under `services.vintagestory-server.dataDir`";
           example = lib.literalExpression ''
             [ 
               { 
-                download-id = 123882;
-                filename = "BetterRuinsv0.6.4.zip";
+                filename = "135049/berys-belt-crafting-v1.0.1.zip";
                 hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
               }
             ];
+          '';
+        };
+
+        modConfigOverrides = lib.mkOption {
+          type = lib.types.attrsOf (lib.types.attrsOf jsonFormat.type);
+          default = { };
+          description = ''
+            Partial overrides for Vintage Story mods, keyed by the original config filename.
+
+            Behaves similarly to the serverConfig option, but for specific mod config files.
+            Each override object is recursively merged into the matching generated config
+            before the service starts. Override values take precedence; unspecified keys
+            retain the game's defaults. Config files that have not yet been generated by the game are skipped.
+          '';
+          example = lib.literalExpression ''
+            "example-mod.json" = {
+              Key = "value";
+              Enabled = true;
+            };
           '';
         };
 
@@ -179,8 +238,9 @@
           ];
 
           preStart = ''
-            ${lib.getExe overrideServerConfig}
+            ${lib.getExe overrideServerConfigScript}
             ${lib.getExe syncMods}
+            ${lib.getExe overrideModConfigScript}
           '';
 
           serviceConfig = lib.mkMerge [
