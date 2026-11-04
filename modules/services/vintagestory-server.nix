@@ -73,7 +73,7 @@
             if [[ "$mod_config_filename" == *.yaml || "$mod_config_filename" == *.yml ]]; then
               yq -n "load(\"$mod_config\") * load(\"$mod_override_file\")" > "$tmp"
             elif [[ "$mod_config_filename" == *.json ]]; then
-              jq -s '.[0] * .[1]' "$mod_config" "$mod_override_file" > "$tmp"
+              jq -s '.[0] * .[1]' <(sed -E '/^[[:space:]]*\/\//d' "$mod_config") "$mod_override_file" > "$tmp"
             else
               echo "$mod_config_filename is an invalid config type, skipping overrides..."
               continue
