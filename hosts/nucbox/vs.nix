@@ -35,18 +35,24 @@
             lightningFires = true;
             microblockChiseling = "all";
             oceanscale = "4";
-            playerHungerSpeed = "0.55";
+            playerHungerSpeed = "0.52";
             upheavelCommonness = "0.0";
           };
         };
       };
 
       modConfigOverrides = {
+        "ButcheringConfigV3.json" = {
+          ClassRecipesEnabled = false;
+        };
+
         "CarryOnConfig.json" = {
           CarryOptions.InteractSpeedMultiplier = 2.0;
         };
-        "ButcheringConfigV3.json" = {
-          ClassRecipesEnabled = false;
+
+        "ClickToPickServer.json" = {
+          RemoveSneakRequirement = false;
+          RequireEmptyHand = false;
         };
 
         "combatoverhaul.yaml" = {
@@ -58,28 +64,6 @@
           "I understand and accept the risks." = true;
           "Days to cure firewood" = 12;
           "Burn duration of aged firewood" = 40;
-        };
-
-        "Toolsmith.json" = {
-          HeadDurabilityMult = 8.0;
-          SharpnessMult = 1.7; # default 1.5
-        };
-
-        "WandererBindleConfig.json" = {
-          bindleSlots = 4;
-        };
-
-        "EasyProspect.json" = {
-          TakeLessDurability = true;
-        };
-
-        "NorthernOres.json" = {
-          MaximumIncreasePercent = 175.0;
-        };
-
-        "ClickToPickServer.json" = {
-          RemoveSneakRequirement = false;
-          RequireEmptyHand = false;
         };
 
         "deciduoustrees.json" = {
@@ -143,6 +127,28 @@
             "abiesbalsamea"
           ];
         };
+
+        "EasyProspect.json" = {
+          TakeLessDurability = true;
+        };
+
+        "HydrateOrDiedrateConfig.json" = {
+          Thirst.ThirstDecayRate = 7.5;
+        };
+
+        "NorthernOres.json" = {
+          MaximumIncreasePercent = 175.0;
+        };
+
+        "Toolsmith.json" = {
+          HeadDurabilityMult = 8.0;
+          SharpnessMult = 1.7; # default 1.5
+        };
+
+        "WandererBindleConfig.json" = {
+          bindleSlots = 4;
+        };
+
       };
 
       # nix store prefetch-file --json "URL" | jq -r .hash
