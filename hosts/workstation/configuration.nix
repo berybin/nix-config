@@ -14,12 +14,16 @@ let
   ];
 in
 {
-  flake.modules.nixos.workstation = {
+  flake.modules.nixos.workstation = { pkgs, ... }: {
     imports = with self.modules.nixos; [
       system-desktop
       desktop
       (self.factory.sops { secretsFile = ./secrets.yaml; })
       (self.lib.loadNixosAndHmModulesForUser config modules "jay")
+    ];
+
+    environment.systemPackages = with pkgs; [
+      nix-fetch-sri
     ];
 
     home-manager = {
