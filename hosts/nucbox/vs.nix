@@ -223,8 +223,8 @@
           hash = "sha256-kHlRo7V3xDYliyiEcUeH+MrVPXDnYoDVOQuNbe1+vs0=";
         }
         {
-          filename = "73777/forestpreserve.zip";
-          hash = "sha256-BMJ4aR7RmGAXpXuhUdcplfv378aJmVj2+OD54t5HMSw=";
+          filename = "135725/forestpreservefork.zip";
+          hash = "sha256-OMDdBSxzN7jq51cFaWnJifyUGYbobtuxNxzTrCbCpdE=";
         }
         {
           filename = "121500/gridforbeams-2.2.196.zip";
@@ -261,6 +261,10 @@
         {
           filename = "129636/QuicklimeInKilnv1.1.3.zip";
           hash = "sha256-IEwegWdWu0FuCkzm8jS1iZucu3IYuhw8TI0AwrmP+zY=";
+        }
+        {
+          filename = "119690/CM-SlabbityDoDad_1.0.0.zip";
+          hash = "sha256-0BR/6D/sPZUWfLmBn3e9Oxcm8hLRGkA9KzFpNMf+Lo4=";
         }
 
         ## Salty's ====================================================
@@ -479,8 +483,8 @@
           hash = "sha256-eNjLg6SOE5G++v7hTCgvCnaEIkh8NjLBaZ0baYcgeUA=";
         }
         {
-          filename = "134006/deciduoustrees_2.1.0.zip";
-          hash = "sha256-Ed/nxxsFioefBVw8tMqEo0MWTTYiNGS66YmAFXa6neQ=";
+          filename = "135601/deciduoustrees_2.1.1.zip";
+          hash = "sha256-PDthf49zHsvxnd0x0ieEnewjzebCGSIMVtOKwJdt4GE=";
         }
 
         ## Fauna of the Stone Age =====================================
@@ -685,6 +689,10 @@
         {
           filename = "87438/ElkPhysics+V3.0.3.zip";
           hash = "sha256-E5Mrp1VRUOU+Dhk5NDhn/ku/v99IR11wNBlqlX2vmOk=";
+        }
+        {
+          filename = "112377/messengerpigeons_1.0.2.zip";
+          hash = "sha256-F3G0O1jq5mjXEMFo7pshiQKnzYUOkV7hJOJa59TFy+4=";
         }
         {
           filename = "134185/morebuckets_1.4.3.zip";
