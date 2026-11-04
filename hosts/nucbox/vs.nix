@@ -35,9 +35,113 @@
             lightningFires = true;
             microblockChiseling = "all";
             oceanscale = "4";
-            playerHungerSpeed = "0.42";
+            playerHungerSpeed = "0.55";
             upheavelCommonness = "0.0";
           };
+        };
+      };
+
+      modConfigOverrides = {
+        "CarryOnConfig.json" = {
+          CarryOptions.InteractSpeedMultiplier = 2.0;
+        };
+        "ButcheringConfigV3.json" = {
+          ClassRecipesEnabled = false;
+        };
+
+        "combatoverhaul.yaml" = {
+          bows_damage_multiplier = 1.3;
+          bows_reload_speed_multiplier = 0.8;
+        };
+
+        "curefirewood.yaml" = {
+          "I understand and accept the risks." = true;
+          "Days to cure firewood" = 12;
+          "Burn duration of aged firewood" = 40;
+        };
+
+        "Toolsmith.json" = {
+          HeadDurabilityMult = 8.0;
+          SharpnessMult = 1.7; # default 1.5
+        };
+
+        "WandererBindleConfig.json" = {
+          bindleSlots = 4;
+        };
+
+        "EasyProspect.json" = {
+          TakeLessDurability = true;
+        };
+
+        "NorthernOres.json" = {
+          MaximumIncreasePercent = 175.0;
+        };
+
+        "ClickToPickServer.json" = {
+          RemoveSneakRequirement = false;
+          RequireEmptyHand = false;
+        };
+
+        "deciduoustrees.json" = {
+          EcoMachinaBushes = false;
+          KeepLeavesTrees = [
+            "acacia"
+            "baldcypress"
+            "bamboo"
+            "ebony"
+            "cypress"
+            "mediterraneancypress"
+            "kapok"
+            "pine"
+            "purpleheart"
+            "redwood"
+            "cedar"
+            "redcedar"
+            "fir"
+            "spruce"
+            "bluespruce"
+            "douglasfir"
+            "tuja"
+            "yew"
+            "eucalyptus"
+            "ghostgum"
+            "tamanu"
+            "kauri"
+            "spurgetree"
+            "guajacum"
+            "ohia"
+            "azobe"
+            "satinash"
+            "sal"
+            "saxaul"
+            "heather"
+            "leucadendronargenteum"
+            "pterocelastrustricuspidatus"
+            "searsialancea"
+            "afrocarpusfalcatus"
+            "ocoteabullata"
+            "comarostaphylisarbutoides"
+            "eucalyptuscamaldulensis"
+            "corymbiaaparrerinja"
+            "enteleaarborescens"
+            "dacrydiumcupressinum"
+            "nothofagusmenziesii"
+            "podocarpusnivalis"
+            "halocarpusbidwillii"
+            "abieskoreana"
+            "phyllostachysnigra"
+            "phyllostachysedulis"
+            "phyllostachysaurea"
+            "psuedopanaxcrassifolius"
+            "laurusnobilis"
+            "taxusbaccata"
+            "quercusilex"
+            "araucariaheterophylla"
+            "pinussibirica"
+            "piceaglauca"
+            "piceamariana"
+            "abiesbalsamea"
+          ];
         };
       };
 
