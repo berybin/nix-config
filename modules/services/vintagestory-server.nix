@@ -10,6 +10,7 @@
       name = "vintagestory";
       cfg = config.services.vintagestory-server;
       jsonFormat = pkgs.formats.json { };
+      yamlFormat = pkgs.formats.yaml { };
 
       # handle mod installation
       vsModTree = pkgs.linkFarm "${name}-mods" (
@@ -32,10 +33,16 @@
         '';
       };
 
+      isYamlFile = pathStr: lib.hasSuffix "yaml" pathStr || lib.hasSuffix "yml" pathStr;
+
       # handle mod config overrides
       modConfigOverrideFiles = lib.mapAttrsToList (file: overrides: {
         name = file;
-        path = jsonFormat.generate file overrides;
+        path =
+          if (isYamlFile file) then
+            yamlFormat.generate file overrides
+          else
+            jsonFormat.generate file overrides;
       }) cfg.modConfigOverrides;
 
       modConfigOverrideDir = pkgs.linkFarm "${name}-mod-config-overrides" modConfigOverrideFiles;
@@ -44,6 +51,7 @@
         name = "${name}-override-mod-configs";
         runtimeInputs = [
           pkgs.jq
+          pkgs.yq-go
           pkgs.coreutils
         ];
         text = ''
@@ -62,7 +70,14 @@
             tmp="$(mktemp "${cfg.dataDir}/ModConfig/.$mod_config_filename.XXXXXX")"
             trap 'rm -f "$tmp"' EXIT
 
-            jq -s '.[0] * .[1]' "$mod_config" "$mod_override_file" > "$tmp"
+            if [[ "$mod_config_filename" == *.yaml || "$mod_config_filename" == *.yml ]]; then
+              yq -n "load(\"$mod_config\") * load(\"$mod_override_file\")" > "$tmp"
+            elif [[ "$mod_config_filename" == *.json ]]; then
+              jq -s '.[0] * .[1]' "$mod_config" "$mod_override_file" > "$tmp"
+            else
+              echo "$mod_config_filename is an invalid config type, skipping overrides..."
+              continue
+            fi
 
             chmod --reference "$mod_config" "$tmp"
             mv -f -- "$tmp" "$mod_config"
@@ -185,7 +200,7 @@
         };
 
         modConfigOverrides = lib.mkOption {
-          type = lib.types.attrsOf (lib.types.attrsOf jsonFormat.type);
+          type = lib.types.attrsOf (lib.types.attrsOf (lib.types.either jsonFormat.type yamlFormat.type));
           default = { };
           description = ''
             Partial overrides for Vintage Story mods, keyed by the original config filename.
