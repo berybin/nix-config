@@ -61,6 +61,9 @@
         "HydrateOrDiedrateConfig.json" = {
           Thirst.ThirstDecayRate = 7.5;
         };
+        "ImmersiveMining/ImmersiveMining.json" = {
+          BlockRegenerationInterval = 300; # 5 mins
+        };
         "NorthernOres.json" = {
           MaximumIncreasePercent = 175.0;
         };
@@ -142,6 +145,7 @@
             "piceaglauca"
             "piceamariana"
             "abiesbalsamea"
+            "ulexeuropaeus"
           ];
         };
         # keep-sorted end
@@ -527,8 +531,8 @@
           hash = "sha256-mhB7EH2toPEuQjUzIixlQYdPtkbQ4mP3XCEeN6KPo3k=";
         }
         {
-          filename = "101988/realsmoke_1.3.1.zip";
-          hash = "sha256-w+X+Jwou5hniHHe3WC+tePe4xKOuGEtD4V0KDxc9KRg=";
+          filename = "134375/realsmoke_2.0.0-pre.12.zip";
+          hash = "sha256-GWWHdpzwLYGc8WWRzVA6brC7kXTNX26oMEna+60SqL8=";
         }
         {
           filename = "99801/RealSmokeQPPatch1.0.1.zip";
