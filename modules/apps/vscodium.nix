@@ -19,59 +19,73 @@
 
         profiles.bery = {
           extensions = with pkgs.open-vsx; [
+            # keep-sorted start
             astro-build.astro-vscode
-            mads-hartmann.bash-ide-vscode
-            mk12.better-git-line-blame
-            pkgs.vscode-marketplace.ms-vscode.cpptools
-            matthewpi.caddyfile-support
-            ms-vscode.cmake-tools
-            naumovs.color-highlight
-            ms-azuretools.vscode-containers
-            mkhl.direnv
+            awalsh128.keep-sorted
+            bradlc.vscode-tailwindcss
+            davidanson.vscode-markdownlint
+            # microhobby.linuxkerneldev # Embedded Linux Kernel Dev - disabled for now
+            dbaeumer.vscode-eslint
             docker.docker
             dracula-theme.theme-dracula
             editorconfig.editorconfig
-            # microhobby.linuxkerneldev # Embedded Linux Kernel Dev - disabled for now
-            dbaeumer.vscode-eslint
-            tamasfe.even-better-toml
             eliostruyf.vscode-front-matter
-            mhutchie.git-graph
+            esbenp.prettier-vscode
             golang.go
+            jnoortheen.nix-ide
+            mads-hartmann.bash-ide-vscode
+            matthewpi.caddyfile-support
+            mechatroner.rainbow-csv
+            mhutchie.git-graph
+            mk12.better-git-line-blame
+            mkhl.direnv
+            ms-azuretools.vscode-containers
+            ms-vscode.cmake-tools
             # ritwickdey.LiveServer
             ms-vscode.makefile-tools
-            yzhang.markdown-all-in-one
-            davidanson.vscode-markdownlint
-            jnoortheen.nix-ide
-            pkgs.open-vsx."42crunch".vscode-openapi
+            naumovs.color-highlight
             oxc.oxc-vscode
             pioarduino.pioarduino-ide # Fork of PlatformIO: https://github.com/pioarduino/pioarduino-vscode-ide/blob/HEAD/WHY_THIS_FORK.md
-            esbenp.prettier-vscode
-            yoavbls.pretty-ts-errors
-            mechatroner.rainbow-csv
-            renesaarsoo.sql-formatter-vsc
-            bradlc.vscode-tailwindcss
-            vscode-icons-team.vscode-icons
-            tomoki1207.pdf
-            vue.volar
+            pkgs.open-vsx."42crunch".vscode-openapi
+            pkgs.vscode-marketplace.ms-vscode.cpptools
             redhat.vscode-xml
             redhat.vscode-yaml
-            # vscodevim.vim
+            renesaarsoo.sql-formatter-vsc
+            tamasfe.even-better-toml
+            tomoki1207.pdf
+            vscode-icons-team.vscode-icons
+            vue.volar
+            yoavbls.pretty-ts-errors
+            yzhang.markdown-all-in-one
+
+            # keep-sorted end
           ];
 
           userSettings = {
-            "chat.disableAIFeatures" = true;
+            # keep-sorted start block=yes
+
+            "[markdown]"."editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
+            "bashIde.shellcheckPath" = lib.getExe pkgs.shellcheck;
+            "bashIde.shfmt.path" = lib.getExe pkgs.shfmt;
             "chat.agent.enabled" = false;
-
-            "workbench.iconTheme" = "vscode-icons";
-            "vsicons.dontShowNewVersionMessage" = true;
-            "workbench.colorTheme" = "Dracula Theme";
-
+            "chat.disableAIFeatures" = true;
+            "editor.codeActionsOnSave" = {
+              "source.fixAll.keepSorted" = "explicit";
+            };
             "editor.formatOnSave" = true;
             "editor.lineNumbers" = "relative";
+            "json.schemaDownload.trustedDomains" = {
+              "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json" = true;
 
-            "redhat.telemetry.enabled" = false;
-            "[markdown]"."editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
-
+              "https://developer.microsoft.com/json-schemas/" = true;
+              "https://json-schema.org/" = true;
+              "https://json.schemastore.org/" = true;
+              "https://raw.githubusercontent.com/devcontainers/spec/" = true;
+              "https://raw.githubusercontent.com/microsoft/vscode/" = true;
+              "https://schemastore.azurewebsites.net/" = true;
+              "https://spec.openapis.org/" = true;
+              "https://www.schemastore.org/" = true;
+            };
             "nix.enableLanguageServer" = true;
             "nix.serverPath" = lib.getExe pkgs.nixd;
             "nix.serverSettings" = {
@@ -86,22 +100,12 @@
                 };
               };
             };
+            "redhat.telemetry.enabled" = false;
+            "vsicons.dontShowNewVersionMessage" = true;
+            "workbench.colorTheme" = "Dracula Theme";
+            "workbench.iconTheme" = "vscode-icons";
 
-            "bashIde.shellcheckPath" = lib.getExe pkgs.shellcheck;
-            "bashIde.shfmt.path" = lib.getExe pkgs.shfmt;
-
-            "json.schemaDownload.trustedDomains" = {
-              "https://moddbcdn.vintagestory.at/schema/modinfo.latest.json" = true;
-
-              "https://developer.microsoft.com/json-schemas/" = true;
-              "https://json-schema.org/" = true;
-              "https://json.schemastore.org/" = true;
-              "https://raw.githubusercontent.com/devcontainers/spec/" = true;
-              "https://raw.githubusercontent.com/microsoft/vscode/" = true;
-              "https://schemastore.azurewebsites.net/" = true;
-              "https://spec.openapis.org/" = true;
-              "https://www.schemastore.org/" = true;
-            };
+            # keep-sorted end
           };
         };
       };

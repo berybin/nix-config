@@ -23,6 +23,7 @@
           MapSizeY = 448;
 
           WorldConfiguration = {
+            # keep-sorted start
             allowUndergroundFarming = true;
             caveIns = "on";
             classExclusiveRecipes = false;
@@ -32,40 +33,56 @@
             graceTimer = "10";
             landcover = "0.4";
             landformScale = "3.0";
-            lightningFires = true;
+            lightningFires = false;
             microblockChiseling = "all";
             oceanscale = "4";
             playerHungerSpeed = "0.52";
             upheavelCommonness = "0.0";
+            # keep-sorted end
           };
         };
       };
 
       modConfigOverrides = {
+        # keep-sorted start block=yes
         "ButcheringConfigV3.json" = {
           ClassRecipesEnabled = false;
         };
-
         "CarryOnConfig.json" = {
           CarryOptions.InteractSpeedMultiplier = 2.0;
         };
-
         "ClickToPickServer.json" = {
           RemoveSneakRequirement = false;
           RequireEmptyHand = false;
         };
-
+        "EasyProspect.json" = {
+          TakeLessDurability = true;
+        };
+        "HydrateOrDiedrateConfig.json" = {
+          Thirst.ThirstDecayRate = 7.5;
+        };
+        "NorthernOres.json" = {
+          MaximumIncreasePercent = 175.0;
+        };
+        "RealSmoke.json" = {
+          MaxSmokeEntities = 2200;
+        };
+        "Toolsmith.json" = {
+          HeadDurabilityMult = 8.0;
+          SharpnessMult = 1.7; # default 1.5
+        };
+        "WandererBindleConfig.json" = {
+          bindleSlots = 4;
+        };
         "combatoverhaul.yaml" = {
           bows_damage_multiplier = 1.3;
           bows_reload_speed_multiplier = 0.8;
         };
-
         "curefirewood.yaml" = {
           "I understand and accept the risks." = true;
           "Days to cure firewood" = 12;
           "Burn duration of aged firewood" = 40;
         };
-
         "deciduoustrees.json" = {
           EcoMachinaBushes = false;
           KeepLeavesTrees = [
@@ -127,28 +144,7 @@
             "abiesbalsamea"
           ];
         };
-
-        "EasyProspect.json" = {
-          TakeLessDurability = true;
-        };
-
-        "HydrateOrDiedrateConfig.json" = {
-          Thirst.ThirstDecayRate = 7.5;
-        };
-
-        "NorthernOres.json" = {
-          MaximumIncreasePercent = 175.0;
-        };
-
-        "Toolsmith.json" = {
-          HeadDurabilityMult = 8.0;
-          SharpnessMult = 1.7; # default 1.5
-        };
-
-        "WandererBindleConfig.json" = {
-          bindleSlots = 4;
-        };
-
+        # keep-sorted end
       };
 
       # nix store prefetch-file --json "URL" | jq -r .hash
