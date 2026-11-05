@@ -55,10 +55,10 @@
           pkgs.coreutils
         ];
         text = ''
-          for mod_override_file in ${lib.escapeShellArg modConfigOverrideDir}/*; do
+          find -L ${lib.escapeShellArg modConfigOverrideDir} -type f | while read -r mod_override_file; do
             [ -e "$mod_override_file" ] || continue
 
-            mod_config_filename=$(basename "$mod_override_file")
+            mod_config_filename=$(echo "$mod_override_file" | cut -d'/' -f5-)
 
             mod_config="${cfg.dataDir}/ModConfig/$mod_config_filename"
             if [ ! -s "$mod_config" ]; then
@@ -67,7 +67,9 @@
             fi
 
             echo "$mod_config exists - applying overrides..."
-            tmp="$(mktemp "${cfg.dataDir}/ModConfig/.$mod_config_filename.XXXXXX")"
+            
+            tmp_filename=$(basename "$mod_override_file")
+            tmp="$(mktemp "${cfg.dataDir}/ModConfig/.$tmp_filename.XXXXXX")"
             trap 'rm -f "$tmp"' EXIT
 
             if [[ "$mod_config_filename" == *.yaml || "$mod_config_filename" == *.yml ]]; then
