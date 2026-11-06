@@ -390,10 +390,10 @@
           filename = "88173/Catch+Livestock_0.2.4.zip";
           hash = "sha256-VEOzIHmB3l8FAsIM4+PzWLxY5p6iQaYVF9DXukBrOP0=";
         }
-        {
-          filename = "86508/ClickToPick_2.1.4.zip";
-          hash = "sha256-dokiV1/174UPmHSvwN+V1bJE9KJaF7tA7kqRsalisE4=";
-        }
+        # {
+        #   filename = "86508/ClickToPick_2.1.4.zip";
+        #   hash = "sha256-dokiV1/174UPmHSvwN+V1bJE9KJaF7tA7kqRsalisE4=";
+        # }
         {
           filename = "25517/ClickUpTorches.zip";
           hash = "sha256-PMqL8RphOkiRhJLpjfrxfh2qlpDVP+2LMpVHdg9U3SE=";
