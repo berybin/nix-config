@@ -376,6 +376,10 @@
           filename = "119690/CM-SlabbityDoDad_1.0.0.zip";
           hash = "sha256-0BR/6D/sPZUWfLmBn3e9Oxcm8hLRGkA9KzFpNMf+Lo4=";
         }
+        {
+          filename = "81763/sortablestorage_3.0.0.zip";
+          hash = "sha256-k0z9TjhtQnzBzPF5NSWGeGVylYv7IL+3LIfu6PcVoZA=";
+        }
 
         ## Salty's ====================================================
         {
