@@ -25,6 +25,7 @@
           WorldConfiguration = {
             # keep-sorted start
             allowUndergroundFarming = true;
+            bodyTemperatureResistance = 5;
             caveIns = "on";
             classExclusiveRecipes = false;
             colorAccurateWorldmap = true;
