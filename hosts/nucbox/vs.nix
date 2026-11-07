@@ -322,6 +322,10 @@
           hash = "sha256-VOr3fUIVPcfLALULHMSK2IOF1kwOW0ZMiCiGm+rc5KI=";
         }
         {
+          filename = "103897/desirepaths_0.5.1.zip";
+          hash = "sha256-yXGg4DF3EBW7EFYrKL9HrocLJvblK0wj0LN2HFHkVGk=";
+        }
+        {
           filename = "116217/densegroundstorage_0.3.3.zip";
           hash = "sha256-E4yUt6EkXynyJrlbNIaoUXnwMqpNp2e3Wrl/GL4iPjg=";
         }
