@@ -284,10 +284,6 @@
           filename = "91913/easyprospect_1.3.1.zip";
           hash = "sha256-Xsb0V8jZGweL+ygLrjENnUTmLZ2ES56eBWKGg4R28Tc=";
         }
-        {
-          filename = "86405/ProspectTogether-2.2.1.zip";
-          hash = "sha256-1spaOxmNNjX2op+OAAMYf6h8vuT79x0/CshZUIOSRTg=";
-        }
 
         # QOL =========================================================
         {
@@ -411,10 +407,6 @@
           filename = "95050/CrawlAndDive_0.2.5.zip";
           hash = "sha256-5tW8KkuKZZM8Jh4aIyFyPXO6aRu/7PmdupQU+CL/YUk=";
         }
-        {
-          filename = "114141/TerraTag_0.6.0.zip";
-          hash = "sha256-qg/NKVbCGw/ixGxkwbOfzVP4VWbScNTb96th8rEh43U=";
-        }
         ## END Salty's ================================================
         {
           filename = "97581/stablesurface_0.0.3.zip";
@@ -519,6 +511,16 @@
           filename = "130914/fornax_1.10.0.zip";
           hash = "sha256-uY4plKbiZ8vIswYEVsL0vjapqKcR+yYMxuj2EnN5qLE=";
         }
+        ## Map
+        {
+          filename = "133538/frontiers-map-net10_2.0.2.zip";
+          hash = "sha256-sj8PNm1WjJppWyrWkMGUCJdxvgKjxrLyL/8K7RnUWtI=";
+        }
+        {
+          filename = "133532/nomads-flute-net10_1.0.2.zip";
+          hash = "sha256-wz/KhOpczpEL3o3djzrDdPUtWeUxkklKoJ2l94b28W4=";
+        }
+        ## END Map
         {
           filename = "128386/hydrateordiedrate_2.5.8.zip";
           hash = "sha256-1lPfyNer6Mt2JGoNBVQoaXBLzOywvmF9/DfqwRnzyo8=";
@@ -538,6 +540,10 @@
         {
           filename = "134375/realsmoke_2.0.0-pre.12.zip";
           hash = "sha256-GWWHdpzwLYGc8WWRzVA6brC7kXTNX26oMEna+60SqL8=";
+        }
+        {
+          filename = "129965/RealSmokehouse_0.6.1.zip";
+          hash = "sha256-Uvvtis7Qkqhu7TfExzLXbo/7nb7KpLQMFDHsDybAXok=";
         }
         {
           filename = "99801/RealSmokeQPPatch1.0.1.zip";
