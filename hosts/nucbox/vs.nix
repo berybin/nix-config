@@ -38,6 +38,8 @@
             microblockChiseling = "all";
             oceanscale = "4";
             playerHungerSpeed = "0.52";
+            temporalRifts = "off";
+            temporalStorms = "rare";
             upheavelCommonness = "0.0";
             # keep-sorted end
           };
