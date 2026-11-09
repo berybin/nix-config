@@ -468,8 +468,8 @@
           hash = "sha256-Vgy2HW5H9zWHK+kemINhEknlpvPkhsPOpApz5Di/oG4=";
         }
         {
-          filename = "113014/CarryOn-1.22.0_v1.14.3.zip";
-          hash = "sha256-dd6PTVqnbDJVCJWob4+7jIqPq20CommfeyOYPYKe+Cs=";
+          filename = "130071/CarryOn-1.22.0_v2.0.0-rc.1.zip";
+          hash = "sha256-e90Z8UH95PftZYjKwF1RotLV1W7WGMukYfdqTd5CvoA=";
         }
         {
           filename = "130070/CarryOnLib-1.22.0_v1.0.0-rc.1.zip";
