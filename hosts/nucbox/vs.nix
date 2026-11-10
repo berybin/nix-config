@@ -71,7 +71,7 @@
           MaximumIncreasePercent = 175.0;
         };
         "RealSmoke.json" = {
-          MaxSmokeEntities = 2200;
+          MaxSmokeEntities = 2600;
         };
         "Toolsmith.json" = {
           HeadDurabilityMult = 8.0;
@@ -150,6 +150,9 @@
             "abiesbalsamea"
             "ulexeuropaeus"
           ];
+        };
+        "realsmokehouse.json" = {
+          SmokeThreshold = 3.0;
         };
         # keep-sorted end
       };
@@ -389,10 +392,6 @@
           filename = "87199/CatchLedge_0.7.1.zip";
           hash = "sha256-j3zuh4KczwSeQXX9ySK885eBquKVbpCePK2NKDqgSYU=";
         }
-        {
-          filename = "88173/Catch+Livestock_0.2.4.zip";
-          hash = "sha256-VEOzIHmB3l8FAsIM4+PzWLxY5p6iQaYVF9DXukBrOP0=";
-        }
         # {
         #   filename = "86508/ClickToPick_2.1.4.zip";
         #   hash = "sha256-dokiV1/174UPmHSvwN+V1bJE9KJaF7tA7kqRsalisE4=";
@@ -452,8 +451,8 @@
         ## END Boats ==================================================
 
         {
-          filename = "134162/BoricAlchemy3.2.4.zip";
-          hash = "sha256-Ozkpzx/p6IzaranJngfmBZ7cnSJA9bQOn0YuupFnY+Y=";
+          filename = "136884/BoricAlchemy3.2.8.zip";
+          hash = "sha256-ufsWmasziGsjbmaG4zpv5br8OSGmqfDD79KiL2n1Rzs=";
         }
         {
           filename = "117484/butchering_1.14.3.zip";
@@ -476,6 +475,10 @@
           hash = "sha256-iU/F9QYBLfdfiOPssbQx2USlkdJO+jsjz/wgpY/y/74=";
         }
         {
+          filename = "137650/cottageindustry_1.1.0.zip";
+          hash = "sha256-jUyppVfn+VwYLhNTurM0QqFE03EbXBOJi3KzpqZ4UpU=";
+        }
+        {
           filename = "133184/enrichedpanning_1.2.0.zip";
           hash = "sha256-4g1f9kbftb5jEIOtAlq7CCMVpJpeflACRJUnBpbO+z8=";
         }
@@ -489,6 +492,15 @@
           filename = "97085/naturalfertilizer-v1.22.0-1.5.1.zip";
           hash = "sha256-Y5d2/Mt//q7ywdTAonUgRcAIS/wugrpx40UCe1fh7Js=";
         }
+        {
+          # piss mod
+          filename = "126041/naturescall_1.4.2.zip";
+          hash = "sha256-rRdCGoYQmc55/mvzEbqiTl2udbOEVpxmU50IDXX8yD8=";
+        }
+        {
+          filename = "120858/justpoopit_1.5.4.zip";
+          hash = "sha256-76gEkxYC14D2BKKOy9vmQJ6Bs1Ayv6Mv6582TOBkS/8=";
+        }
         ## END Fertiliser =============================================
 
         ## Food & Cooking =============================================
@@ -497,8 +509,8 @@
           hash = "sha256-E8poo88h05UMBKXgHsBUtFnC8emeYsAfctLWuZuHknk=";
         }
         {
-          filename = "129701/ACulinaryArtillery_2.0.0-dev.28.zip";
-          hash = "sha256-le54mSMVMfk57abfO3agK4C2jqQxd5f7q6hRB8xhM9w=";
+          filename = "137261/ACulinaryArtillery_2.0.0-dev.29.zip";
+          hash = "sha256-km9OlL6lPu4V4PYLiHO8mp/QlsMmz/byC2jhvasi9xQ=";
         }
         {
           filename = "128626/ExpandedFoods_MealsModule_1.0.0-dev.9.zip";
@@ -592,12 +604,12 @@
           hash = "sha256-mx5HyEj4do4ax58Fn9c4NKk/jQgCcP+GKQod36Rjkqk=";
         }
         {
-          filename = "132104/xSkills+Fork+v1.1.10.zip";
-          hash = "sha256-wMgd0/3Cf/t9bNQjbAYwOSIh1eLWeXsnPCiwLjbe4h4=";
+          filename = "137668/xSkills+Fork+v1.1.16.zip";
+          hash = "sha256-xsndewXi+CLOpruJjeasAu+SQT8W3Js1Nkec1isy1C4=";
         }
         {
-          filename = "127567/XLib+Fork+v1.0.41.zip";
-          hash = "sha256-un4G0l2cuDXgTcsXJp7BM2fjX5M8aMFmgjfxGxPpdEg=";
+          filename = "135564/XLib+Fork+v1.0.44.zip";
+          hash = "sha256-ShGCXCtZNbHhrOXQRkOSU9uKLfl6upk5N+tCLS9+Hgw=";
         }
 
         # WORLD GEN / ENVIRONMENT =====================================
@@ -616,28 +628,28 @@
 
         ## Fauna of the Stone Age =====================================
         {
-          filename = "114685/FotSA-Bovinae-v0.3.6.zip";
-          hash = "sha256-S+gv/fJAev1S+YWrN4IaTCk9FLz5x1vprB7URlLtCTA=";
+          filename = "137570/FotSA-Bovinae-v1.0.2.zip";
+          hash = "sha256-vXYNyidOx14MRAQv8cL4aa+JrySVUyZtQOyJiXCgwMw=";
         }
         {
           filename = "126789/FotSA-Caninae-v1.1.10.zip";
           hash = "sha256-mIkFcXga+r6ry7QQ0FtXkigOuGcNSSAROekUErhsOEI=";
         }
         {
-          filename = "130121/FotSA-Capreolinae-v2.0.20.zip";
-          hash = "sha256-RuByKNkXrQQ0OS3JmgBZ7p5h7RXRiP5Hs4wZsOrUQEw=";
+          filename = "136198/FotSA-Capreolinae-v2.0.21.zip";
+          hash = "sha256-uq6Pd1XqkqnmBhgR8i6rnu5/bp42KUoY6UzPTFjLGfM=";
         }
         {
-          filename = "130131/FotSA-Cervinae-v0.1.17.zip";
-          hash = "sha256-DKPTZEloGMRPGLpEL7BDaI0tHBdKIxfBoHskM6Ud7s4=";
+          filename = "137571/FotSA-Cervinae-v0.1.19.zip";
+          hash = "sha256-JE2pb730Hsh9JEgBnFO/EeJzeymoHH6YwgEIaRnHFnw=";
         }
         {
           filename = "130132/FotSA-Chelonioidea-v1.0.10.zip";
           hash = "sha256-tUSyckP1pLaVZ0C97+aOG3JkHzxa8dcp2ON6G/Jd+Ds=";
         }
         {
-          filename = "130128/FotSA-Elephantidae-v1.0.22.zip";
-          hash = "sha256-qhU2HaptGZD+P8TJpGH6C0Rw04g5cSiK6tBlukL0Raw=";
+          filename = "136202/FotSA-Elephantidae-v1.0.23.zip";
+          hash = "sha256-+NUMAtciZg9XIgIEMJq6ATEDZHvp5Ms+wj5mMT7apcg=";
         }
         {
           filename = "130127/FotSA-Felinae-v0.2.16.zip";
@@ -660,8 +672,8 @@
           hash = "sha256-VUxmWSZqOXeYEykPt86q3v8/jcjlkNifMfRAqgMHBYI=";
         }
         {
-          filename = "126554/FotSA-Moschidae-v1.0.0.zip";
-          hash = "sha256-JC+Nw3fvEX2/pYRuJCrirCW91Cx3UBwNxPfrOcVTmvE=";
+          filename = "136203/FotSA-Moschidae-v1.0.1.zip";
+          hash = "sha256-P7cqPuHjQ0v9wyhu1VUnLcj9zLLR9Y5IoCvjglUxyE8=";
         }
         {
           filename = "121535/FotSA-Pantherinae-v1.2.18.zip";
@@ -676,8 +688,8 @@
           hash = "sha256-hMQnyxQ41qknCJzWnLuEqG/JqWJeUiOo2ObCyxl0pVE=";
         }
         {
-          filename = "129716/FotSA-Thylacinidae-v0.1.8.zip";
-          hash = "sha256-f0D3yVlY8rlpCDbLKcBM4L+81GIi6rgJyXyu20nNtpY=";
+          filename = "136207/FotSA-Thylacinidae-v0.1.9.zip";
+          hash = "sha256-JjyKuAj7vNKz1p+pV2H4pKdUpXL+vz5lSQZMd84E0do=";
         }
         {
           filename = "130130/FotSA-Viverridae-v1.0.11.zip";
@@ -691,36 +703,36 @@
 
         ## Floral Zones =============================================
         {
-          filename = "130133/FloralZonesCapeRegion-v1.0.38.zip";
-          hash = "sha256-/0b2psJPw6JAFDHR4NulfE++As/oTQN/T/vtArf2ius=";
+          filename = "137558/FloralZonesCapeRegion-v1.0.39.zip";
+          hash = "sha256-JvEn1AP459jEyjz+pXBR25WczwDrVXQm8QnEAehcP7Q=";
         }
         {
-          filename = "130134/FloralZonesCaribbeanRegion-v1.0.30.zip";
-          hash = "sha256-rTBXiwvTSONB9KUzap4B+9KS4GzCrXeECEOvuD93cNw=";
+          filename = "137559/FloralZonesCaribbeanRegion-v1.0.31.zip";
+          hash = "sha256-SI4OQAACFinXGJ61yEUpCGlZHbeMuCw8MLuIx8EcEI4=";
         }
         {
-          filename = "130135/FloralZonesCentralAustralianRegion-v1.0.28.zip";
-          hash = "sha256-TYlcbqkGq7vr8bBHNlawZVWYbV8aiWk7OrvzgFK4xDU=";
+          filename = "137560/FloralZonesCentralAustralianRegion-v1.0.29.zip";
+          hash = "sha256-8jztCBZvUTD1Ktu/sv2sewXeK0ABn/WfLOsUTtketLA=";
         }
         {
-          filename = "130140/FloralZonesCircumborealRegion-v1.0.4.zip";
-          hash = "sha256-MYrPcr8ZcPGcU8S/fsnDq+vaNIIThJK0HGYAb86EjHs=";
+          filename = "137565/FloralZonesCircumborealRegion-v1.0.5.zip";
+          hash = "sha256-hICF1jyTmzt6R/Xt9hupYCq4U2yDoko/w/vmaq7NfaM=";
         }
         {
-          filename = "130139/FloralZonesCosmopolitanRegion-v1.0.14.zip";
-          hash = "sha256-KyZOuw4XkVKq2hdnryPvu3Lhs6PgfpRK/BRUhg9jYLM=";
+          filename = "137564/FloralZonesCosmopolitanRegion-v1.0.15.zip";
+          hash = "sha256-w/y2iNJ2P37fV+lqU4lXGIJEy1V/foysuoRIJoK9kDI=";
         }
         {
-          filename = "130136/FloralZonesEastAsiaticRegion-v1.0.25.zip";
-          hash = "sha256-oRf3tv259ccZlVfKkeOz0d1hRbS+d56Yi85a79D0w5c=";
+          filename = "137561/FloralZonesEastAsiaticRegion-v1.0.26.zip";
+          hash = "sha256-2FbdJPWxirdgg5BUnne41si8hpvCD7Y9FBY/UfpiOqs=";
         }
         {
-          filename = "130137/FloralZonesNeozeylandicRegion-v1.0.26.zip";
-          hash = "sha256-VgyJzvEk7O/G/WX7D0l9g8NjC4n+rZkpoSdMElk7a8g=";
+          filename = "137562/FloralZonesNeozeylandicRegion-v1.0.27.zip";
+          hash = "sha256-VdzJdUJGHxprzRj+hd2M4S3Xh5Pgw1IlrVdmdWil/I4=";
         }
         {
-          filename = "130138/FloralZonesMediterraneanRegion-v1.0.25.zip";
-          hash = "sha256-KBEtgoTf2+W/sp5Z/h79PuIDPIaa3bsUEZbCN6mXGZU=";
+          filename = "137563/FloralZonesMediterraneanRegion-v1.0.26.zip";
+          hash = "sha256-FtSk1oR+OFuZt1veJxKzHd1Yvf4Hm7yr5aqGjQJ0+ME=";
         }
         {
           filename = "110267/FloralZones-xSkillsFork-Compat-v1.0.0.zip";
@@ -748,8 +760,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "133889/leaflitter_1.4.1.zip";
-          hash = "sha256-O+k7VPNW4K4EO/TItzIvVZEx4sXL+olGUB4y+9KLTWg=";
+          filename = "135553/leaflitter_1.4.2.zip";
+          hash = "sha256-OV78EFfAbHwunAmQfGAClUPIy/VNbxuFGLmz3+5MQ1A=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
@@ -776,6 +788,10 @@
         {
           filename = "94908/adventurers-walking-stick-lite-net10_1.0.0.zip";
           hash = "sha256-42NuUSOd+qjnKG1QB25Dzb/HLm08wWOxge0KkPfgoi4=";
+        }
+        {
+          filename = "114075/animalcages_v5.0.1.zip";
+          hash = "sha256-WFXLI0IsfqTDnJW3fOI4YMFlAKocUOu5mcnohRPFGN8=";
         }
         {
           filename = "86281/HeraldryBanners-v2.0.0.zip";
@@ -884,6 +900,10 @@
         {
           filename = "128435/windchimes-1.22.0-v1.5.4.zip";
           hash = "sha256-kwtJ1dNU7PJ3CJWzLuwo2mV7qiDWEYHxvmgKu52lABQ=";
+        }
+        {
+          filename = "122707/woodenfortifications_2.1.0.zip";
+          hash = "sha256-kM5LPTHgyDF2O32ErRR1SXkZPXQ0cfuF17lsTazsMFU=";
         }
         {
           filename = "131707/Zombs-Purposeful-Storage-Weapon-Patches-2.7.0.zip";
