@@ -463,8 +463,8 @@
           hash = "sha256-gC8kr/KCXFqB523nqYYCSJieflUSog0osBV2pQimtAY=";
         }
         {
-          filename = "132823/butcheringfotsacompatability_1.0.10.zip";
-          hash = "sha256-Vgy2HW5H9zWHK+kemINhEknlpvPkhsPOpApz5Di/oG4=";
+          filename = "137914/butcheringfotsacompatability_1.0.11.zip";
+          hash = "sha256-+jbpV+b+qPHNdUzQoI3nmmqB+3S0xpXKGR0KaHlYxUs=";
         }
         {
           filename = "130071/CarryOn-1.22.0_v2.0.0-rc.1.zip";
@@ -862,6 +862,10 @@
           hash = "sha256-zYZ5owDf4KjaL+gwoTmZ9/a1U9MF+7mMq5JtD2k2Ssg=";
         }
         {
+          filename = "136558/portcullismod-1227.0.5.zip";
+          hash = "sha256-CIWK/w2CxborYl5Ub6NXnb0bXON3fYFZB9lbRWciqVs=";
+        }
+        {
           filename = "135180/purposefulstorage_2.3.0.zip";
           hash = "sha256-xVdK7mweOOFeuuaKiJ4MrgXQYbCSc/8l6rVuYw1SbN0=";
         }
@@ -880,6 +884,10 @@
         {
           filename = "126323/TransmittanceV1.2.0.zip";
           hash = "sha256-5e8QrI4s/1fxHy8QdyLbkTxTqtHzHV8FaA/Bonx/t8E=";
+        }
+        {
+          filename = "136127/vintagecanvas_1.4.2.zip";
+          hash = "sha256-LC20AMUaPJBRQs4p5e8/X9oNCznJeXB9A7Sfg9WrzdU=";
         }
         {
           filename = "129259/wandererbindle_1.0.1.zip";
