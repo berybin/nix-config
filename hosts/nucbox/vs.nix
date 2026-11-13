@@ -347,8 +347,8 @@
           hash = "sha256-OlwPrVyZo0JKC4I/bK7xK0NjmqwqybzwWwSXmIesiN0=";
         }
         {
-          filename = "133328/vscngroundworks_1.0.2.zip";
-          hash = "sha256-FJkgpNa6hZjAUiWK9Y+FwTqz+4DlwC7BqUfUeNPPPzg=";
+          filename = "138024/vscngroundworks_1.0.4.zip";
+          hash = "sha256-g13vDjqvg5LVwTkC2fDk3DmVPFrr+Ih5u26oQoCdSc0=";
         }
         {
           filename = "131980/hottersmelting_1.1.6.zip";
@@ -451,8 +451,8 @@
         ## END Boats ==================================================
 
         {
-          filename = "136884/BoricAlchemy3.2.8.zip";
-          hash = "sha256-ufsWmasziGsjbmaG4zpv5br8OSGmqfDD79KiL2n1Rzs=";
+          filename = "138250/BoricAlchemy3.3.0.zip";
+          hash = "sha256-E0K5Z1RDtAPNgc1Vcf9+AG5W2XkhRLr03jD868tuZNA=";
         }
         {
           filename = "117484/butchering_1.14.3.zip";
@@ -622,14 +622,14 @@
           hash = "sha256-eNjLg6SOE5G++v7hTCgvCnaEIkh8NjLBaZ0baYcgeUA=";
         }
         {
-          filename = "135601/deciduoustrees_2.1.1.zip";
-          hash = "sha256-PDthf49zHsvxnd0x0ieEnewjzebCGSIMVtOKwJdt4GE=";
+          filename = "137948/deciduoustrees_2.1.2.zip";
+          hash = "sha256-LyvHTIcGB/4vkjCzt3B0a7yTvXv9qJ9bZcASd8vsccw=";
         }
 
         ## Fauna of the Stone Age =====================================
         {
-          filename = "137570/FotSA-Bovinae-v1.0.2.zip";
-          hash = "sha256-vXYNyidOx14MRAQv8cL4aa+JrySVUyZtQOyJiXCgwMw=";
+          filename = "138212/FotSA-Bovinae-v1.0.3.zip";
+          hash = "sha256-pKcmqvn5niU1MW8obiFWTAHnvtKyZu9IDZKb/jDDu/I=";
         }
         {
           filename = "126789/FotSA-Caninae-v1.1.10.zip";
@@ -870,8 +870,16 @@
           hash = "sha256-xVdK7mweOOFeuuaKiJ4MrgXQYbCSc/8l6rVuYw1SbN0=";
         }
         {
+          filename = "101899/Rainbow+Roads+Updated+v1.0.2.zip";
+          hash = "sha256-LxA0HSIhNGJ5tD9TPPlYkMOe2BfmxYEZbh97SPjv2xg=";
+        }
+        {
           filename = "129808/shadehouse_1.9.0.zip";
           hash = "sha256-4tEcOKFe1GPfmB49XCfWHE6BIm5fRQWJV46llOZN6nA=";
+        }
+        {
+          filename = "137946/smoothstonepaths_1.5.0.zip";
+          hash = "sha256-HQx8dOogJ5X+6OGSh5mmIJyEgEnekLqg7tVto3JUBZs=";
         }
         {
           filename = "128810/thesumpter-1.2.0.zip";
