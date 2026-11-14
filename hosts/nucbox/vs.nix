@@ -154,6 +154,9 @@
         "realsmokehouse.json" = {
           SmokeThreshold = 3.0;
         };
+        "smoothstonepaths.json" = {
+          TerrainBlending = true;
+        };
         # keep-sorted end
       };
 
@@ -475,8 +478,8 @@
           hash = "sha256-iU/F9QYBLfdfiOPssbQx2USlkdJO+jsjz/wgpY/y/74=";
         }
         {
-          filename = "137650/cottageindustry_1.1.0.zip";
-          hash = "sha256-jUyppVfn+VwYLhNTurM0QqFE03EbXBOJi3KzpqZ4UpU=";
+          filename = "138635/cottageindustry_1.2.0.zip";
+          hash = "sha256-Um8l94Ge2dp3bGeB7diW6z2ol0JoZ0+RKJUc+SfZuak=";
         }
         {
           filename = "133184/enrichedpanning_1.2.0.zip";
@@ -868,10 +871,6 @@
         {
           filename = "135180/purposefulstorage_2.3.0.zip";
           hash = "sha256-xVdK7mweOOFeuuaKiJ4MrgXQYbCSc/8l6rVuYw1SbN0=";
-        }
-        {
-          filename = "101899/Rainbow+Roads+Updated+v1.0.2.zip";
-          hash = "sha256-LxA0HSIhNGJ5tD9TPPlYkMOe2BfmxYEZbh97SPjv2xg=";
         }
         {
           filename = "129808/shadehouse_1.9.0.zip";
