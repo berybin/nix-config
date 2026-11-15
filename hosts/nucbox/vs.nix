@@ -382,6 +382,10 @@
           hash = "sha256-IEwegWdWu0FuCkzm8jS1iZucu3IYuhw8TI0AwrmP+zY=";
         }
         {
+          filename = "97079/scaffolding_1.3.1.zip";
+          hash = "sha256-jQGbFLYR9A/ks+V7q/R7S7VqBtlKDFbtRUy1t3aF43w=";
+        }
+        {
           filename = "119690/CM-SlabbityDoDad_1.0.0.zip";
           hash = "sha256-0BR/6D/sPZUWfLmBn3e9Oxcm8hLRGkA9KzFpNMf+Lo4=";
         }
