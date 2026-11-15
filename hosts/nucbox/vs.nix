@@ -225,8 +225,8 @@
           hash = "sha256-GFjtrVnB3dsbz7tr6OYjkuZxpFrptosOkNw6oBbGA2c=";
         }
         {
-          filename = "134511/downed_2.8.2.zip";
-          hash = "sha256-HG9pODxo4JAg/7Hhy0i/PhIsWsEKTANIBLpfdjwDa9Q=";
+          filename = "139105/downed_2.9.3.zip";
+          hash = "sha256-nJD2qAye/hpT3E+64vH55oRxg8SAwiLKoiJRf2JOg6Q=";
         }
         {
           filename = "134510/dead_2.9.2.zip";
@@ -342,8 +342,8 @@
           hash = "sha256-kHlRo7V3xDYliyiEcUeH+MrVPXDnYoDVOQuNbe1+vs0=";
         }
         {
-          filename = "136926/forestpreservefork.zip";
-          hash = "sha256-72CUvhkUFGMQfkopoBDPF39V9SeHwq78BnxmSz08RTw=";
+          filename = "139122/forestpreservefork.zip";
+          hash = "sha256-/yc/uD9gwkE1NasQjmuxgeFrVl8ion61Az0PuEyPAV8=";
         }
         {
           filename = "121500/gridforbeams-2.2.196.zip";
@@ -478,8 +478,8 @@
           hash = "sha256-iU/F9QYBLfdfiOPssbQx2USlkdJO+jsjz/wgpY/y/74=";
         }
         {
-          filename = "138635/cottageindustry_1.2.0.zip";
-          hash = "sha256-Um8l94Ge2dp3bGeB7diW6z2ol0JoZ0+RKJUc+SfZuak=";
+          filename = "138956/cottageindustry_1.2.3.zip";
+          hash = "sha256-/Zqcm0bO/DDWbGEUZvh6PlWbzVum0aIvsCy5npGLnn0=";
         }
         {
           filename = "133184/enrichedpanning_1.2.0.zip";
@@ -763,8 +763,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "135553/leaflitter_1.4.2.zip";
-          hash = "sha256-OV78EFfAbHwunAmQfGAClUPIy/VNbxuFGLmz3+5MQ1A=";
+          filename = "138909/leaflitter_1.5.0.zip";
+          hash = "sha256-1s1Q5/zzQAltlnnevFskmNWYml2xnKx8AUjvpkxA/qA=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
@@ -875,10 +875,6 @@
         {
           filename = "129808/shadehouse_1.9.0.zip";
           hash = "sha256-4tEcOKFe1GPfmB49XCfWHE6BIm5fRQWJV46llOZN6nA=";
-        }
-        {
-          filename = "137946/smoothstonepaths_1.5.0.zip";
-          hash = "sha256-HQx8dOogJ5X+6OGSh5mmIJyEgEnekLqg7tVto3JUBZs=";
         }
         {
           filename = "128810/thesumpter-1.2.0.zip";
