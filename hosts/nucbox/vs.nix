@@ -151,6 +151,9 @@
             "ulexeuropaeus"
           ];
         };
+        "naturescallremade.json" = {
+          BladderBarColor = "#DDD618";
+        };
         "realsmokehouse.json" = {
           SmokeThreshold = 3.0;
         };
@@ -380,6 +383,10 @@
         {
           filename = "129636/QuicklimeInKilnv1.1.3.zip";
           hash = "sha256-IEwegWdWu0FuCkzm8jS1iZucu3IYuhw8TI0AwrmP+zY=";
+        }
+        {
+          filename = "139283/raftdismountfix_1.0.1.zip";
+          hash = "sha256-FG/pnUkiCI4wfHQ1o8waqc98pCOCvE5lc67x/K1g92M=";
         }
         {
           filename = "97079/scaffolding_1.3.1.zip";
