@@ -225,12 +225,12 @@
           hash = "sha256-GFjtrVnB3dsbz7tr6OYjkuZxpFrptosOkNw6oBbGA2c=";
         }
         {
-          filename = "139105/downed_2.9.3.zip";
-          hash = "sha256-nJD2qAye/hpT3E+64vH55oRxg8SAwiLKoiJRf2JOg6Q=";
+          filename = "139511/downed_2.9.4.zip";
+          hash = "sha256-rktHrdJw2+ZVJ9e3JnZiEcu4lA/auqvMBHv8O+BYPNs=";
         }
         {
-          filename = "134510/dead_2.9.2.zip";
-          hash = "sha256-dlyjO3bBUKNVEKnnLh/kzDOKFyopV3WHL9MHoRXcZZk=";
+          filename = "139257/dead_2.9.8.zip";
+          hash = "sha256-9D5L7vJtp03Q7aVgJpTzM9pPtwt0aPm1vIpXsdMS/J8=";
         }
         {
           filename = "101342/bedspawnv2_1.7.1.zip";
@@ -501,8 +501,8 @@
         }
         {
           # piss mod
-          filename = "126041/naturescall_1.4.2.zip";
-          hash = "sha256-rRdCGoYQmc55/mvzEbqiTl2udbOEVpxmU50IDXX8yD8=";
+          filename = "138002/naturescallremade_1.6.8.zip";
+          hash = "sha256-GwrVLmS9oMuFB8xplHr+A3/nLii6//xaS7LHb66fflw=";
         }
         {
           filename = "120858/justpoopit_1.5.4.zip";
@@ -767,8 +767,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "138909/leaflitter_1.5.0.zip";
-          hash = "sha256-1s1Q5/zzQAltlnnevFskmNWYml2xnKx8AUjvpkxA/qA=";
+          filename = "139200/leaflitter_1.5.1.zip";
+          hash = "sha256-8auXbjvy2My5svGSFEksndVZB8eVIpDZVlYBvX49ZSw=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
