@@ -38,7 +38,7 @@
             microblockChiseling = "all";
             oceanscale = "4";
             playerHungerSpeed = "0.52";
-            temporalRifts = "off";
+            temporalRifts = "on";
             temporalStorms = "rare";
             upheavelCommonness = "0.0";
             # keep-sorted end
@@ -428,10 +428,6 @@
         }
         ## END Salty's ================================================
         {
-          filename = "97581/stablesurface_0.0.3.zip";
-          hash = "sha256-NGRdOtJdsHZo0HTILzkiCqdMkEEGbDV+0++H7Y5KZsA=";
-        }
-        {
           filename = "108864/UnchiselOption-v1.0.0.zip";
           hash = "sha256-lU5CrmRJ+3vnazTjuWhzQoP4X08i/tRzfTbWP0+2JkA=";
         }
@@ -554,6 +550,10 @@
         }
         ## END Map
         {
+          filename = "139885/greenthumb_1.1.0.zip";
+          hash = "sha256-2ZHfxLojI1aZvnCY/7t9LLzIl6WFcXoZaf1tnkTAbM8=";
+        }
+        {
           filename = "128386/hydrateordiedrate_2.5.8.zip";
           hash = "sha256-1lPfyNer6Mt2JGoNBVQoaXBLzOywvmF9/DfqwRnzyo8=";
         }
@@ -596,6 +596,10 @@
         {
           filename = "102793/ImmersiveMining_0.3.0.zip";
           hash = "sha256-5V2JkppseLsprNiGUv6NUSXvSuBBNCOKqarM+uW2Fkg=";
+        }
+        {
+          filename = "139326/silkfarming_1.0.0.zip";
+          hash = "sha256-c/Jb96bnA3Macqzwo840W8kumkY0w6N4wj2ky4KWJc8=";
         }
         {
           filename = "130556/smithingplusplus_1.10.7.zip";
@@ -930,6 +934,32 @@
         {
           filename = "131707/Zombs-Purposeful-Storage-Weapon-Patches-2.7.0.zip";
           hash = "sha256-f985pIoWdTr4XkT0aX3WO5ZxW3OSoMBfEOlWOf3mBKE=";
+        }
+
+        # TEMPORAL / RIFTS
+        {
+          filename = "93281/DarcesDriftersRedone-1.3.0.zip";
+          hash = "sha256-Z2VA0db7WSFaOtu8scHyVSJ35TcNFi5n0Y6N7d70Yz0=";
+        }
+        {
+          filename = "139080/HordeStorms_1.0.0.zip";
+          hash = "sha256-DPJXRA3FtNg2/X/vVw1v5kbUnjKOh8KMHluT0L8iOTA=";
+        }
+        {
+          filename = "137876/riftstitcher_0.3.0.zip";
+          hash = "sha256-ho0/7+V4ImzDkfmqT6AiVcr8TM6/uPOCwmCtCzbhWHQ=";
+        }
+        {
+          filename = "12867/temporal_gears_stack+v1.zip";
+          hash = "sha256-PG1lUF+9H0GQb8vtnjIDF2YJKqwgAfV5ZSWzqhKSnkY=";
+        }
+        {
+          filename = "139162/temporalityplus_0.0.22.zip";
+          hash = "sha256-SXqBtRn49Is9Y97tM0pYBLi7mfxFlST+V+kXp1cpeRY=";
+        }
+        {
+          filename = "113333/temporalslite-0.0.9.zip";
+          hash = "sha256-FwP0Z+J8ZdTTO4WnmeH2uESNpSSC7v1Y53wKV4iGQFA=";
         }
 
         # DEPENDENCIES / COMPATS ======================================
