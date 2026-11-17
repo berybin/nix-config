@@ -465,8 +465,8 @@
         ## END Boats ==================================================
 
         {
-          filename = "138250/BoricAlchemy3.3.0.zip";
-          hash = "sha256-E0K5Z1RDtAPNgc1Vcf9+AG5W2XkhRLr03jD868tuZNA=";
+          filename = "139663/boricalchemy3.3.1.zip";
+          hash = "sha256-uwEw2J6u9eKAE5D2jXFF48nTcweuoGApqxc1X9d1Cnw=";
         }
         {
           filename = "117484/butchering_1.14.3.zip";
@@ -570,8 +570,8 @@
           hash = "sha256-mhB7EH2toPEuQjUzIixlQYdPtkbQ4mP3XCEeN6KPo3k=";
         }
         {
-          filename = "134375/realsmoke_2.0.0-pre.12.zip";
-          hash = "sha256-GWWHdpzwLYGc8WWRzVA6brC7kXTNX26oMEna+60SqL8=";
+          filename = "139711/realsmoke_2.0.0.zip";
+          hash = "sha256-8NHRaAmtSfvFhgdGQgeLu389bVzoQ3NLaRTihAU1vds=";
         }
         {
           filename = "129965/RealSmokehouse_0.6.1.zip";
@@ -636,8 +636,8 @@
           hash = "sha256-eNjLg6SOE5G++v7hTCgvCnaEIkh8NjLBaZ0baYcgeUA=";
         }
         {
-          filename = "137948/deciduoustrees_2.1.2.zip";
-          hash = "sha256-LyvHTIcGB/4vkjCzt3B0a7yTvXv9qJ9bZcASd8vsccw=";
+          filename = "139665/deciduoustrees_2.1.3.zip";
+          hash = "sha256-T9ARRZqP/a4Fv+EAHXrWB7H/1JjIW2fbpWyTvSUcok4=";
         }
 
         ## Fauna of the Stone Age =====================================
