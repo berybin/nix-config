@@ -160,6 +160,10 @@
         "smoothstonepaths.json" = {
           TerrainBlending = true;
         };
+        "temporalityConfig.json" = {
+          enableWraith = false;
+          rustCreaturesTakeHalfDamage = false;
+        };
         # keep-sorted end
       };
 
