@@ -162,6 +162,7 @@
         };
         "temporalityConfig.json" = {
           enableWraith = false;
+          riftSpread = false;
           rustCreaturesTakeHalfDamage = false;
         };
         # keep-sorted end
@@ -447,10 +448,6 @@
         # SYSTEMS / MECHANICS =========================================
         ## Boats ======================================================
         {
-          filename = "115968/boatautopilot_1.6.4.zip";
-          hash = "sha256-MjSdQHZvCLQTAMikkMpVdD7h43w844lmprcuywq+r6s=";
-        }
-        {
           filename = "125252/sailboatbed-1.1.0.zip";
           hash = "sha256-i3V9WtjhpX2QRQJxyTTUMTW1tU3RRulbDHRJAvfCDuI=";
         }
@@ -465,8 +462,8 @@
         ## END Boats ==================================================
 
         {
-          filename = "139663/boricalchemy3.3.1.zip";
-          hash = "sha256-uwEw2J6u9eKAE5D2jXFF48nTcweuoGApqxc1X9d1Cnw=";
+          filename = "140169/boricalchemy3.3.2.zip";
+          hash = "sha256-Z1IXTqlLHfohMt5OLW6cIyypiU1ngRGc7yoQbidSrrc=";
         }
         {
           filename = "117484/butchering_1.14.3.zip";
@@ -519,8 +516,8 @@
 
         ## Food & Cooking =============================================
         {
-          filename = "133371/ExpandedFoods_2.0.0-dev.17.zip";
-          hash = "sha256-E8poo88h05UMBKXgHsBUtFnC8emeYsAfctLWuZuHknk=";
+          filename = "140405/ExpandedFoods_2.0.0-dev.18.zip";
+          hash = "sha256-LDH5fYuuafBdLYreaH0UPgt85I3W0vqNS6TjvHq6Xes=";
         }
         {
           filename = "137261/ACulinaryArtillery_2.0.0-dev.29.zip";
@@ -644,8 +641,8 @@
           hash = "sha256-eNjLg6SOE5G++v7hTCgvCnaEIkh8NjLBaZ0baYcgeUA=";
         }
         {
-          filename = "139665/deciduoustrees_2.1.3.zip";
-          hash = "sha256-T9ARRZqP/a4Fv+EAHXrWB7H/1JjIW2fbpWyTvSUcok4=";
+          filename = "139995/deciduoustrees_2.1.4.zip";
+          hash = "sha256-c5v6vSuGES2gfUHBYNOgzUbbtYKFrhZ+CTdTI36p7SU=";
         }
 
         ## Fauna of the Stone Age =====================================
@@ -782,8 +779,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "139200/leaflitter_1.5.1.zip";
-          hash = "sha256-8auXbjvy2My5svGSFEksndVZB8eVIpDZVlYBvX49ZSw=";
+          filename = "140222/leaflitter_1.6.0.zip";
+          hash = "sha256-eIfeRaidaJsVDFZ/H0xZr0QZFiJ96XUhUcICb5GJX1s=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
@@ -892,6 +889,10 @@
           hash = "sha256-xVdK7mweOOFeuuaKiJ4MrgXQYbCSc/8l6rVuYw1SbN0=";
         }
         {
+          filename = "140377/sailorlocust_0.5.0.zip";
+          hash = "sha256-h+Db7rPQ7UE/XteBUMssBL83bR8xWT/CyO/QHvXkSsU=";
+        }
+        {
           filename = "129808/shadehouse_1.9.0.zip";
           hash = "sha256-4tEcOKFe1GPfmB49XCfWHE6BIm5fRQWJV46llOZN6nA=";
         }
@@ -958,8 +959,8 @@
           hash = "sha256-PG1lUF+9H0GQb8vtnjIDF2YJKqwgAfV5ZSWzqhKSnkY=";
         }
         {
-          filename = "139162/temporalityplus_0.0.22.zip";
-          hash = "sha256-SXqBtRn49Is9Y97tM0pYBLi7mfxFlST+V+kXp1cpeRY=";
+          filename = "140360/temporalityplus_0.0.24.zip";
+          hash = "sha256-RvXfI1vRTnmLo3xEnaEz/GuaHZxm+CxKRoQgd22sHCU=";
         }
         {
           filename = "113333/temporalslite-0.0.9.zip";
