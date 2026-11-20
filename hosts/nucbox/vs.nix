@@ -779,8 +779,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "140222/leaflitter_1.6.0.zip";
-          hash = "sha256-eIfeRaidaJsVDFZ/H0xZr0QZFiJ96XUhUcICb5GJX1s=";
+          filename = "140572/leaflitter_1.6.1.zip";
+          hash = "sha256-nV3w54UiqUd13uMawzj37fezP67SY4IcNrx8rnE9rDA=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
