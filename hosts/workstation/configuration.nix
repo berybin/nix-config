@@ -3,6 +3,7 @@ let
   modules = [
     "git"
     "gpg"
+    "hardinfo"
     "media"
     "music"
     "nh"
