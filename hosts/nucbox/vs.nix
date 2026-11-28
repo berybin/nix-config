@@ -271,10 +271,6 @@
           hash = "sha256-du6LDcHDtGJELeAsb0b6fZ5dFHcdyP7nBg4mf3TZs3Y=";
         }
         {
-          filename = "87717/farseer_1.4.0.zip";
-          hash = "sha256-uskWdGtXwhTjHQ2RicT3vIvhG2icI46n1svzLevDArw=";
-        }
-        {
           filename = "94588/algernonsterrainsampler_1.3.0.zip";
           hash = "sha256-NRnHkROAgEHcsi/Q/jOMk/a2aWmcyPRWVGoMEYci47Q=";
         }
@@ -462,8 +458,8 @@
         ## END Boats ==================================================
 
         {
-          filename = "140169/boricalchemy3.3.2.zip";
-          hash = "sha256-Z1IXTqlLHfohMt5OLW6cIyypiU1ngRGc7yoQbidSrrc=";
+          filename = "141798/boricalchemy3.3.4.zip";
+          hash = "sha256-qjO8nVCcECgsLVNZYtgqRcMPzTgRk5AqxdRASHFK8ZQ=";
         }
         {
           filename = "117484/butchering_1.14.3.zip";
@@ -486,8 +482,8 @@
           hash = "sha256-iU/F9QYBLfdfiOPssbQx2USlkdJO+jsjz/wgpY/y/74=";
         }
         {
-          filename = "138956/cottageindustry_1.2.3.zip";
-          hash = "sha256-/Zqcm0bO/DDWbGEUZvh6PlWbzVum0aIvsCy5npGLnn0=";
+          filename = "142931/cottageindustry_1.4.0.zip";
+          hash = "sha256-WZ65Oo+GW20RL2w5k5kX0a5aB1t8+CukLPHvj00MWro=";
         }
         {
           filename = "133184/enrichedpanning_1.2.0.zip";
@@ -551,8 +547,8 @@
         }
         ## END Map
         {
-          filename = "139885/greenthumb_1.1.0.zip";
-          hash = "sha256-2ZHfxLojI1aZvnCY/7t9LLzIl6WFcXoZaf1tnkTAbM8=";
+          filename = "142422/greenthumb_1.2.1.zip";
+          hash = "sha256-uvHlx6iDhZqW4z6ulogF/q5EydzziJjP5V/g9OJ47Pk=";
         }
         {
           filename = "128386/hydrateordiedrate_2.5.8.zip";
@@ -611,8 +607,8 @@
           hash = "sha256-fcEOzsSSQARpeqb6B7AphUFGhWVZ4LXpct8bj2BD/kQ=";
         }
         {
-          filename = "114848/toolsmith_1.2.19.zip";
-          hash = "sha256-Ml6tZKkZLqdCbQF+HFFBKG+GD5XDr13TS3mtFPBgl0s=";
+          filename = "141624/toolsmith_1.2.20.zip";
+          hash = "sha256-3/kdA7X++5ZpyaPb5obtEoAcVP5cUH/j11uqUgPoKeo=";
         }
         {
           filename = "105641/Waterfall_v1.2.4.zip";
@@ -779,8 +775,8 @@
         }
         ## END Floral Zones =========================================
         {
-          filename = "140572/leaflitter_1.6.1.zip";
-          hash = "sha256-nV3w54UiqUd13uMawzj37fezP67SY4IcNrx8rnE9rDA=";
+          filename = "141840/leaflitter_2.0.0.zip";
+          hash = "sha256-Aq0UvntcB6b/N5TkQAihhidntetxivzNig1+3dbRh58=";
         }
         {
           filename = "132329/seasonalflowers_2.0.2.zip";
